@@ -1,14 +1,21 @@
 import angular from 'angular';
 import Navbar from './navbar/navbar';
-import Hero from './hero/hero';
+import Menu from './menu/menu';
+import Footer from './footer/footer';
+
 import User from './user/user';
+
+import AppDirective from './directive/directive';
+
 
 let commonModule = angular.module('app.common', [
   Navbar,
-  Hero,
-  User
+  User,
+  Menu,
+  Footer,
+  AppDirective
 ])
-  
+
 .name;
 
 export default commonModule;

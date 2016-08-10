@@ -3,8 +3,8 @@ import UserFactory from './user.factory';
 
 let userModule = angular.module('user', [])
 
-.factory('User', UserFactory)
-  
+.factory('User', ['$http', '$q', '$cookies', UserFactory])
+
 .name;
 
 export default userModule;

@@ -1,12 +1,29 @@
+window.$ = require('gentelella/vendors/jquery/dist/jquery.min');
+window.jQuery = require('gentelella/vendors/jquery/dist/jquery.min');
+require('gentelella/vendors/bootstrap/dist/js/bootstrap.min');
+require('gentelella/vendors/fastclick/lib/fastclick');
+require('gentelella/vendors/nprogress/nprogress');
+
+// require('gentelella/build/js/custom.min');
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngTable from 'ng-table/dist/ng-table';
+import angularCookies from 'angular-cookies';
+
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
-import 'normalize.css';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import 'gentelella/src/scss/custom.scss';
 
 angular.module('app', [
     uiRouter,
+    'ngTable',
+    angularCookies,
     Common,
     Components
   ])

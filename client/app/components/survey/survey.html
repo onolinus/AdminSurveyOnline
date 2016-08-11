@@ -1,0 +1,240 @@
+<app-menu class="app-menu"></app-menu>
+<navbar class="app-navbar"></navbar>
+
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>User Profile</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <div class="x_content">
+
+            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+              <div class="profile_img">
+
+                <!-- end of image cropping -->
+                <div id="crop-avatar">
+                  <!-- Current avatar -->
+                  <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                </div>
+                <!-- end of image cropping -->
+
+              </div>
+
+              <h3>Samuel Doe</h3>
+
+              <ul class="list-unstyled user_data">
+                <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                </li>
+
+                <li>
+                  <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                </li>
+
+                <li class="m-top-xs">
+                  <i class="fa fa-external-link user-profile-icon"></i>
+                  <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                </li>
+              </ul>
+
+            </div>
+
+
+            <div class="col-md-9 col-sm-9 col-xs-12">
+
+              <div class="profile_title">
+                <div class="col-md-6">
+                  <h2>Status Validasi Survey</h2>
+                </div>
+                <div class="col-md-6">
+                  <!-- <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                    <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                  </div> -->
+                </div>
+              </div>
+
+
+              <!-- start of user-activity-graph -->
+              <div id="graph_bar" style="width:100%;">
+
+                <div class="card-panel">
+                  <div class="row">
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 1}">
+                      <a class="bootcards-summary-item" ui-sref="question1" data-pjax="#main" data-title="Contacts">
+                        <p>1</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 2}">
+                      <a class="bootcards-summary-item" ui-sref="question2" data-pjax="#main" data-title="Companies">
+                        <p>2</p>
+                        <h4><span class="label label-danger"><i class="fa fa-remove"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 3}">
+                      <a class="bootcards-summary-item" ui-sref="question3" data-pjax="#main" data-title="Notes">
+                        <p>3</p>
+                        <h4><span class="label label-success"><i class="fa fa-check"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 4}">
+                      <a class="bootcards-summary-item" ui-sref="question4" data-pjax="#main" data-title="Notes">
+                        <p>4</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 5}">
+                      <a class="bootcards-summary-item" ui-sref="question5" data-pjax="#main" data-title="Notes">
+                        <p>5</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 6}">
+                      <a class="bootcards-summary-item" ui-sref="question6" data-pjax="#main" data-title="Notes">
+                        <p>6</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 7}">
+                      <a class="bootcards-summary-item" ui-sref="question7" data-pjax="#main" data-title="Notes">
+                        <p>7</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 8}">
+                      <a class="bootcards-summary-item" ui-sref="question8" data-pjax="#main" data-title="Notes">
+                        <p>8</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 9}">
+                      <a class="bootcards-summary-item" ui-sref="question9" data-pjax="#main" data-title="Notes">
+                        <p>9</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 10}">
+                      <a class="bootcards-summary-item" ui-sref="question10" data-pjax="#main" data-title="Notes">
+                        <p>10</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 11}">
+                      <a class="bootcards-summary-item" ui-sref="question11" data-pjax="#main" data-title="Notes">
+                        <p>11</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 12}">
+                      <a class="bootcards-summary-item" ui-sref="question12" data-pjax="#main" data-title="Notes">
+                        <p>12</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 13}">
+                      <a class="bootcards-summary-item" ui-sref="question13" data-pjax="#main" data-title="Notes">
+                        <p>13</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 14}">
+                      <a class="bootcards-summary-item" ui-sref="question14" data-pjax="#main" data-title="Notes">
+                        <p>14</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 15}">
+                      <a class="bootcards-summary-item" ui-sref="question15" data-pjax="#main" data-title="Notes">
+                        <p>15</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 16}">
+                      <a class="bootcards-summary-item" ui-sref="question16" data-pjax="#main" data-title="Notes">
+                        <p>16</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 17}">
+                      <a class="bootcards-summary-item" ui-sref="question17" data-pjax="#main" data-title="Notes">
+                        <p>17</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+
+                    <div class="col-xs-2 col-sm-1 card-item" ng-class="{'active': $ctrl.activeIndex == 18}">
+                      <a class="bootcards-summary-item" ui-sref="question18" data-pjax="#main" data-title="Notes">
+                        <p>18</p>
+                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- end of user-activity-graph -->
+              <div class="question-container">
+                <div class="question-nav">
+                    <div class="pull-right text-center mtop20">
+                      <a href="#" class="btn btn-sm btn-primary" ng-click="$ctrl.prev()"><i class="fa fa-chevron-left left"></i>Previous</a>
+                      <a href="#" class="btn btn-sm btn-primary" ng-click="$ctrl.next()">Next<i class="fa fa-chevron-right right"></i></a>
+                    </div>
+                </div>
+
+                <div class="question-wrapper">
+
+                  <div ui-view></div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+
+
+<app-footer></app-footer>

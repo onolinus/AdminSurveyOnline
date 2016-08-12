@@ -8,6 +8,7 @@ require('gentelella/vendors/nprogress/nprogress');
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import stateEvent from 'angular-ui-router/release/stateEvents.min.js';
 import ngTable from 'ng-table/dist/ng-table';
 import angularCookies from 'angular-cookies';
 
@@ -22,6 +23,7 @@ import 'gentelella/src/scss/custom.scss';
 
 angular.module('app', [
     uiRouter,
+    'ui.router.state.events',
     'ngTable',
     angularCookies,
     Common,

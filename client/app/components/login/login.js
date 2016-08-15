@@ -2,8 +2,20 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import loginComponent from './login.component';
 
+import toaster from 'angular-toastr';
+
+require('angular-animate');
+
+
+import User from '../../common/user/user';
+
+import 'angular-toastr/dist/angular-toastr.min.css';
+
 let loginModule = angular.module('login', [
-  uiRouter
+  uiRouter,
+  User,
+  toaster,
+  'ngAnimate'
 ])
 
 
@@ -18,6 +30,15 @@ let loginModule = angular.module('login', [
       component: 'login'
     });
 })
+
+.config(['toastrConfig',
+  function(toastrConfig){
+    angular.extend(toastrConfig, {
+      timeOut: 3000,
+      preventOpenDuplicates: true
+    });
+  }
+])
 
 .component('login', loginComponent)
 

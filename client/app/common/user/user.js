@@ -1,9 +1,19 @@
 import angular from 'angular';
 import UserFactory from './user.factory';
 
+import appConfig from '../../../../app.config.js';
+
 let userModule = angular.module('user', [])
 
-.factory('User', ['$http', '$q', '$cookies', UserFactory])
+.constant('apiURL', appConfig.API)
+
+.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+])
+
+.factory('User', ['$http', '$q', '$cookies', 'apiURL', UserFactory])
 
 .name;
 

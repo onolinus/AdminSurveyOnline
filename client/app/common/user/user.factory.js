@@ -1,4 +1,5 @@
-let UserFactory = function ($http, $q, $cookies) {
+let UserFactory = function ($http, $q, $cookies, apiURL) {
+
   const user = {};
 
   let getUser = () => {
@@ -9,14 +10,29 @@ let UserFactory = function ($http, $q, $cookies) {
     return user.isSignedIn;
   };
 
-  let authenticate = (username, password) => {
+  let authenticate = (email, password) => {
 
-    let deferred = $q.defer();
+    let deffered = $q.defer();
 
-    $http.post()
+    var authRequest = {
+      method: 'POST',
+      url: apiURL + '/auth/token/password',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      data: $.param({
+        email:email,
+        password:password,
+        client_id: 1,
+        secret_code: 'LAKKdkmakmKKKMBkap#gafgf2dT2!$KKKkjjjasjdhjd@OkjKJDSJFKHgTUHB234125213##141f4'
+      })
+    };
+
+    $http(authRequest)
       .success((data) => {
-        $cookies.put('app-token', user);
-        deffered.resolve(user);
+        console.log(data);
+        // $cookies.put('app-token', user);
+        // deffered.resolve(user);
       })
       .error((error) => {
         deffered.reject(error);
@@ -28,7 +44,7 @@ let UserFactory = function ($http, $q, $cookies) {
   let validateToken = () => {
     let token = $cookies.get('app-token');
 
-    let deferred = $q.defer();
+    let deffered = $q.defer();
 
     $http.get()
       .success((data) => {
@@ -43,7 +59,7 @@ let UserFactory = function ($http, $q, $cookies) {
   };
 
   let signout = () => {
-    let deferred = $q.defer();
+    let deffered = $q.defer();
 
     $http.get()
       .success((data) => {

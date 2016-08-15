@@ -7,17 +7,17 @@
       <h1>Survey Online</h1>
     </div>
     <div class="panel-body">
-      <form>
-          <div class="form-group">
+      <form name="loginForm" ng-submit="$ctrl.login(loginForm, $event)" novalidate>
+          <div class="form-group" ng-class="{'bad': loginForm.email.$invalid && (loginForm.password.$dirty || $ctrl.formSubmitted)}">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                  <input type="text" class="form-control" name="username" placeholder="Username">
+                  <input type="email" class="form-control" ng-model="$ctrl.auth.email" name="email" placeholder="Username" ng-required="true">
               </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{'bad': loginForm.password.$invalid && (loginForm.password.$dirty || $ctrl.formSubmitted)}">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                  <input type="password" class="form-control" name="password" placeholder="Password">
+                  <input type="password" class="form-control" ng-model="$ctrl.auth.password" name="password" placeholder="Password" ng-required="true">
               </div>
           </div>
           <div class="row">

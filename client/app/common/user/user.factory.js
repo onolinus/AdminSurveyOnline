@@ -1,20 +1,25 @@
 let UserFactory = function ($http, $q, $cookies, apiURL) {
 
   const user = {};
+  let auth = {};
 
   let getUser = () => {
     return user;
   };
 
+  let getAuth = () => {
+    return JSON.parse($cookies.get('app-auth'));
+  };
+
   let isSignedIn = () => {
-    return user.isSignedIn;
+    return $cookies.get('app-auth') && $cookies.get('app-auth').length > 0;
   };
 
   let authenticate = (email, password) => {
 
     let deffered = $q.defer();
 
-    var authRequest = {
+    const authRequest = {
       method: 'POST',
       url: apiURL + '/auth/token/password',
       headers: {
@@ -28,11 +33,15 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
       })
     };
 
-    $http(authRequest)
-      .success((data) => {
-        console.log(data);
-        // $cookies.put('app-token', user);
-        // deffered.resolve(user);
+    $http(authRequest).success((data) => {
+        let currDate = new Date ();
+        let expDate = new Date ( currDate );
+        expDate.setSeconds( currDate.getSeconds() + data.expires_in);
+
+        $cookies.put('app-auth', JSON.stringify(data), {expires:expDate});
+        auth = data;
+
+        deffered.resolve(auth);
       })
       .error((error) => {
         deffered.reject(error);
@@ -41,14 +50,16 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
     return deffered.promise;
   };
 
-  let validateToken = () => {
-    let token = $cookies.get('app-token');
+  let validateToken = (auth = {}) => {
+    let token = $cookies.get('app-auth');
 
     let deffered = $q.defer();
 
-    $http.get()
-      .success((data) => {
-        $cookies.put('app-token', user);
+    $http.get() .success((data) => {
+        let currDate = new Date ();
+        let expDate = new Date ( currDate );
+        expDate.setSeconds( currDate.getSeconds() + user.expires_in);
+        $cookies.put('app-auth', user, {expires:expDate});
         deffered.resolve(user);
       })
       .error((error) => {
@@ -63,7 +74,7 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
 
     $http.get()
       .success((data) => {
-        $cookies.remove('app-token');
+        $cookies.remove('app-auth');
         deffered.resolve(true);
       })
       .error((error) => {
@@ -73,7 +84,7 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
     return deffered.promise;
   };
 
-  return { getUser, isSignedIn, authenticate, validateToken, signout};
+  return { getUser, getAuth, isSignedIn, authenticate, validateToken, signout};
 };
 
 export default UserFactory;

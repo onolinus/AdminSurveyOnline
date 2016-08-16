@@ -42,6 +42,11 @@ angular.module('app', [
           event.preventDefault();
           $state.go('login');
         }
+
+        if (User.isSignedIn() && toState.name == 'login') {
+          console.log('login');
+          $state.go('home');
+        }
     });
   })
 

@@ -6,6 +6,7 @@ class LoginController {
     this.auth = {};
     this.userFactory = User;
     this.toastr = toastr;
+    this.$state = $state;
   }
 
   login = (form, event) => {
@@ -14,7 +15,8 @@ class LoginController {
 
     if(form.$valid){
       this.userFactory.authenticate(this.auth.email, this.auth.password).then((res) => {
-
+        console.log('go home');
+        this.$state.go('home');
       }, (data) => {
         angular.forEach(data.error.message, (message) => {
           this.toastr.error(message, 'Login error');
@@ -24,7 +26,6 @@ class LoginController {
       });
     } else {
       this.toastr.error('Isi semua data dengan benar', 'Login error');
-      console.log(form);
     }
   };
 }

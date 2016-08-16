@@ -1,20 +1,31 @@
 class HomeController {
-  constructor(NgTableParams, $http) {
+  constructor(NgTableParams, $http, User, apiURL) {
     "ngInject";
-    this.users = [];
+    this.user = {};
+    this.correnspondence = [];
 
-    this.usersTableParams = new NgTableParams( {count: 10 }, {
+    this.correnspondenceTableParams = new NgTableParams( {count: 10 }, {
       getData: function(params) {
-        return $http.get('https://jsonplaceholder.typicode.com/users').then((users) => {
-          console.log('users', users.data);
-          params.total(25);
-          this.users = users.data;
-          return users.data;
+        const request = {
+          method: 'GET',
+          url: apiURL + '/admin/correspondent' + ((params.url().page > 1) ? '?page=' + params.url().page : ''),
+          headers: {
+            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+          }
+        };
+
+        return $http(request).then((users) => {
+          params.total(users.data.meta.pagination.total);
+          this.correnspondence = users.data.data;
+          console.log(users.data.data);
+          return users.data.data;
         }, () => {
           params.total(0);
           return [];
         });
-      }
+      },
+      counts: []
     });
   }
 

@@ -6,7 +6,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>User Profile</h3>
+        <h3>Profile Koresponden</h3>
       </div>
 
       <div class="title_right">
@@ -42,19 +42,18 @@
 
               </div>
 
-              <h3>Samuel Doe</h3>
+              <h3>{{$ctrl.correspondentDetail.name}}</h3>
 
               <ul class="list-unstyled user_data">
                 <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
                 </li>
 
                 <li>
-                  <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                  <i class="fa fa-briefcase user-profile-icon"></i> {{$ctrl.correspondentDetail.role}}
                 </li>
 
                 <li class="m-top-xs">
-                  <i class="fa fa-external-link user-profile-icon"></i>
-                  <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                  <i class="fa fa-external-link user-profile-icon"></i> {{$ctrl.correspondentDetail.nip}}
                 </li>
               </ul>
 

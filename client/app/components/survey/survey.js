@@ -16,7 +16,24 @@ let surveyModule = angular.module('survey', [
   $stateProvider
     .state('survey', {
       url: '/survey/:user_id',
-      component: 'survey'
+      component: 'survey',
+      resolve: {
+        correspondentDetail : ($http, $stateParams, User, apiURL) =>  {
+          const request = {
+            method: 'GET',
+            url: apiURL + '/admin/correspondent/' + $stateParams.user_id,
+            headers: {
+              'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            }
+          };
+
+          return $http(request).then((result) => {
+            console.log(result.data.data);
+            return result.data.data;
+          });
+        }
+      }
     });
 })
 

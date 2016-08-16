@@ -9,7 +9,7 @@ import SidebarToggle from './sidebar-toggle/sidebar-toggle.component';
 let directiveModule = angular.module('app.directive', [
   uiRouter
 ])
-.directive('body', ['$timeout', Body])
+.directive('body', ['$timeout', '$rootScope', Body])
 .directive('menuToggle', MenuToggle)
 .directive('sidebarToggle', SidebarToggle)
 .name;

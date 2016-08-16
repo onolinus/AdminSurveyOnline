@@ -1,4 +1,4 @@
-let body = function($timeout){
+let body = function($timeout, $rootScope){
   var CURRENT_URL = window.location.href.split('?')[0];
 
   var setContentHeight = function () {
@@ -47,6 +47,14 @@ let body = function($timeout){
         }
 
       }, 500);
+
+
+      $rootScope.$on('$stateChangeSuccess',  function(event, toState, toStateParams){
+        $timeout(function(){
+          setContentHeight();
+        }, 500);
+
+      });
 
     }
   };

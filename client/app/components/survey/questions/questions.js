@@ -20,8 +20,10 @@ import question16Component from './question16/question16.component';
 import question17Component from './question17/question17.component';
 import question18Component from './question18/question18.component';
 
+import uiBootstrapModal from 'angular-ui-bootstrap/src/modal';
+
 let questionsModule = angular.module('questions', [
-  uiRouter
+  uiRouter, 'ui.bootstrap.modal', 'uib/template/modal/window.html'
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {

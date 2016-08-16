@@ -1,5 +1,5 @@
 class SurveyController {
-  constructor($state, $rootScope) {
+  constructor($state, $rootScope, $resolve) {
     "ngInject";
 
     this.activeIndex = 0;

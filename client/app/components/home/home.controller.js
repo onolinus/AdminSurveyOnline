@@ -1,5 +1,5 @@
 class HomeController {
-  constructor(NgTableParams, $http, User, apiURL) {
+  constructor(NgTableParams, $http, User, apiURL, blockUI) {
     "ngInject";
     this.user = {};
     this.correnspondence = [];
@@ -8,12 +8,14 @@ class HomeController {
       getData: function(params) {
         const request = {
           method: 'GET',
-          url: apiURL + '/admin/correspondent' + ((params.url().page > 1) ? '?page=' + params.url().page : ''),
+          url: apiURL + '/admin/correspondent' + '?page=' + params.url().page + '&include=approved_by',
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
           }
         };
+
+        blockUI.start();
 
         return $http(request).then((users) => {
           params.total(users.data.meta.pagination.total);
@@ -23,6 +25,8 @@ class HomeController {
         }, () => {
           params.total(0);
           return [];
+        }).finally(()=>{
+          blockUI.stop()
         });
       },
       counts: []

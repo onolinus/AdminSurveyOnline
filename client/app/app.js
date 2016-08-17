@@ -4,6 +4,9 @@ require('gentelella/vendors/bootstrap/dist/js/bootstrap.min');
 require('gentelella/vendors/fastclick/lib/fastclick');
 require('gentelella/vendors/nprogress/nprogress');
 
+require('angular-block-ui/dist/angular-block-ui.min.js');
+require('angular-block-ui/dist/angular-block-ui.min.css');
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import stateEvent from 'angular-ui-router/release/stateEvents.min.js';
@@ -23,7 +26,8 @@ angular.module('app', [
     'ngTable',
     angularCookies,
     Common,
-    Components
+    Components,
+    'blockUI'
   ])
 
 
@@ -44,7 +48,7 @@ angular.module('app', [
         }
 
         if (User.isSignedIn() && toState.name == 'login') {
-          console.log('login');
+          event.preventDefault();
           $state.go('home');
         }
     });

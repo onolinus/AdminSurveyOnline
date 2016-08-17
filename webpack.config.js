@@ -1,6 +1,7 @@
 var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'sourcemap',
@@ -13,7 +14,7 @@ module.exports = {
        { test: /\.css$/, loader: 'style!css' },
        { test: /\.scss$/, loaders: ["style", "css", "sass"] },
        { test: /\.(woff|woff2|eot|ttf|svg|gif|jpg|jpeg|bmp)(\?.*$|$)/, loader: "file-loader?name=fonts/[hash:6].[ext]" },
-       { test: /\.(png|jpg|gif)$/, loader: "file-loader?name=img/img-[hash:6].[ext]" }
+       { test: /\.(png|jpg|gif)(\?.*$|$)/, loader: "file" }
     ]
   },
   plugins: [
@@ -33,6 +34,10 @@ module.exports = {
       minChunks: function (module, count) {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
       }
-    })
+    }),
+
+    new CopyWebpackPlugin([
+      { from: 'client/images', to:'images' }
+    ])
   ]
 };

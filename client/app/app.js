@@ -38,10 +38,17 @@ angular.module('app', [
     $locationProvider.html5Mode(true).hashPrefix('!');
   })
 
+  .config((blockUIConfig) => {
+    "ngInject";
+    // Disable automatically blocking of the user interface
+    blockUIConfig.autoBlock = false;
+
+  })
+
   .run(($rootScope, $state, $stateParams, User) => {
     "ngInject";
 
-    $rootScope.$on('$stateChangeStart',  function(event, toState, toStateParams){
+    $rootScope.$on('$stateChangeStart',  (event, toState, toStateParams) => {
         if (!User.isSignedIn() && toState.name !== 'login'){
           event.preventDefault();
           $state.go('login');

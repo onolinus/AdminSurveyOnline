@@ -20,6 +20,8 @@ import question16Component from './question16/question16.component';
 import question17Component from './question17/question17.component';
 import question18Component from './question18/question18.component';
 
+import questionService from './question.service';
+
 import uiBootstrapModal from 'angular-ui-bootstrap/src/modal';
 
 let questionsModule = angular.module('questions', [
@@ -161,6 +163,10 @@ let questionsModule = angular.module('questions', [
 .component('question16', question16Component)
 .component('question17', question17Component)
 .component('question18', question18Component)
+
+
+.service('questionService', questionService)
+
 .name;
 
 export default questionsModule;

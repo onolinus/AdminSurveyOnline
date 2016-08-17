@@ -29,7 +29,6 @@ let surveyModule = angular.module('survey', [
           };
 
           return $http(request).then((result) => {
-            console.log(result.data.data);
             return result.data.data;
           });
         }

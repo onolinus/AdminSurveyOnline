@@ -5,12 +5,15 @@ class SurveyController {
     this.activeIndex = 0;
     this.$state = $state;
 
-    $rootScope.$on('$stateChangeSuccess', (event, toState) => {
+    console.log(this.correspondentDetail);
+    $rootScope.$on('$stateChangeSuccess', (event, toState, toStateParam, fromState) => {
       if (toState.no) {
         this.activeIndex = toState.no;
       } else {
-        this.activeIndex = 1;
-        this.$state.go('question' + this.activeIndex);
+        if (this.activeIndex == 0) {
+            this.activeIndex = 1;
+            this.$state.go('question' + this.activeIndex);
+        }
       }
     });
   };

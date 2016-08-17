@@ -45,15 +45,23 @@
               <h3>{{$ctrl.correspondentDetail.name}}</h3>
 
               <ul class="list-unstyled user_data">
-                <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                <li>
+                  <i class="fa fa-phone user-profile-icon"></i>
+                  <span>Telepon {{$ctrl.correspondentDetail.telephone_number}}</span>
+                </li>
+                <li>
+                  <i class="fa fa-mobile user-profile-icon"></i>
+                  <span>Handphone {{$ctrl.correspondentDetail.handphone_number}}</span>
                 </li>
 
                 <li>
-                  <i class="fa fa-briefcase user-profile-icon"></i> {{$ctrl.correspondentDetail.role}}
+                  <i class="fa fa-briefcase user-profile-icon"></i>
+                  <span>Role sebagai {{$ctrl.correspondentDetail.role}}</span>
                 </li>
 
                 <li class="m-top-xs">
-                  <i class="fa fa-external-link user-profile-icon"></i> {{$ctrl.correspondentDetail.nip}}
+                  <i class="fa fa-external-link user-profile-icon"></i>
+                  <span>NIP {{$ctrl.correspondentDetail.nip}}</span>
                 </li>
               </ul>
 

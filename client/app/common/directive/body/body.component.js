@@ -1,20 +1,7 @@
+import setContentHeight from './../setContentHeight.helper';
+
 let body = function($timeout, $rootScope){
   var CURRENT_URL = window.location.href.split('?')[0];
-
-  var setContentHeight = function () {
-    // reset height
-    $('.right_col').css('min-height', $(window).height());
-
-    var bodyHeight = $('body').outerHeight(),
-        footerHeight =  $('body').hasClass('footer_fixed') ? 0 : $('footer').height(),
-        leftColHeight = $('.left_col').eq(1).height() + $('.sidebar-footer').height(),
-        contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
-
-    // normalize content
-    contentHeight -= $('.nav_menu').height() + footerHeight;
-
-    $('.right_col').css('min-height', contentHeight);
-  };
 
   return {
     restrict: 'E',
@@ -46,13 +33,13 @@ let body = function($timeout, $rootScope){
             });
         }
 
-      }, 500);
+      }, 0);
 
 
       $rootScope.$on('$stateChangeSuccess',  function(event, toState, toStateParams){
         $timeout(function(){
           setContentHeight();
-        }, 500);
+        }, 0);
 
       });
 

@@ -10,7 +10,7 @@ require('angular-block-ui/dist/angular-block-ui.min.css');
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import stateEvent from 'angular-ui-router/release/stateEvents.min.js';
-import ngTable from 'ng-table/dist/ng-table';
+import ngTable from 'ng-table/dist/ng-table.min';
 import angularCookies from 'angular-cookies';
 import Common from './common/common';
 import Components from './components/components';

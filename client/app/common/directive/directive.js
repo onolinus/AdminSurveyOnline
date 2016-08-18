@@ -10,7 +10,7 @@ let directiveModule = angular.module('app.directive', [
   uiRouter
 ])
 .directive('body', ['$timeout', '$rootScope', Body])
-.directive('menuToggle', MenuToggle)
+.directive('menuToggle', ['$timeout', MenuToggle])
 .directive('sidebarToggle', SidebarToggle)
 .name;
 

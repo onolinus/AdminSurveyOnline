@@ -18,7 +18,7 @@ let surveyModule = angular.module('survey', [
       url: '/survey/:user_id',
       component: 'survey',
       resolve: {
-        correspondentDetail : ($http, $stateParams, User, apiURL) =>  {
+        correspondentDetail : ($http, $stateParams, User, apiURL, blockUI) =>  {
           const request = {
             method: 'GET',
             url: apiURL + '/admin/correspondent/' + $stateParams.user_id,
@@ -28,9 +28,11 @@ let surveyModule = angular.module('survey', [
             }
           };
 
+          blockUI.start();
           return $http(request).then((result) => {
             return result.data.data;
-          });
+          })
+          .finally(() => blockUI.stop());
         }
       }
     });

@@ -34,14 +34,20 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
     };
 
     $http(authRequest).success((data) => {
-        let currDate = new Date ();
-        let expDate = new Date ( currDate );
-        expDate.setSeconds( currDate.getSeconds() + data.expires_in);
+        if (data.user_type = 'correspondent') {
+          deffered.reject({error: {
+            message: 'Akun tidak diberi akses untuk menggunakan aplikasi'
+          }});
+        } else {
+          let currDate = new Date ();
+          let expDate = new Date ( currDate );
+          expDate.setSeconds( currDate.getSeconds() + data.expires_in);
 
-        $cookies.put('app-auth', JSON.stringify(data), {expires:expDate});
-        auth = data;
+          $cookies.put('app-auth', JSON.stringify(data), {expires:expDate});
+          auth = data;
 
-        deffered.resolve(auth);
+          deffered.resolve(auth);
+        }
       })
       .error((error) => {
         deffered.reject(error);

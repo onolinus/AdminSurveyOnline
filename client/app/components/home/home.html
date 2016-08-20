@@ -51,9 +51,7 @@
             <div class="table-responsive">
               <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
                 <tr class="even pointer" ng-repeat="row in $data">
-                  <td class="a-center ">
-                    <input type="checkbox" class="flat" name="table_records">
-                  </td>
+                  <td>{{$index + 1}}</td>
                   <td class=" ">{{row.approved_by.puslit}}</td>
                   <td class=" ">{{row.name}}</td>
                   <td class=" ">{{row.nip}}</td>
@@ -77,10 +75,8 @@
 
 <script type="text/ng-template" id="userListTableHeader.html">
   <tr>
-    <th>
-      <input type="checkbox" id="check-all" class="flat">
-    </th>
-    <th class="column-title">No Token Lembaga </th>
+    <th>No</th>
+    <th class="column-title">Lembaga </th>
     <th class="column-title">Nama Koresponden</th>
     <th class="column-title">NIK/NIP</th>
     <th class="column-title">Nama Menyetujui</th>

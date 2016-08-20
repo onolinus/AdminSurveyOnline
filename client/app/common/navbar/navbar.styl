@@ -6,6 +6,12 @@
   .top_nav
     .nav_menu
       background #1976D2
+    .nav >li > a:hover, .top_nav .nav .open > a
+      background:#226eba!important;
+    .dropdown-menu>li>a:hover
+      background:#226eba!important;
+  .nav .open>a
+    background:#226eba!important;
   .nav-links
   .logo
     display inline-block
@@ -16,3 +22,6 @@
     span
       color $lightTextColor
       font-size 1.6rem
+
+.navbar-nav .open .dropdown-menu
+  background:#226eba!important;

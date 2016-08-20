@@ -1,10 +1,12 @@
 class NavbarController {
-  constructor(User, $http, apiURL) {
+  constructor(User, $http, apiURL, $state) {
     "ngInject";
 
     this.auth = User.getAuth();
+    this.User = User;
     this.apiURL = apiURL;
     this.$http = $http;
+    this.$state = $state;
 
     this.userDetail();
   }
@@ -21,6 +23,12 @@ class NavbarController {
 
     return this.$http(request).then((res) => {
       this.userDetail = res.data.data;
+    });
+  }
+
+  logout = () => {
+    this.User.signout().then(() => {
+      this.$state.go('login');
     });
   }
 }

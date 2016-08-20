@@ -37,7 +37,8 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      { from: 'client/images', to:'images' }
+      { from: 'client/images', to:'images' },
+      { from: '.htaccess' },
     ])
   ]
 };

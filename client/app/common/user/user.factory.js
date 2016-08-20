@@ -72,14 +72,8 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
   let signout = () => {
     let deffered = $q.defer();
 
-    $http.get()
-      .success((data) => {
-        $cookies.remove('app-auth');
-        deffered.resolve(true);
-      })
-      .error((error) => {
-        deffered.reject(error);
-      });
+    $cookies.remove('app-auth');
+    deffered.resolve(true);
 
     return deffered.promise;
   };

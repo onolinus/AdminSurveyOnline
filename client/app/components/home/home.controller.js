@@ -7,8 +7,6 @@ class HomeController {
     // Get the reference to the block service.
     const myBlockUI = blockUI.instances.get('correspondentBlockUI');
 
-    console.log(myBlockUI);
-
     this.correnspondenceTableParams = new NgTableParams( {count: 10 }, {
       getData: function(params) {
         const request = {
@@ -25,7 +23,6 @@ class HomeController {
         return $http(request).then((users) => {
           params.total(users.data.meta.pagination.total);
           this.correnspondence = users.data.data;
-          console.log(users.data.data);
           return users.data.data;
         }, () => {
           params.total(0);

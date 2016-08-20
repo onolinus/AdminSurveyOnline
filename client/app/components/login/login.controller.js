@@ -15,12 +15,13 @@ class LoginController {
 
     if(form.$valid){
       this.userFactory.authenticate(this.auth.email, this.auth.password).then((res) => {
-        console.log('go home');
         this.$state.go('home');
       }, (data) => {
+
         angular.forEach(data.error.message, (message) => {
-          this.toastr.error(message, 'Login error');
+          this.toastr.error(data.error.message, 'Login error');
         });
+
         form.email.$setValidity("required", false);
         form.password.$setValidity("required", false);
       });

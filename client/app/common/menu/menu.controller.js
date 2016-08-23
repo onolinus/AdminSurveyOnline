@@ -1,8 +1,9 @@
 class MenuController {
-  constructor(User) {
+  constructor(User, $state) {
     "ngInject";
 
     this.auth = User.getAuth();
+    this.$state = $state;
   }
 }
 

@@ -1,4 +1,4 @@
- <div class="col-md-3 left_col" sidebar-toggle ng-cloak>
+ <div class="col-md-3 left_col" ng-cloak>
     <div class="left_col scroll-view">
       <div class="navbar nav_title" style="border: 0;">
         <a href="index.html" class="site_title"><img class="logo" src="images/logo-ristekdikti.png" alt=""> <span></span></a>
@@ -27,10 +27,34 @@
           <ng-switch on="$ctrl.auth.user_type">
 
             <ul ng-switch-when="admin" class="nav side-menu">
-              <li><a ui-sref="dashboard"><i class="fa fa-bar-chart"></i> Dashboard</a></li>
-              <li><a ui-sref="validator"><i class="fa fa-user"></i> Validator</a></li>
-              <li><a ui-sref="home"><i class="fa fa-users"></i> Koresponden</a></li>
-              <li><a ui-sref="users"><i class="fa fa-users"></i> Users</a></li>
+
+              <li sidebar-toggle>
+                <a><i class="fa fa-bar-chart"></i> Dashboard</a>
+                <ul class="nav child_menu">
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('dashboard')}">
+                    <a ui-sref="dashboard">Responden Survey</a>
+                  </li>
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('anggaran')}">
+                    <a ui-sref="anggaran">Anggaran Litbang</a>
+                  </li>
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('belanja')}">
+                    <a ui-sref="belanja">Belanja Litbang</a>
+                  </li>
+                  <li sidebar-toggle-child><a href="index3.html">Personil Litbang</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">SDM Peneliti</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Peneliti Luar</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Output Kegiatan Litbang</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Paten dan Paten Sederhana</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Makalah Ilmiah</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Lisensi</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Kerjasama Dalam dan Luar Negeri</a></li>
+                </ul>
+              </li>
+              <li ng-class="{active: $ctrl.$state.includes('validator')}">
+                <a ui-sref="validator"><i class="fa fa-user"></i> Validator</a>
+              </li>
+              <li ng-class="{active: $ctrl.$state.includes('survey') || $ctrl.$state.includes('home')}"><a ui-sref="home"><i class="fa fa-users"></i> Koresponden</a></li>
+              <li ng-class="{active: $ctrl.$state.includes('users')}"><a ui-sref="users"><i class="fa fa-users"></i> Users</a></li>
             </ul>
 
             <ul ng-switch-default class="nav side-menu">

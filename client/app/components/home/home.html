@@ -51,9 +51,9 @@
             <div class="table-responsive">
               <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
                 <tr class="even pointer" ng-repeat="row in $data">
-                  <td>{{$index + 1}}</td>
-                  <td class=" ">{{row.approved_by.puslit}}</td>
-                  <td class=" ">{{row.name}}</td>
+                  <td>{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
+                  <td class="col-md-3">{{row.approved_by.puslit}}</td>
+                  <td class="col-md-2">{{row.name}}</td>
                   <td class=" ">{{row.nip}}</td>
                   <td class=" ">{{row.approved_by.name}}</td>
                   <td class=" ">{{row.timestamp.created_string}}</td>

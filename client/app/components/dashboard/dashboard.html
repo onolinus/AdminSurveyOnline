@@ -2,27 +2,81 @@
 <navbar class="app-navbar"></navbar>
 
 <!-- page content -->
-<div class="right_col" role="main">
-  <div class="">
-    <div class="page-title">
-      <div class="title_left">
-        <h3>Dashboard</h3>
-      </div>
+<div class="right_col dashboard" role="main">
+  <div class="row">
 
-      <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="panel media pad-all">
+        <div class="media-left">
+          <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+          <i class="fa fa-suitcase icon-2x"></i>
+          </span>
+        </div>
+
+        <div class="media-body">
+          <p class="text-2x mar-no text-thin">241</p>
+          <p class="text-muted mar-no">Total Lembaga</p>
         </div>
       </div>
     </div>
 
-    <div class="clearfix"></div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="panel media pad-all">
+        <div class="media-left">
+          <span class="icon-wrap icon-wrap-sm icon-circle bg-info">
+          <i class="fa fa-shield icon-2x"></i>
+          </span>
+        </div>
 
+        <div class="media-body">
+          <p class="text-2x mar-no text-thin">543</p>
+          <p class="text-muted mar-no">Total Unit</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+      <div class="panel media pad-all">
+        <div class="media-left">
+          <span class="icon-wrap icon-wrap-sm icon-circle bg-warning">
+            <i class="fa fa-users icon-2x"></i>
+          </span>
+        </div>
+
+        <div class="media-body">
+          <p class="text-2x mar-no text-thin">34</p>
+          <p class="text-muted mar-no">Total Responden</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+      <div class="panel media pad-all">
+        <div class="media-left">
+          <span class="icon-wrap icon-wrap-sm icon-circle bg-danger">
+            <i class="fa fa-share-alt icon-2x"></i>
+          </span>
+        </div>
+
+        <div class="media-body">
+          <p class="text-2x mar-no text-thin">654</p>
+          <p class="text-muted mar-no">Total Hasil Survey</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+    <ui-view>
+
+      <div class="dashboard-graph">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <highchart id="chart1" config="$ctrl.chartConfig" class="span10"></highchart>
+        </div>
+      </div>
+    </ui-view>
+    </div>
   </div>
 </div>
 

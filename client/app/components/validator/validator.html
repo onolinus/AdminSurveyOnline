@@ -3,7 +3,7 @@
 
 <!-- page content -->
 <div class="right_col" role="main">
-  <div class="">
+  <div>
     <div class="page-title">
       <div class="title_left">
         <h3>Daftar Validator</h3>
@@ -23,9 +23,48 @@
 
     <div class="clearfix"></div>
 
+    <div class="row" block-ui="usersBlockUI">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <div class="x_content" >
+            <div class="btn-group btn-add-data" role="group" aria-label="Basic example">
+              <a ui-sref="validatorAdd" type="button" class="btn btn-secondary"><i class="fa fa-plus"></i>Tambah Validator</a>
+            </div>
+            <div class="table-responsive">
+              <table ng-table="$ctrl.validatorTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
+                <tr class="even pointer" ng-repeat="row in $data">
+                  <td class="a-center ">
+                    <input type="checkbox" class="flat" name="table_records">
+                  </td>
+                  <td class=" ">{{row.email}}</td>
+                  <td class=" last"><a ui-sref="validatorDetail({user_id:row.id})">View</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div ui-view></div>
+
+<script type="text/ng-template" id="userListTableHeader.html">
+  <tr>
+    <th>
+      <input type="checkbox" id="check-all" class="flat">
+    </th>
+    <th class="column-title">Email</th>
+    <th class="column-title no-link last"><span class="nobr">Action</span>
+    </th>
+  </tr>
+</script>
 
 <!-- /page content -->
 

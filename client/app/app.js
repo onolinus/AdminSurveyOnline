@@ -12,6 +12,9 @@ import uiRouter from 'angular-ui-router';
 import stateEvent from 'angular-ui-router/release/stateEvents.min.js';
 import ngTable from 'ng-table/dist/ng-table.min';
 import angularCookies from 'angular-cookies';
+import HighchartNg from  'highcharts-ng/dist/highcharts-ng.min';
+
+
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
@@ -20,6 +23,8 @@ import AppComponent from './app.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'gentelella/src/scss/custom.scss';
+
+
 angular.module('app', [
     uiRouter,
     'ui.router.state.events',
@@ -27,7 +32,8 @@ angular.module('app', [
     angularCookies,
     Common,
     Components,
-    'blockUI'
+    'blockUI',
+    'highcharts-ng'
   ])
 
 

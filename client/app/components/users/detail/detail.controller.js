@@ -13,10 +13,12 @@ class DetailController {
     const request = {
       method: 'PUT',
       url: this.apiURL + '/user/' + this.userDetail.id,
-      data: {
+      data: $.param({
         email: this.userDetail.email,
-        password:this.userDetail.password
-      },
+        password: this.userDetail.password,
+        confirm_password: this.userDetail.password,
+        type: 'guest'
+      }),
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token

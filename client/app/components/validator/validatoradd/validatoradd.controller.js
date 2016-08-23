@@ -7,17 +7,20 @@ class ValidatoraddController {
     this.$state = $state;
     this.apiURL = apiURL;
     this.toastr = toastr;
+
+    this.validator = {};
   }
 
   addValidator = (form, $event) => {
     const request = {
-      method: 'PUT',
+      method: 'POST',
       url: this.apiURL + '/user',
-      data: {
-        email: this.userDetail.email,
-        password:this.userDetail.password,
+      data: $.param({
+        email: this.validator.email,
+        password: this.validator.password,
+        confirm_password: this.validator.password,
         type: 'validator'
-      },
+      }),
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -30,7 +33,7 @@ class ValidatoraddController {
       this.$http(request)
         .success((res) => {
           this.toastr.success('Validator berhasil di tambah', 'Success');
-          this.$state.go('users');
+          this.$state.go('validator');
         })
         .error((error) => {
           form.password.$setValidity("required", false);

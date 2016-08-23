@@ -11,7 +11,7 @@ class ValidatorController {
       getData: function(params) {
         const request = {
           method: 'GET',
-          url: apiURL + '/user' + '?page=' + params.url().page,
+          url: apiURL + '/user' + '?page=' + params.url().page + '&filter=validator',
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

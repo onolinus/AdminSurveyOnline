@@ -11,47 +11,56 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Ya
+              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="first-name"><span class="l-number-small">a.</span>Produk berbentuk barang
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" for="first-name">
+        <div class="pull-left">
+          <span class="l-number-small t-l">a.</span>Produk berbentuk barang
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+      </div>
+      <div class="ml-10">
+        <div class="form-group" ng-repeat="nama_barang in $ctrl.answer.answer15a_nama_barang">
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{nama_barang}}">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{$ctrl.answer.answer15a_terkomersialisasi[$index + 1] ? 'Sudah' : 'Belum'}}">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{$ctrl.answer.answer15a_tahun[$index + 1]}}">
+          </div>
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="first-name"><span class="l-number-small">b.</span>Produk berbentuk jasa
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" for="first-name">
+        <div class="pull-left">
+          <span class="l-number-small t-l">b.</span>Produk berbentuk jasa
         </div>
       </div>
-
+      <div class="ml-10">
+        <div class="form-group" ng-repeat="nama_jasa in $ctrl.answer.answer15b_nama_jasa">
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{nama_jasa}}">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{$ctrl.answer.answer15b_pengguna_jasa[$index + 1]}}">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{$ctrl.answer.answer15b_tahun[$index + 1]}}">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

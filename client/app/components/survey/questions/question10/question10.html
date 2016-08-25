@@ -9,64 +9,64 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Ya
+              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
       <br>
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Litbang Pemerintah
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">Litbang Pemerintah
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Orang">
+          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_pemerintah" class="form-control" placeholder="Orang">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perguruan Tinggi
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">Perguruan Tinggi
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Orang">
+          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_perguruantinggi" class="form-control" placeholder="Orang">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Industri / BUMN
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">Industri / BUMN
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Orang">
+          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_industri" class="form-control" placeholder="Orang">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Lembaga Swadaya Masyarakat
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">Lembaga Swadaya Masyarakat
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Orang">
+          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_lembagaswadaya" class="form-control" placeholder="Orang">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Luar Negri / Asing
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">Luar Negeri / Asing
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Orang">
+          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_asing" class="form-control" placeholder="Orang">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"><b>Total</b>
+        <label class="control-label col-md-4 col-sm-4 col-xs-12"><b>Total</b>
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Orang">
+          <input type="text" class="form-control" value="{{ $ctrl.answer.answer10_jumlah_peneliti_pemerintah + $ctrl.answer.answer10_jumlah_peneliti_perguruantinggi + $ctrl.answer.answer10_jumlah_peneliti_industri + $ctrl.answer.answer10_jumlah_peneliti_lembagaswadaya + $ctrl.answer.answer10_jumlah_peneliti_asing}}" placeholder="Orang">
         </div>
       </div>
     </div>

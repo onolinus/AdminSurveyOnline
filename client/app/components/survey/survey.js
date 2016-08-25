@@ -33,6 +33,12 @@ let surveyModule = angular.module('survey', [
             return result.data.data;
           })
           .finally(() => blockUI.stop());
+        },
+        userId: ($stateParams) => {
+          return $stateParams.user_id;
+        },
+        ansewers: ($stateParams, questionService) => {
+          return questionService.getAnswers($stateParams.user_id);
         }
       }
     });

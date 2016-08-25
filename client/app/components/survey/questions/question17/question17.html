@@ -9,29 +9,29 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Ya
+              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
       <br>
 
-      <div class="form-group">
+      <div class="form-group" ng-repeat="lisensi in $ctrl.answer.answer17_lisensi">
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Lisensi">
+          <input type="text" class="form-control" placeholder="Lisensi" value="{{lisensi}}">
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Tahun">
+          <input type="text" class="form-control" placeholder="Tahun" value="{{$ctrl.answer.answer17_tahun[$index + 1]}}">
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Rp">
+          <input type="text" class="form-control" placeholder="Rp" value="{{$ctrl.answer.answer17_nilai[$index + 1]}}">
         </div>
       </div>
 

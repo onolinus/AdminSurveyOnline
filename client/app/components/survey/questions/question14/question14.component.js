@@ -1,10 +1,10 @@
 import template from './question14.html';
-import controller from './question14.controller';
+import controller from '../question.controller';
 import './question14.styl';
 
 let question14Component = {
   restrict: 'E',
-  bindings: {},
+  bindings: {answer:'=', checked:'='},
   template,
   controller
 };

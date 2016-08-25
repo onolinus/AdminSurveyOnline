@@ -9,26 +9,29 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Ya
+              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
       <br>
 
-      <div class="form-group">
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nama Penerima">
+      <div class="form-group" ng-repeat="award in $ctrl.answer.answer14_nama_award">
+        <div class="col-md-3 col-sm-4 col-xs-6">
+          <input type="text" class="form-control" value="{{award}}" placeholder="Nama Award">
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nama Pemberi">
+        <div class="col-md-3 col-sm-4 col-xs-6">
+          <input type="text" class="form-control" value="{{$ctrl.answer.answer14_nama_penerima_award[$index + 1]}}" placeholder="Nama Penerima">
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-6">
+          <input type="text" class="form-control" value="{{$ctrl.answer.answer14_institusi_pemberi_award[$index + 1]}}" placeholder="Nama Pemberi">
         </div>
       </div>
 

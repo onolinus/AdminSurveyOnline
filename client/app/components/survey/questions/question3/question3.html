@@ -7,7 +7,7 @@
       <br>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">TOTAL
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">TOTAL
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
           <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
@@ -15,8 +15,8 @@
       </div>
       <br>
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span>a.</span>
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span>I.</span>
           DIPA
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
@@ -25,37 +25,83 @@
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">i.</span>
-          Dana dari Pemerintah
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+          <span>a.</span>
+          Dana dari Pemerintah untuk institusi Saudara
+          </div>
+        </label>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <input type="text" ng-model="$ctrl.answer.answer3_dipa_danapemerintah" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+          <span>b.</span>PNPB
+          </div>
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
           <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
+
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">ii.</span>
-          PNB
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span class="ml-20">i.</span>
+          Perusahaan Swasta
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_dipa_pnbp_perusahaanswasta" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
+
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">iii.</span>
-          PHLN
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span class="ml-20">ii.</span>
+          Instansi Pemerintah
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_dipa_pnbp_instansipemerintah" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span class="ml-20">iii.</span>
+          Swasta <span class="t-i">non profit</span>
+        </label>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_dipa_pnbp_swastanonprofit" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span class="ml-20">iv.</span>
+          Dari Luar Negri
+        </label>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_dipa_pnbp_luarnegeri" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+            <span>c.</span> PHLN
+          </div>
+        </label>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <input type="text" ng-model="$ctrl.answer.answer3_dipa_phln" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
       <br>
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span>b.</span>
-          Dana dari luar / Kontak kerja sama
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span>II.</span>
+          Non-DIPA
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
           <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
@@ -63,40 +109,38 @@
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">i.</span>
-          Perusahaan Swasta
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+            <span>a.</span>
+            Insentif Ristekdikti
+          </div>
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">ii.</span>
-          Instansi Pemerintah
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">iii.</span>
-          Swasta <span class="t-i">non profit</span>
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_nondipa_insentif_ristekdikti" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-          <span class="ml-10">iv.</span>
-          Dari Luar Negri
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+            <span>b.</span>
+            Insentif dalam negeri lainnya
+          </div>
         </label>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_nondipa_insentif_dalamnegeri" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+          <span>c.</span>
+          Research Grant
+          </div>
+        </label>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer3_nondipa_insentif_researchgrant" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
 

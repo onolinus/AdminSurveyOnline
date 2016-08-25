@@ -9,29 +9,29 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Ya
+              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
       <br>
 
-      <div class="form-group">
+      <div class="form-group" ng-repeat="name_jurnal in $ctrl.answer.answer12_nama_jurnal" >
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Nama Jurnal">
+          <input type="text" class="form-control" value="{{name_jurnal}}" placeholder="Nama Jurnal">
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Kode Bidang Penelitian">
+          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode($ctrl.answer.answer12_code[$index + 1])}}" placeholder="Kode Bidang Penelitian">
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Jumlah">
+          <input type="text" class="form-control" value="{{$ctrl.answer.answer12_jumlah[$index + 1]}}" placeholder="Jumlah">
         </div>
       </div>
 

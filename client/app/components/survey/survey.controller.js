@@ -1,11 +1,10 @@
 class SurveyController {
-  constructor($state, $rootScope, $resolve) {
+  constructor($state, $rootScope, questionService) {
     "ngInject";
 
     this.activeIndex = 0;
     this.$state = $state;
 
-    console.log(this.correspondentDetail);
     $rootScope.$on('$stateChangeSuccess', (event, toState, toStateParam, fromState) => {
       if (toState.no) {
         this.activeIndex = toState.no;

@@ -1,8 +1,12 @@
 class questionService {
-  constructor($http, $uibModal, User, apiURL) {
+  constructor($http, $uibModal, User, apiURL, questionFactory) {
     "ngInject";
 
     this.$uibModal = $uibModal;
+    this.$http = $http;
+    this.User = User;
+    this.apiURL = apiURL;
+    this.questionFactory = questionFactory;
   }
 
   rejectAnswer = (questionIndex) => {
@@ -34,6 +38,22 @@ class questionService {
   approveAnswer = (questionIndex) => {
 
   };
+
+  getAnswers = (userId) => {
+    const answersReq = {
+      method: 'GET',
+      url: this.apiURL + '/admin/survey/' + userId,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(answersReq)
+      .then((response) => {
+        this.questionFactory.setAnswers(response.data, userId)
+      });
+  }
 }
 
 export default questionService;

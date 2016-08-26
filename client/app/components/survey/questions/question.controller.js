@@ -72,6 +72,124 @@ class QuestionController {
   getTotalQ7 = () => {
     return this.formatMoney((this.parseMoney(this.answer.answer7_penelitian_dasar) + this.parseMoney(this.answer.answer7_penelitian_terapan) + this.parseMoney(this.answer.answer7_pengembangan_eksperimental)), 2, ',', '.');
   }
+
+  getTotalQ9_FP_HL = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s3_l + this.answer.answer9b_total_peneliti_fungsional_s2_l + this.answer.answer9b_total_peneliti_fungsional_s1_l;
+  }
+
+  getTotalQ9_FP_HP = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s3_p + this.answer.answer9b_total_peneliti_fungsional_s2_p + this.answer.answer9b_total_peneliti_fungsional_s1_p;
+  }
+
+  getTotalQ9_FP_FTEL = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s3_fte_l + this.answer.answer9b_total_peneliti_fungsional_s2_fte_l + this.answer.answer9b_total_peneliti_fungsional_s1_fte_l;
+  }
+
+  getTotalQ9_FP_FTEP = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s3_fte_p + this.answer.answer9b_total_peneliti_fungsional_s2_fte_p + this.answer.answer9b_total_peneliti_fungsional_s1_fte_p;
+  }
+  //peneliti non fungsional
+  getTotalQ9_FNP_HL = () => {
+    return this.answer.answer9b_total_nonpeneliti_fungsional_s3_l + this.answer.answer9b_total_nonpeneliti_fungsional_s2_l + this.answer.answer9b_total_nonpeneliti_fungsional_s1_l;
+  }
+
+  getTotalQ9_FNP_HP = () => {
+    return this.answer.answer9b_total_nonpeneliti_fungsional_s3_p + this.answer.answer9b_total_nonpeneliti_fungsional_s2_p + this.answer.answer9b_total_nonpeneliti_fungsional_s1_p;
+  }
+
+  getTotalQ9_FNP_FTEL = () => {
+    return this.answer.answer9b_total_nonpeneliti_fungsional_s3_fte_l + this.answer.answer9b_total_nonpeneliti_fungsional_s2_fte_l + this.answer.answer9b_total_nonpeneliti_fungsional_s1_fte_l;
+  }
+
+  getTotalQ9_FNP_FTEP = () => {
+    return this.answer.answer9b_total_nonpeneliti_fungsional_s3_fte_p + this.answer.answer9b_total_nonpeneliti_fungsional_s2_fte_p + this.answer.answer9b_total_nonpeneliti_fungsional_s1_fte_p;
+  }
+
+  // peneliti tanpa jabatan fungsional
+  getTotalQ9_NF_HL = () => {
+    return this.answer.answer9b_total_peneliti_nonfungsional_s3_l + this.answer.answer9b_total_peneliti_nonfungsional_s2_l + this.answer.answer9b_total_peneliti_nonfungsional_s1_l;
+  }
+
+  getTotalQ9_NF_HP = () => {
+    return this.answer.answer9b_total_peneliti_nonfungsional_s3_p + this.answer.answer9b_total_peneliti_nonfungsional_s2_p + this.answer.answer9b_total_peneliti_nonfungsional_s1_p;
+  }
+
+  getTotalQ9_NF_FTEL = () => {
+    return this.answer.answer9b_total_peneliti_nonfungsional_s3_fte_l + this.answer.answer9b_total_peneliti_nonfungsional_s2_fte_l + this.answer.answer9b_total_peneliti_nonfungsional_s1_fte_l;
+  }
+
+  getTotalQ9_NF_FTEP = () => {
+    return this.answer.answer9b_total_peneliti_nonfungsional_s3_fte_p + this.answer.answer9b_total_peneliti_nonfungsional_s2_fte_p + this.answer.answer9b_total_peneliti_nonfungsional_s1_fte_p;
+  }
+
+  // peneliti
+  getTotalQ9_peneliti_HL = () => {
+    return this.getTotalQ9_FP_HL() + this.getTotalQ9_FNP_HL() + this.getTotalQ9_NF_HL();
+  }
+
+  getTotalQ9_peneliti_HP = () => {
+    return this.getTotalQ9_FP_HP() + this.getTotalQ9_FNP_HP() + this.getTotalQ9_NF_HP();
+  }
+
+  getTotalQ9_peneliti_FTEL = () => {
+    return this.getTotalQ9_FP_FTEL() + this.getTotalQ9_FNP_FTEL() + this.getTotalQ9_NF_FTEL();
+  }
+
+  getTotalQ9_peneliti_FTEP = () => {
+    return this.getTotalQ9_FP_FTEP() + this.getTotalQ9_FNP_FTEP() + this.getTotalQ9_NF_FTEP();
+  }
+
+  // teknisi
+  getTotalQ9_teknisi_HL = () => {
+    return this.answer.answer9b_total_teknisi_s1_l + this.answer.answer9b_total_teknisi_d3_l + this.answer.answer9b_total_teknisi_belowd3_l;
+  }
+
+  getTotalQ9_teknisi_HP = () => {
+    return this.answer.answer9b_total_teknisi_s1_p + this.answer.answer9b_total_teknisi_d3_p + this.answer.answer9b_total_teknisi_belowd3_p;
+  }
+
+  getTotalQ9_teknisi_FTEL = () => {
+    return this.answer.answer9b_total_teknisi_s1_fte_l + this.answer.answer9b_total_teknisi_d3_fte_l + this.answer.answer9b_total_teknisi_belowd3_fte_l;
+  }
+
+  getTotalQ9_teknisi_FTEP = () => {
+    return this.answer.answer9b_total_teknisi_s1_fte_p + this.answer.answer9b_total_teknisi_d3_fte_p + this.answer.answer9b_total_teknisi_belowd3_fte_p;
+  }
+
+  //staff lainnya
+  getTotalQ9_staff_HL = () => {
+    return this.answer.answer9b_total_staffpendukung_s1_l + this.answer.answer9b_total_staffpendukung_d3_l + this.answer.answer9b_total_staffpendukung_belowd3_l;
+  }
+
+  getTotalQ9_staff_HP = () => {
+    return this.answer.answer9b_total_staffpendukung_s1_p + this.answer.answer9b_total_staffpendukung_d3_p + this.answer.answer9b_total_staffpendukung_belowd3_p;
+  }
+
+  getTotalQ9_staff_FTEL = () => {
+    return this.answer.answer9b_total_staffpendukung_s1_fte_l + this.answer.answer9b_total_staffpendukung_d3_fte_l + this.answer.answer9b_total_staffpendukung_belowd3_fte_l;
+  }
+
+  getTotalQ9_staff_FTEP = () => {
+    return this.answer.answer9b_total_staffpendukung_s1_fte_p + this.answer.answer9b_total_staffpendukung_d3_fte_p + this.answer.answer9b_total_staffpendukung_belowd3_fte_p;
+  }
+
+  //total
+  getTotalQ9_HL = () => {
+    return this.getTotalQ9_peneliti_HL() + this.getTotalQ9_teknisi_HL() + this.getTotalQ9_staff_HL();
+  }
+
+  getTotalQ9_HP = () => {
+    return this.getTotalQ9_peneliti_HP() + this.getTotalQ9_teknisi_HP() + this.getTotalQ9_staff_HP();
+  }
+
+  getTotalQ9_FTEL = () => {
+    return this.getTotalQ9_peneliti_FTEL() + this.getTotalQ9_teknisi_FTEL() + this.getTotalQ9_staff_FTEL();
+  }
+
+  getTotalQ9_FTEP = () => {
+    return this.getTotalQ9_peneliti_FTEP() + this.getTotalQ9_teknisi_FTEP() + this.getTotalQ9_staff_FTEP();
+  }
+
 }
 
 export default QuestionController;

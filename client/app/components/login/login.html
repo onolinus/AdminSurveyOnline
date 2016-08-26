@@ -1,10 +1,12 @@
 <div class="cls-content">
   <div class="cls-content-sm panel">
     <div class="panel-head">
-      <div class="app-logo pull-left">
+      <div class="app-logo">
         <img class="logo" src="images/logo-ristekdikti.png" alt="">
       </div>
-      <h1>Survey Online</h1>
+      <div class="login msg">
+        <h1 class="login-box-msg">Login</h1>
+      </div>
     </div>
     <div class="panel-body">
       <form name="loginForm" ng-submit="$ctrl.login(loginForm, $event)" novalidate>
@@ -22,7 +24,7 @@
           </div>
           <div class="row">
               <div class="col-xs-4 col-xs-offset-8">
-                  <div class="form-group text-right">
+                  <div class="text-right">
                   <button class="btn btn-primary" type="submit">Masuk</button>
                   </div>
               </div>

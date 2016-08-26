@@ -5,10 +5,8 @@ let QuestionFactory = function () {
   let getAnswer = (userId, questionId, subQuestion=false) => {
     if ( answers[userId]) {
       let questionAnswer = [];
-      console.log('all answer: ', answers[userId]);
       angular.forEach(answers[userId], function(ans, index){
         let questionKey = 'answer' + questionId + (subQuestion ? '' : '_');
-        console.log('question key: ', questionKey);
         if (index.indexOf(questionKey) > -1) {
           questionAnswer[index] = ans;
         }
@@ -37,6 +35,7 @@ let QuestionFactory = function () {
   }
 
   let setAnswers = (data, userId) => {
+    console.log('all answer', data);
     answers[userId] = data;
   };
 

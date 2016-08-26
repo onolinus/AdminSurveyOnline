@@ -7,60 +7,65 @@
       <br>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm- col-xs-12" for="first-name">
+        <label class="control-label col-md-4 col-sm- col-xs-12">
           <strong><span class="l-number">a.</span>Belanja Pegawai:</strong>
         </label>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12 q-child" for="first-name">Gaji Upah + honor proyek <br>(peneliti, teknisi, staf pendukung). Mengenai ketiga personil ini lihat Petunjuk Pengisian butir 6.a.)
+        <label class="control-label col-md-5 col-sm-6 col-xs-12 q-child">Gaji Upah + honor proyek <br>(peneliti, teknisi, staf pendukung). Mengenai ketiga personil ini lihat Petunjuk Pengisian butir 6.a.)
         </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" ng-model="$ctrl.answer.answer4_belanja_pegawai_upah" required="required" class="form-control col-md-7 col-xs-12">
+        <div class="input-group col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" ng-model="$ctrl.answer.answer4_belanja_pegawai_upah" class="form-control">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm- col-xs-12" for="first-name">
+        <label class="control-label col-md-4 col-sm- col-xs-12">
           <strong><span class="l-number">b.</span>Belanja Modal:</strong>
         </label>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12 q-child" for="first-name">Tanah, gedung dan bangunan lainnya
+        <label class="control-label col-md-5 col-sm-6 col-xs-12 q-child">Tanah, gedung dan bangunan lainnya
         </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" ng-model="$ctrl.answer.answer4_belanja_modal_properti" required="required" class="form-control col-md-7 col-xs-12">
+        <div class="input-group col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer4_belanja_modal_properti"class="form-control">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12 q-child" for="first-name">Kendaraan, mesin, dan peralatan
+        <label class="control-label col-md-5 col-sm-6 col-xs-12 q-child">Kendaraan, mesin, dan peralatan
         </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" ng-model="$ctrl.answer.answer4_belanja_modal_mesin"  required="required" class="form-control col-md-7 col-xs-12">
+        <div class="input-group col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" id="first-name" ng-model="$ctrl.answer.answer4_belanja_modal_mesin" class="form-control">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm- col-xs-12" for="first-name">
+        <label class="control-label col-md-4 col-sm- col-xs-12">
           <strong><span class="l-number">c.</span>Operasional Lainnya:</strong>
         </label>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12 q-child" for="first-name">Barang habis pakai, seluruh biaya pemeliharaan dan perbaikan, biaya perjalanan dinas
+        <label class="control-label col-md-5 col-sm-6 col-xs-12 q-child">Barang habis pakai, seluruh biaya pemeliharaan dan perbaikan, biaya perjalanan dinas
         </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" ng-model="$ctrl.answer.answer4_belanja_operasional_maintenance" required="required" class="form-control col-md-7 col-xs-12">
+        <div class="input-group col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" ng-model="$ctrl.answer.answer4_belanja_operasional_maintenance" class="form-control">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Jumlah a + b + c <strong>(harus sama dengan No. 2)
+        <label class="control-label col-md-5 col-sm-6 col-xs-12 q-child">Jumlah a + b + c <strong>(harus sama dengan No. 2)
         </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12 q-child">
+        <div class="input-group col-md-4 col-sm-4 col-xs-12">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.getTotalQ4()}}">
         </div>
       </div>
   </div>

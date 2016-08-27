@@ -190,6 +190,40 @@ class QuestionController {
     return this.getTotalQ9_peneliti_FTEP() + this.getTotalQ9_teknisi_FTEP() + this.getTotalQ9_staff_FTEP();
   }
 
+  getTotalQ9B_S1_l = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s1_l + this.answer.answer9b_total_nonpeneliti_fungsional_s1_l + this.answer.answer9b_total_peneliti_nonfungsional_s1_l;
+  }
+
+  getTotalQ9B_S1_p = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s1_p + this.answer.answer9b_total_nonpeneliti_fungsional_s1_p + this.answer.answer9b_total_peneliti_nonfungsional_s1_p;
+  }
+
+  getTotalQ9B_S2_l = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s2_l + this.answer.answer9b_total_nonpeneliti_fungsional_s2_l + this.answer.answer9b_total_peneliti_nonfungsional_s2_l;
+  }
+
+  getTotalQ9B_S2_p = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s2_p + this.answer.answer9b_total_nonpeneliti_fungsional_s2_p + this.answer.answer9b_total_peneliti_nonfungsional_s2_p;
+  }
+
+  getTotalQ9B_S3_l = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s3_l + this.answer.answer9b_total_nonpeneliti_fungsional_s3_l + this.answer.answer9b_total_peneliti_nonfungsional_s3_l;
+  }
+
+  getTotalQ9B_S3_p = () => {
+    return this.answer.answer9b_total_peneliti_fungsional_s3_p + this.answer.answer9b_total_nonpeneliti_fungsional_s3_p + this.answer.answer9b_total_peneliti_nonfungsional_s3_p;
+  }
+
+  countAll = (answers) => {
+    let count = 0;
+
+    angular.forEach(answers, function(val){
+      count += val;
+    });
+
+    return count;
+  }
+
 }
 
 export default QuestionController;

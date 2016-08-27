@@ -21,27 +21,52 @@ let dashboardModule = angular.module('dashboard', [
   $stateProvider
     .state('dashboard', {
       url: '/dashboard',
-      component: 'dashboard'
+      component: 'dashboard',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('anggaran', {
       url: '/anggaran',
       component: 'anggaran',
-      parent: 'dashboard'
+      parent: 'dashboard',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('belanja', {
       url: '/belanja',
       component: 'belanja',
-      parent: 'dashboard'
+      parent: 'dashboard',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('personil', {
       url: '/personil',
       component: 'personil',
-      parent: 'dashboard'
+      parent: 'dashboard',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('peneliti', {
       url: '/peneliti',
       component: 'peneliti',
-      parent: 'dashboard'
+      parent: 'dashboard',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     });
 })
 

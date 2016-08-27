@@ -64,6 +64,11 @@ angular.module('app', [
           event.preventDefault();
           $state.go('home');
         }
+
+        if(toState.data.permission && toState.data.permission.only.indexOf(User.getAuth().user_type) == -1){
+          event.preventDefault();
+          $state.go('home');
+        }
     });
   })
 

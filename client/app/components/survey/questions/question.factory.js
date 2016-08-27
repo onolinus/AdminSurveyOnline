@@ -27,7 +27,7 @@ let QuestionFactory = function () {
           checked = (ans == 'on') ? true: false;
         }
       });
-      console.log('checked', checked);
+
       return checked;
     }
 

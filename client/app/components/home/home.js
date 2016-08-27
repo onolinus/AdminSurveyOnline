@@ -14,7 +14,12 @@ let homeModule = angular.module('home', [
   $stateProvider
     .state('home', {
       url: '/',
-      component: 'home'
+      component: 'home',
+      data: {
+        permission: {
+          only : ['admin', 'validator']
+        }
+      }
     });
 })
 

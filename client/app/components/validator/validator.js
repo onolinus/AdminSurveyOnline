@@ -16,11 +16,21 @@ let validatorModule = angular.module('validator', [
   $stateProvider
     .state('validator', {
       url: '/validator',
-      component: 'validator'
+      component: 'validator',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('validatorAdd', {
       url: '/validator/tambah',
       component: 'validatoradd',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('validatorDetail', {
       url: '/validator/edit/:user_id',
@@ -41,6 +51,11 @@ let validatorModule = angular.module('validator', [
             return result.data.data;
           })
           .finally(() => blockUI.stop());
+        }
+      },
+      data: {
+        permission: {
+          only : ['admin']
         }
       }
     });

@@ -18,7 +18,12 @@ let usersModule = angular.module('users', [
   $stateProvider
     .state('users', {
       url: '/users',
-      component: 'users'
+      component: 'users',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
     })
     .state('userdetail', {
       url: '/users/:user_id',
@@ -39,6 +44,11 @@ let usersModule = angular.module('users', [
             return result.data.data;
           })
           .finally(() => blockUI.stop());
+        }
+      },
+      data: {
+        permission: {
+          only : ['admin']
         }
       }
     });

@@ -16,7 +16,6 @@ function setContentHeight(){
       leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
       contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
 
-    console.log('contentHeight', contentHeight);
     // normalize content
     contentHeight -= $NAV_MENU.height() + footerHeight;
     $RIGHT_COL.css('min-height', contentHeight);

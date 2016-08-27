@@ -40,6 +40,11 @@ let surveyModule = angular.module('survey', [
         ansewers: ($stateParams, questionService) => {
           return questionService.getAnswers($stateParams.user_id);
         }
+      },
+      data: {
+        permission: {
+          only : ['admin', 'validator']
+        }
       }
     });
 })

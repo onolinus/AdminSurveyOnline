@@ -92,126 +92,198 @@
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 1}">
                       <a class="bootcards-summary-item" ui-sref="question1">
                         <p>1</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(1)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 2}">
                       <a class="bootcards-summary-item" ui-sref="question2">
                         <p>2</p>
-                        <h4><span class="label label-danger"><i class="fa fa-remove"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(2)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 3}">
                       <a class="bootcards-summary-item" ui-sref="question3">
                         <p>3</p>
-                        <h4><span class="label label-success"><i class="fa fa-check"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(3)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 4}">
                       <a class="bootcards-summary-item" ui-sref="question4">
                         <p>4</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(4)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 5}">
                       <a class="bootcards-summary-item" ui-sref="question5">
                         <p>5</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(5)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 6}">
                       <a class="bootcards-summary-item" ui-sref="question6">
                         <p>6</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(6)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 7}">
                       <a class="bootcards-summary-item" ui-sref="question7">
                         <p>7</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(7)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 8}">
                       <a class="bootcards-summary-item" ui-sref="question8">
                         <p>8</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(8)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 9}">
                       <a class="bootcards-summary-item" ui-sref="question9">
                         <p>9</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(9, true)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 10}">
                       <a class="bootcards-summary-item" ui-sref="question10">
                         <p>10</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(10)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 11}">
                       <a class="bootcards-summary-item" ui-sref="question11">
                         <p>11</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(11)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 12}">
                       <a class="bootcards-summary-item" ui-sref="question12">
                         <p>12</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(12)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 13}">
                       <a class="bootcards-summary-item" ui-sref="question13">
                         <p>13</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(13)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 14}">
                       <a class="bootcards-summary-item" ui-sref="question14">
                         <p>14</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(14)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 15}">
                       <a class="bootcards-summary-item" ui-sref="question15">
                         <p>15</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(15, true)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 16}">
                       <a class="bootcards-summary-item" ui-sref="question16">
                         <p>16</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(16)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 17}">
                       <a class="bootcards-summary-item" ui-sref="question17">
                         <p>17</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(17)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 18}">
                       <a class="bootcards-summary-item" ui-sref="question18">
                         <p>18</p>
-                        <h4><span class="label label-info"><i class="fa fa-question"></i></span></h4>
+                        <h4 ng-switch on="$ctrl.getStatus(18)">
+                          <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
+                          <span ng-switch-when="diterima" class="label label-info"><i class="fa fa-check"></i></span>
+                          <span ng-switch-when="ditolak" class="label label-info"><i class="fa fa-remove"></i></span>
+                        </h4>
                       </a>
                     </div>
                   </div>

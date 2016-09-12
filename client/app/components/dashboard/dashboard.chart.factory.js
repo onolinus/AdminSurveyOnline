@@ -46,15 +46,13 @@ let ChartFactory = function ($http, $q, $cookies, apiURL) {
   let generateChartConfig = (type, title=false) => {
     let config = defaultOptions[type];
 
-    console.log('config', config);
-
     if (title) {
       angular.extend(config, {title: {
         text: title
       }});
     }
 
-    return config;
+    return angular.copy(config);
   }
 
   let addAxisConf = (config, axisType='x', data=[]) => {

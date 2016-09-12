@@ -9,10 +9,10 @@ class ChartService {
     this.$timeout = $timeout;
   }
 
-  getChart1 = () => {
-    let config = this.chartFactory.generateChartConfig('bar', 'Sebaran Responden menurut Lembaga');
+  countResponden = () => {
+    let countRespondenConfig = this.chartFactory.generateChartConfig('bar', 'Grafik Sebaran Responden Menurut Lembaga yang sudah registrasi');
 
-    angular.extend(config, {loading: true});
+    angular.extend(countRespondenConfig, {loading: true});
 
     const respondenCountReq = {
       method: 'GET',
@@ -25,19 +25,19 @@ class ChartService {
 
     let categories = [], data = [];
 
-    this.$http(respondenCountReq)
+    return this.$http(respondenCountReq)
       .then((response) => {
+
         angular.forEach(response.data.data, (lembaga, index) => {
           categories.push(lembaga.name);
           data.push(lembaga.count);
         });
-      })
-      .finally(() => {
-        angular.extend(config, {
+
+        angular.extend(countRespondenConfig, {
           xAxis: {
             categories: categories,
             title: {
-              text: null
+              text: 'Nama Lembaga'
             }
           },
           yAxis: {
@@ -51,17 +51,84 @@ class ChartService {
             }
           },
           series: [{
+            id: 'allResponden',
             name: 'Responden',
             data: data
           }]}
         );
 
-        angular.extend(config, {loading: false});
+        angular.extend(countRespondenConfig, {loading: false});
 
-        console.log('config', config);
+        return countRespondenConfig;
       });
+  }
 
-    return config;
+  submittedResponden = () => {
+    let submittedRespondenConfig = this.chartFactory.generateChartConfig('bar', 'Grafik Sebaran Responden Menurut Lembaga yang sudah mengirimkan');
+
+    angular.extend(submittedRespondenConfig, {loading: true});
+
+    const submittedRespondenCountReq = {
+      method: 'GET',
+      url: this.apiURL + '/stats/answers/sent',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    let submittedRespondenCategories = [], submittedRespondenData = [];
+
+    return this.$http(submittedRespondenCountReq)
+      .then((response) => {
+        angular.forEach(response.data.data, (lembaga, index) => {
+          submittedRespondenCategories.push(lembaga.name);
+          submittedRespondenData.push(lembaga.count);
+        });
+
+        angular.extend(submittedRespondenConfig, {
+          xAxis: {
+            categories: submittedRespondenCategories,
+            title: {
+              text: 'Nama Lembaga'
+            }
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'Jumlah Responden',
+              align: 'high'
+            },
+            labels: {
+              overflow: 'justify'
+            }
+          },
+          series: [{
+            id: 'submittedResponden',
+            name: 'Responden',
+            data: submittedRespondenData
+          }]}
+        );
+
+        angular.extend(submittedRespondenConfig, {loading: false});
+
+        return submittedRespondenConfig;
+      });
+  }
+
+  summaryStats = () => {
+    const summaryReq = {
+      method: 'GET',
+      url: this.apiURL + '/stats/total/summary',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(summaryReq).then((response) => {
+      return response.data.data;
+    })
   }
 }
 

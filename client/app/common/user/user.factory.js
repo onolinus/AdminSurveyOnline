@@ -8,7 +8,12 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
   };
 
   let getAuth = () => {
-    return JSON.parse($cookies.get('app-auth'));
+    let cookiesData = $cookies.get('app-auth');
+    if (cookiesData && cookiesData.length) {
+      return JSON.parse(cookiesData);
+    }
+
+    return [];
   };
 
   let isSignedIn = () => {

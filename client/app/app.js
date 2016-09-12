@@ -1,5 +1,7 @@
 window.$ = require('gentelella/vendors/jquery/dist/jquery.min');
 window.jQuery = require('gentelella/vendors/jquery/dist/jquery.min');
+
+
 require('gentelella/vendors/bootstrap/dist/js/bootstrap.min');
 require('gentelella/vendors/fastclick/lib/fastclick');
 require('gentelella/vendors/nprogress/nprogress');
@@ -55,20 +57,32 @@ angular.module('app', [
     "ngInject";
 
     $rootScope.$on('$stateChangeStart',  (event, toState, toStateParams) => {
-        if (!User.isSignedIn() && toState.name !== 'login'){
-          event.preventDefault();
+      if (!User.isSignedIn()) {
+        if (toState.name !== 'login') {
           $state.go('login');
-        }
-
-        if (User.isSignedIn() && toState.name == 'login') {
           event.preventDefault();
-          $state.go('home');
         }
-
-        if(toState.data.permission && toState.data.permission.only.indexOf(User.getAuth().user_type) == -1){
-          event.preventDefault();
-          $state.go('home');
+      } else {
+        if (toState.name == 'login') {
+          if (User.getAuth().user_type == 'validator') {
+            $state.go('home');
+            event.preventDefault();
+          } else {
+            $state.go('dashboard');
+            event.preventDefault();
+          }
+        } else {
+          if (angular.isDefined(toState.data.permission) && toState.data.permission.only.indexOf(User.getAuth().user_type) == -1) {
+            if (User.getAuth().user_type == 'validator') {
+              $state.go('home');
+              event.preventDefault();
+            } else {
+              $state.go('dashboard');
+              event.preventDefault();
+            }
+          }
         }
+      }
     });
   })
 

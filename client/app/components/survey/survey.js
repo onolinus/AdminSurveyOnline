@@ -1,11 +1,12 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import questions from './questions/questions';
+import appFilters from '../../common/filter/filter';
 
 import surveyComponent from './survey.component';
 
 let surveyModule = angular.module('survey', [
-  uiRouter, questions
+  uiRouter, questions, appFilters
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {
@@ -43,7 +44,7 @@ let surveyModule = angular.module('survey', [
       },
       data: {
         permission: {
-          only : ['admin', 'validator']
+          only : ['validator']
         }
       }
     });

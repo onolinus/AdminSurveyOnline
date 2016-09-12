@@ -4,7 +4,7 @@ import './dashboard.styl';
 
 let dashboardComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {summaryStats:'=', sebaranResponden:'=', submittedResponden:'='},
   template,
   controller
 };

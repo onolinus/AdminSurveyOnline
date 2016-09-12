@@ -5,11 +5,11 @@
        Kelompokkan seluruh kegiatan litbang tahun 2015 menurut bidang penelitian. Mohon disebutkan persentase dana untuk setiap bidang, terhitung dari total dana penelitian (untuk penelitian lintas bidang, mengacu kepada bidang penelitian yang dominan).
       </p>
       <br>
-      <div class="form-group" ng-repeat="code in $ctrl.answer.answer5_code">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{$ctrl.getSubjectFromResearchFieldCode(code)}}
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.data">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{$ctrl.getSubjectFromResearchFieldCode(detail.code)}}
         </label>
         <div class="input-group col-md-2 col-sm-3 col-xs-6">
-          <input type="text" id="first-name" ng-model="$ctrl.answer.answer5_percentage[$index + 1]" required="required" class="form-control">
+          <input type="text" id="first-name" ng-model="detail.percentage" required="required" class="form-control">
           <div class="input-group-addon">%</div>
         </div>
       </div>

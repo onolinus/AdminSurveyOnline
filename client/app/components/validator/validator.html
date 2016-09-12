@@ -38,7 +38,16 @@
                     <input type="checkbox" class="flat" name="table_records">
                   </td>
                   <td class=" ">{{row.email}}</td>
-                  <td class=" last"><a ui-sref="validatorDetail({user_id:row.id})">View</a>
+                  <td class=" last">
+                    <div class="btn-group tabular" role="group" aria-label="...">
+                      <a class="btn btn-default" ui-sref="userdetail({user_id:row.id})">View</a>
+                      <a class="btn btn-danger" ng-click="$ctrl.remove(row.id)"><i class="fa fa-trash"></i>Delete</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="even pointer" ng-if="$data.length == 0">
+                  <td colspan="3">
+                    <p>Data Validator tidak ada</p>
                   </td>
                 </tr>
               </table>

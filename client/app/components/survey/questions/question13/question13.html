@@ -23,15 +23,15 @@
       </div>
       <br>
 
-      <div class="form-group" ng-repeat="nama_peneliti in $ctrl.answer.answer13_nama_peneliti" >
-        <div class="col-md-4 col-sm-3 col-xs-6">
-          <input type="text" class="form-control" value="{{nama_peneliti}}" placeholder="Nama Peneliti">
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.data" >
+        <div class="col-md-5 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.nama_peneliti}}" placeholder="Nama Peneliti">
         </div>
-        <div class="col-md-4 col-sm-3 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer13_nama_seminar[$index + 1]}}" placeholder="Nama Seminar">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.nama_seminar}}" placeholder="Nama Seminar">
         </div>
-        <div class="col-md-4 col-sm-3 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer13_negara_penyelenggara_seminar[$index + 1]}}" placeholder="Nama Penelenggara Seminar">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.negara_penyelenggara_seminar}}" placeholder="Negara Penelenggara Seminar">
         </div>
       </div>
 

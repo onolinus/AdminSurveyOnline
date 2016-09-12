@@ -56,12 +56,39 @@
               <li ng-class="{active: $ctrl.$state.includes('validator')}">
                 <a ui-sref="validator"><i class="fa fa-user"></i> Validator</a>
               </li>
-              <li ng-class="{active: $ctrl.$state.includes('survey') || $ctrl.$state.includes('home')}"><a ui-sref="home"><i class="fa fa-users"></i> Koresponden</a></li>
               <li ng-class="{active: $ctrl.$state.includes('users')}"><a ui-sref="users"><i class="fa fa-users"></i> Users</a></li>
             </ul>
 
-            <ul ng-switch-default class="nav side-menu">
+            <ul ng-switch-when="validator" class="nav side-menu">
               <li><a ui-sref="home"><i class="fa fa-users"></i> Koresponden</a></li>
+            </ul>
+
+            <ul ng-switch-default class="nav side-menu">
+              <li sidebar-toggle>
+                <a><i class="fa fa-bar-chart"></i> Dashboard</a>
+                <ul class="nav child_menu">
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('dashboard')}">
+                    <a ui-sref="dashboard">Responden Survey</a>
+                  </li>
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('anggaran')}">
+                    <a ui-sref="anggaran">Anggaran Litbang</a>
+                  </li>
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('belanja')}">
+                    <a ui-sref="belanja">Belanja Litbang</a>
+                  </li>
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('personil')}">
+                    <a ui-sref="personil">Personil Litbang</a>
+                  </li>
+                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('peneliti')}">
+                    <a ui-sref="peneliti">Peneliti</a>
+                  </li>
+                  <li sidebar-toggle-child><a href="index3.html">Output Kegiatan Litbang</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Paten dan Paten Sederhana</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Makalah Ilmiah</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Lisensi</a></li>
+                  <li sidebar-toggle-child><a href="index3.html">Kerjasama Dalam dan Luar Negeri</a></li>
+                </ul>
+              </li>
             </ul>
         </div>
 

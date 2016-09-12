@@ -1,9 +1,10 @@
 class SurveyController {
-  constructor($state, $rootScope, questionService) {
+  constructor($state, $rootScope, questionFactory) {
     "ngInject";
 
     this.activeIndex = 0;
     this.$state = $state;
+    this.questionFactory = questionFactory;
 
     $rootScope.$on('$stateChangeSuccess', (event, toState, toStateParam, fromState) => {
       if (toState.no) {
@@ -37,6 +38,10 @@ class SurveyController {
 
     this.$state.go('question' + this.activeIndex);
   };
+
+  getStatus = (questionId, subQuestion) => {
+    return this.questionFactory.getAnswerStatus(this.userId, questionId, subQuestion);
+  }
 }
 
 export default SurveyController;

@@ -1,19 +1,20 @@
 class questionService {
-  constructor($http, $uibModal, User, apiURL, questionFactory) {
+  constructor($http, $uibModal, $q, User, apiURL, questionFactory) {
     "ngInject";
 
     this.$uibModal = $uibModal;
     this.$http = $http;
+    this.$q = $q;
     this.User = User;
     this.apiURL = apiURL;
     this.questionFactory = questionFactory;
   }
 
-  rejectAnswer = (questionIndex) => {
+  rejectAnswer = (answerIndex, questionIndex) => {
     const modalInstance = this.$uibModal.open({
       animation: true,
       template: '' +
-        '<div class="modal-header">' +
+        '<div class="modal-header">' + 
             '<h4 class="modal-title">Reject Komentar</h4>' +
             '<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="$dismiss()"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>' +
         '</div>' +
@@ -30,19 +31,70 @@ class questionService {
     });
 
 
-    modalInstance.result.then((arg) => {
-      console.log('comment', arg);
+    modalInstance.result.then((comment) => {
+      let promises = [];
+
+      promises.push(this.rejectRequest(answerIndex, questionIndex));
+      promises.push(this.rejectComment(answerIndex, questionIndex, comment));
+
+      this.$q.all(promises).then((response) => {
+        console.log('reject response', response);
+      });
     });
   };
 
-  approveAnswer = (questionIndex) => {
+  approveAnswer = (answerIndex, questionIndex) => {
+    const approveAnswersReq = {
+      method: 'PUT',
+      url: this.apiURL + '/survey/' + answerIndex + '/answers' + questionIndex + '/approve',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
 
+    return this.$http(approveAnswersReq)
+      .then((response) => {
+        return response.data;
+      });
+  };
+
+  rejectRequest = (answerIndex, questionIndex) => {
+    const rejectAnswersReq = {
+      method: 'PUT',
+      url: this.apiURL + '/survey/' + answerIndex + '/answers' + questionIndex + '/reject',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(rejectAnswersReq)
+      .then((response) => {
+        return response.data;
+      });
+  };
+
+  rejectComment = (answerIndex, questionIndex, comment) => {
+    const rejectAnswersReq = {
+      method: 'PUT',
+      url: this.apiURL + '/survey/' + answerIndex + '/answers' + questionIndex + '/comment',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(rejectAnswersReq)
+      .then((response) => {
+        return response.data;
+      });
   };
 
   getAnswers = (userId) => {
     const answersReq = {
       method: 'GET',
-      url: this.apiURL + '/admin/survey/' + userId,
+      url: this.apiURL + '/correspondent/' + userId + '/survey/detail',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -51,7 +103,8 @@ class questionService {
 
     return this.$http(answersReq)
       .then((response) => {
-        this.questionFactory.setAnswers(response.data, userId)
+        this.questionFactory.setAnswers(response.data.data.detail, userId);
+        this.questionFactory.setStatus(response.data.data.status, userId);
       });
   }
 }

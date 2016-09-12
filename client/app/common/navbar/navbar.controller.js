@@ -15,6 +15,7 @@ class NavbarController {
     const request = {
       method: 'GET',
       url: this.apiURL + '/user/' + this.auth.user_id,
+      cache: true,
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Bearer' + ' ' + this.auth.access_token

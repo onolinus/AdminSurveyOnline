@@ -23,15 +23,15 @@
       </div>
       <br>
 
-      <div class="form-group" ng-repeat="award in $ctrl.answer.answer14_nama_award">
-        <div class="col-md-3 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{award}}" placeholder="Nama Award">
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.data">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.nama_award}}" placeholder="Nama Award">
         </div>
-        <div class="col-md-3 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer14_nama_penerima_award[$index + 1]}}" placeholder="Nama Penerima">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.nama_penerima_award}}" placeholder="Nama Penerima">
         </div>
-        <div class="col-md-3 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer14_institusi_pemberi_award[$index + 1]}}" placeholder="Nama Pemberi">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.institusi_pemberi_award}}" placeholder="Nama Pemberi">
         </div>
       </div>
 

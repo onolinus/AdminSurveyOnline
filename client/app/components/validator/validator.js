@@ -40,6 +40,7 @@ let validatorModule = angular.module('validator', [
           const request = {
             method: 'GET',
             url: apiURL + '/user/' + $stateParams.user_id,
+            cache: true,
             headers: {
               'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

@@ -17,7 +17,7 @@ let homeModule = angular.module('home', [
       component: 'home',
       data: {
         permission: {
-          only : ['admin', 'validator']
+          only : ['validator']
         }
       }
     });

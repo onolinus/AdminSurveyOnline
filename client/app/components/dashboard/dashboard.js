@@ -22,9 +22,26 @@ let dashboardModule = angular.module('dashboard', [
     .state('dashboard', {
       url: '/dashboard',
       component: 'dashboard',
+      resolve: {
+        summaryStats: function(chartService){
+          return chartService.summaryStats().then((response) => {
+            return response;
+          });
+        },
+        sebaranResponden: function(chartService){
+          return chartService.countResponden().then((response) => {
+            return response;
+          });
+        },
+        submittedResponden: function(chartService){
+          return chartService.submittedResponden().then((response) => {
+            return response;
+          });
+        }
+      },
       data: {
         permission: {
-          only : ['admin']
+          only : ['admin','guest']
         }
       }
     })
@@ -34,7 +51,7 @@ let dashboardModule = angular.module('dashboard', [
       parent: 'dashboard',
       data: {
         permission: {
-          only : ['admin']
+          only : ['admin','guest']
         }
       }
     })
@@ -44,7 +61,7 @@ let dashboardModule = angular.module('dashboard', [
       parent: 'dashboard',
       data: {
         permission: {
-          only : ['admin']
+          only : ['admin','guest']
         }
       }
     })
@@ -54,7 +71,7 @@ let dashboardModule = angular.module('dashboard', [
       parent: 'dashboard',
       data: {
         permission: {
-          only : ['admin']
+          only : ['admin','guest']
         }
       }
     })
@@ -64,7 +81,7 @@ let dashboardModule = angular.module('dashboard', [
       parent: 'dashboard',
       data: {
         permission: {
-          only : ['admin']
+          only : ['admin','guest']
         }
       }
     });

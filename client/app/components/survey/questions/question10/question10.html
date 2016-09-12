@@ -22,51 +22,53 @@
         </div>
       </div>
       <br>
-      <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12">Litbang Pemerintah
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_pemerintah" class="form-control" placeholder="Orang">
+      <div ng-if="$ctrl.checked">
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">Litbang Pemerintah
+          </label>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_pemerintah" class="form-control" placeholder="Orang">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12">Perguruan Tinggi
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_perguruantinggi" class="form-control" placeholder="Orang">
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">Perguruan Tinggi
+          </label>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_perguruantinggi" class="form-control" placeholder="Orang">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12">Industri / BUMN
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_industri" class="form-control" placeholder="Orang">
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">Industri / BUMN
+          </label>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_industri" class="form-control" placeholder="Orang">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12">Lembaga Swadaya Masyarakat
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_lembagaswadaya" class="form-control" placeholder="Orang">
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">Lembaga Swadaya Masyarakat
+          </label>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_lembagaswadaya" class="form-control" placeholder="Orang">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12">Luar Negeri / Asing
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" ng-model="$ctrl.answer.answer10_jumlah_peneliti_asing" class="form-control" placeholder="Orang">
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">Luar Negeri / Asing
+          </label>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_asing" class="form-control" placeholder="Orang">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label col-md-4 col-sm-4 col-xs-12"><b>Total</b>
-        </label>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{ $ctrl.answer.answer10_jumlah_peneliti_pemerintah + $ctrl.answer.answer10_jumlah_peneliti_perguruantinggi + $ctrl.answer.answer10_jumlah_peneliti_industri + $ctrl.answer.answer10_jumlah_peneliti_lembagaswadaya + $ctrl.answer.answer10_jumlah_peneliti_asing}}" placeholder="Orang">
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12"><b>Total</b>
+          </label>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{ $ctrl.answer.data.jumlah_peneliti_pemerintah + $ctrl.answer.data.jumlah_peneliti_perguruantinggi + $ctrl.answer.data.jumlah_peneliti_industri + $ctrl.answer.data.jumlah_peneliti_lembagaswadaya + $ctrl.answer.data.jumlah_peneliti_asing}}" placeholder="Orang">
+          </div>
         </div>
       </div>
     </div>

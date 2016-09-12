@@ -1,0 +1,44 @@
+<app-menu class="app-menu"></app-menu>
+<navbar class="app-navbar"></navbar>
+
+<div class="right_col" role="main">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Tambah User</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br>
+        <form id="userDetailForm" name="userDetailForm" class="form-horizontal form-label-left" novalidate ng-submit="$ctrl.addUser(userDetailForm, $event)" autocomplete="off">
+
+          <div class="form-group" ng-class="{'bad': userDetailForm.userEmail.$invalid && (userDetailForm.userEmail.$dirty || $ctrl.formSubmitted)}">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userEmail">Email<span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" style="display:none;">
+              <input type="text" id="useremail" name="userEmail" ng-model="$ctrl.user.email" ng-required class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+
+          <div class="form-group" ng-class="{'bad': userDetailForm.userPassword.$invalid && (userDetailForm.userPassword.$dirty || $ctrl.formSubmitted)}">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userPassword">Password<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" style="display:none;">
+              <input type="password" id="userPassword" name="userPassword" ng-model="$ctrl.user.password" ng-required="true" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <button type="submit" class="btn btn-success">Simpan</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

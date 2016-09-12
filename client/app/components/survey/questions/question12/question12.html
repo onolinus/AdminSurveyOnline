@@ -23,15 +23,15 @@
       </div>
       <br>
 
-      <div class="form-group" ng-repeat="name_jurnal in $ctrl.answer.answer12_nama_jurnal" >
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{name_jurnal}}" placeholder="Nama Jurnal">
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.data" >
+        <div class="col-md-5 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{detail.nama_jurnal}}" placeholder="Nama Jurnal">
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode($ctrl.answer.answer12_code[$index + 1])}}" placeholder="Kode Bidang Penelitian">
+        <div class="col-md-5 col-sm-6 col-xs-12">
+          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode(detail.code)}}" placeholder="Kode Bidang Penelitian">
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer12_jumlah[$index + 1]}}" placeholder="Jumlah">
+        <div class="col-md-2 col-sm-4 col-xs-6">
+          <input type="text" class="form-control" value="{{detail.jumlah}}" placeholder="Jumlah">
         </div>
       </div>
 

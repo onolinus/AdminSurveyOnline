@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import usersComponent from './users.component';
 import usersDetailComponent from './detail/detail.component';
+import usersAddComponent from './useradd/useradd.component';
 
 import toaster from 'angular-toastr';
 
@@ -25,6 +26,15 @@ let usersModule = angular.module('users', [
         }
       }
     })
+    .state('userAdd', {
+      url: '/users/tambah',
+      component: 'usersadd',
+      data: {
+        permission: {
+          only : ['admin']
+        }
+      }
+    })
     .state('userdetail', {
       url: '/users/:user_id',
       component: 'usersDetail',
@@ -33,6 +43,7 @@ let usersModule = angular.module('users', [
           const request = {
             method: 'GET',
             url: apiURL + '/user/' + $stateParams.user_id,
+            cache: true,
             headers: {
               'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -56,6 +67,7 @@ let usersModule = angular.module('users', [
 
 .component('users', usersComponent)
 .component('usersDetail', usersDetailComponent)
+.component('usersadd', usersAddComponent)
 
 .name;
 

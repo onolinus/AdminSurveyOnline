@@ -30,15 +30,15 @@
         </div>
       </div>
       <div class="ml-10">
-        <div class="form-group" ng-repeat="nama_barang in $ctrl.answer.answer15a_nama_barang">
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{nama_barang}}">
+        <div class="form-group" ng-repeat="detailBarang in $ctrl.answer.answer15a.data">
+          <div class="col-md-8 col-sm-12 col-xs-12">
+            <input type="text" class="form-control" value="{{detailBarang.nama_barang}}">
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{$ctrl.answer.answer15a_terkomersialisasi[$index + 1] ? 'Sudah' : 'Belum'}}">
+          <div class="col-md-2 col-sm-6 col-xs-6">
+            <input type="text" class="form-control" value="{{detailBarang.terkomersialisasi ? 'Sudah' : 'Belum'}}">
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{$ctrl.answer.answer15a_tahun[$index + 1]}}">
+          <div class="col-md-2 col-sm-6 col-xs-6">
+            <input type="text" class="form-control" value="{{detailBarang.tahun}}">
           </div>
         </div>
       </div>
@@ -49,15 +49,15 @@
         </div>
       </div>
       <div class="ml-10">
-        <div class="form-group" ng-repeat="nama_jasa in $ctrl.answer.answer15b_nama_jasa">
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{nama_jasa}}">
+        <div class="form-group" ng-repeat="detailJasa in $ctrl.answer.answer15b.data">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" class="form-control" value="{{detailJasa.nama_jasa}}">
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{$ctrl.answer.answer15b_pengguna_jasa[$index + 1]}}">
+          <div class="col-md-2 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{detailJasa.pengguna_jasa}}">
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{$ctrl.answer.answer15b_tahun[$index + 1]}}">
+          <div class="col-md-2 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{detailJasa.tahun}}">
           </div>
         </div>
       </div>

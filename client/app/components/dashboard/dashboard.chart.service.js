@@ -30,7 +30,7 @@ class ChartService {
 
         angular.forEach(response.data.data, (lembaga, index) => {
           categories.push(lembaga.name);
-          data.push(lembaga.count);
+          data.push(parseInt(lembaga.count, 10));
         });
 
         angular.extend(countRespondenConfig, {
@@ -83,7 +83,7 @@ class ChartService {
       .then((response) => {
         angular.forEach(response.data.data, (lembaga, index) => {
           submittedRespondenCategories.push(lembaga.name);
-          submittedRespondenData.push(lembaga.count);
+          submittedRespondenData.push(parseInt(lembaga.count, 10));
         });
 
         angular.extend(submittedRespondenConfig, {

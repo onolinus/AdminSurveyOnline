@@ -49,7 +49,7 @@ angular.module('app', [
   .config((blockUIConfig) => {
     "ngInject";
     // Disable automatically blocking of the user interface
-    blockUIConfig.autoBlock = false;
+    blockUIConfig.autoBlock = true;
 
   })
 

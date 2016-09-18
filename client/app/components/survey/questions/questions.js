@@ -121,7 +121,7 @@ let questionsModule = angular.module('questions', [
         researchFields: ($http, apiURL, User) => {
           const req = {
             method: 'GET',
-            url: apiURL + '/researchfields',
+            url: apiURL + '/socioeconomics',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

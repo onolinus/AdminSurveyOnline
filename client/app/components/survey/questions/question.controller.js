@@ -46,6 +46,16 @@ class QuestionController {
     return subject;
   }
 
+  getSubjectFromSocioEconomicsCode = (code) => {
+    let subject = '';
+    angular.forEach(this.researchFields, (researchField) => {
+      if (code == researchField.code) {
+        subject = researchField.group;
+      }
+    });
+
+    return subject;
+  }
 
   getBidangIlmuFromKlasifikasiFieldCode = (code) => {
     let bidang_ilmu = '';

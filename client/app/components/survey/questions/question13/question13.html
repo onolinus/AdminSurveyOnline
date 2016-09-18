@@ -22,7 +22,19 @@
         </div>
       </div>
       <br>
-
+      
+      <div class="form-group">
+        <div class="col-md-5 col-sm-6 col-xs-12">
+          <label for="">Nama Peneliti</label>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <label for="">Kode Seminar</label>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <label for="">Negara Penelenggara Seminar</label>
+        </div>
+      </div>
+      
       <div class="form-group" ng-repeat="detail in $ctrl.answer.data" >
         <div class="col-md-5 col-sm-6 col-xs-12">
           <input type="text" class="form-control" value="{{detail.nama_peneliti}}" placeholder="Nama Peneliti">

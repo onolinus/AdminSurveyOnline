@@ -96,6 +96,7 @@ let questionsModule = angular.module('questions', [
           const req = {
             method: 'GET',
             url: apiURL + '/researchfields',
+            cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -122,6 +123,7 @@ let questionsModule = angular.module('questions', [
           const req = {
             method: 'GET',
             url: apiURL + '/socioeconomics',
+            cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -173,6 +175,7 @@ let questionsModule = angular.module('questions', [
           const req = {
             method: 'GET',
             url: apiURL + '/bidangilmu',
+            cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -217,6 +220,7 @@ let questionsModule = angular.module('questions', [
           const req = {
             method: 'GET',
             url: apiURL + '/researchfields',
+            cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -246,6 +250,7 @@ let questionsModule = angular.module('questions', [
           const req = {
             method: 'GET',
             url: apiURL + '/researchfields',
+            cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

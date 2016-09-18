@@ -39,7 +39,6 @@ let QuestionFactory = function () {
             questionStatus = ans.status;
           }
         });
-
         return questionStatus;
       }
     }

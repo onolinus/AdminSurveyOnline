@@ -46,14 +46,14 @@
             </thead>
 
             <tbody>
-              <tr ng-repeat="tahun in $ctrl.answer.answer16a_tahun">
-                <td><input type="text" class="form-control" value="{{tahun}}"></td>
-                <td><input type="text" class="form-control" value="{{$ctrl.answer.answer16a_usulan_paten[$index + 1]}}"></td>
-                <td><input type="text" class="form-control" value="{{$ctrl.answer.answer16a_usulan_patensederhana[$index + 1]}}"></td>
-                <td><input type="text" class="form-control" value="{{$ctrl.answer.answer16a_disetujui_paten[$index + 1]}}"></td>
-                <td><input type="text" class="form-control" value="{{$ctrl.answer.answer16a_disetujui_patensederhana[$index + 1]}}"></td>
-                <td><input type="text" class="form-control" value="{{$ctrl.answer.answer16a_terkomersialisasi_paten[$index + 1]}}"></td>
-                <td><input type="text" class="form-control" value="{{$ctrl.answer.answer16a_terkomersialisasi_patensederhana[$index + 1]}}"></td>
+              <tr ng-repeat="detail in $ctrl.answer.answer16a.data">
+                <td><input type="text" class="form-control" value="{{detail.tahun}}"></td>
+                <td><input type="text" class="form-control" value="{{detail.usulan_paten}}"></td>
+                <td><input type="text" class="form-control" value="{{detail.usulan_patensederhana}}"></td>
+                <td><input type="text" class="form-control" value="{{detail.disetujui_paten}}"></td>
+                <td><input type="text" class="form-control" value="{{detail.disetujui_patensederhana}}"></td>
+                <td><input type="text" class="form-control" value="{{detail.terkomersialisasi_paten}}"></td>
+                <td><input type="text" class="form-control" value="{{detail.terkomersialisasi_patensederhana}}"></td>
               </tr>
             </tbody>
           </table>
@@ -69,7 +69,7 @@
 
       <div class="form-group" ng-if="$ctrl.checked">
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer16b_jumlah_patenluarnegeri}}">
+          <input type="text" class="form-control" value="{{$ctrl.answer.answer16b.data.jumlah_patenluarnegeri}}">
         </div>
       </div>
 

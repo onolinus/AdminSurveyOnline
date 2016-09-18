@@ -257,7 +257,7 @@
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 16}">
                       <a class="bootcards-summary-item" ui-sref="question16">
                         <p>16</p>
-                        <h4 ng-switch on="$ctrl.getStatus(16)">
+                        <h4 ng-switch on="$ctrl.getStatus(16, true)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
                           <span ng-switch-when="diterima" class="label label-success"><i class="fa fa-check"></i></span>
                           <span ng-switch-when="ditolak" class="label label-danger"><i class="fa fa-remove"></i></span>

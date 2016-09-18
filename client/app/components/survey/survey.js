@@ -38,7 +38,7 @@ let surveyModule = angular.module('survey', [
         userId: ($stateParams) => {
           return $stateParams.user_id;
         },
-        ansewers: ($stateParams, questionService) => {
+        answers: ($stateParams, questionService) => {
           return questionService.getAnswers($stateParams.user_id);
         }
       },

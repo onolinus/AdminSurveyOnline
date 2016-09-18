@@ -12,7 +12,7 @@ class HomeController {
       getData: (params) => {
         const request = {
           method: 'GET',
-          url: apiURL + '/validator/survey' + '?page=' + params.url().page + '&include=approved_by',
+          url: apiURL + '/validator/survey?include=correspondent,approvedby',
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

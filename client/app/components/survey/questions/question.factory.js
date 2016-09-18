@@ -13,22 +13,26 @@ let QuestionFactory = function () {
           let questionKey = 'answer' + questionId + (subQuestion ? '' : '_');
           if (index.indexOf(questionKey) > -1) {
             questionAnswer[index] = ans;
+            questionAnswer.status = ans.status;
           }
         });
-
-        return questionAnswer;
+        if (questionAnswer.status) {
+          return questionAnswer;
+        } else {
+          return;
+        }
       }
     }
 
-    return [];
+    return;
   };
 
   let getAnswerStatus = (userId, questionId, subQuestion=false) => {
     if ( answers[userId]) {
       if (!subQuestion) {
-        return angular.isDefined(answers[userId]['answer' + questionId]) ? answers[userId]['answer' + questionId].status : 'terkirim';
+        return angular.isDefined(answers[userId]['answer' + questionId]) ? answers[userId]['answer' + questionId].status : 'diterima';
       } else {
-        let questionStatus = 'terkirim';
+        let questionStatus = 'diterima';
         angular.forEach(answers[userId], function(ans, index){
           let questionKey = 'answer' + questionId;
           if (index.indexOf(questionKey) > -1) {
@@ -40,16 +44,17 @@ let QuestionFactory = function () {
       }
     }
 
-    return [];
+    return;
   };
 
   let getChecked = (userId, questionId) => {
     if ( answers[userId]) {
       let checked = false;
+
       angular.forEach(answers[userId], function(ans, index){
-        let questionKey = 'question' + questionId + '_';
+        let questionKey = 'answer' + questionId;
         if (index.indexOf(questionKey) > -1) {
-          checked = (ans == 'on') ? true: false;
+          checked = true
         }
       });
 
@@ -72,8 +77,35 @@ let QuestionFactory = function () {
     answersStatus[userId]['answer'+ questionId].status = status;
   };
 
+  let isAnswersChecked = (userId) => {
+    let checked = true;
+    angular.forEach(answers[userId], function(ans, index){
+      if(checked){
+        if (ans.status == 'terkirim' ) {
+          checked = false;
+        } else {
+          checked = true;
+        }
+      }
+    });
 
-  return {getAnswer, getAnswerStatus, getChecked, setAnswers, setStatus};
+    return checked;
+  }
+
+  let rejectedAnswerExist = (userId) => {
+    let rejected = false;
+    angular.forEach(answers[userId], function(ans, index){
+      if(!rejected){
+        if (ans.status == 'ditolak' ) {
+          rejected = true;
+        }
+      }
+    });
+
+    return rejected;
+  }
+
+  return {getAnswer, getAnswerStatus, getChecked, setAnswers, setStatus, isAnswersChecked, rejectedAnswerExist};
 
 };
 

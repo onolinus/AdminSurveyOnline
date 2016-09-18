@@ -1,3 +1,5 @@
+import modalReject from './modalReject.html';
+
 class questionService {
   constructor($http, $uibModal, $q, User, apiURL, questionFactory) {
     "ngInject";
@@ -8,87 +10,222 @@ class questionService {
     this.User = User;
     this.apiURL = apiURL;
     this.questionFactory = questionFactory;
+
+    this.usersAnswersId = [];
   }
 
-  rejectAnswer = (answerIndex, questionIndex) => {
+  rejectAnswer = (userId, questionIndex, subQuestion=false) => {
     const modalInstance = this.$uibModal.open({
       animation: true,
-      template: '' +
-        '<div class="modal-header">' + 
-            '<h4 class="modal-title">Reject Komentar</h4>' +
-            '<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="$dismiss()"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>' +
-        '</div>' +
-        '<div class="modal-body">' +
-          '<textarea class="form-control" name="comment" rows="5" ng-model="comment"></textarea>' +
-        '</div>'+
-        '<div class="modal-footer">'+
-          '<div class="pull-right text-center mtop20">' +
-            '<a href="#" ng-click="$close(comment)" class="btn btn-sm btn-success" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Simpan</a>' +
-            '<a href="#" ng-click="$dismiss()" class="btn btn-sm btn-danger" ng-click="$ctrl.reject()"><i class="fa fa-close"></i>Batal</a>' +
-          '</div>' +
-        '</div>',
-        windowClass: 'modal-reject'
+      template: modalReject,
+      windowClass: 'modal-reject',
+      controller: 'modalReject',
+      controllerAs: '$ctrl',
+      resolve: {
+        subQuestion: () => {
+          return subQuestion;
+        },
+        questionKeys: (questionFactory) => {
+          "ngInject";
+          if (!subQuestion) {
+            return [];
+          } else {
+            let answerkeys = [];
+            const answersDetail = questionFactory.getAnswer(userId, questionIndex, subQuestion);
+            for (var key in answersDetail) {
+              if (key != 'status') {
+                let subQuestionIndex = key.substr(key.length - 1);
+                answerkeys.push(questionIndex + ' ' + subQuestionIndex);
+              }
+            }
+
+            return answerkeys;
+          }
+        }
+      }
     });
 
+    let deffered = this.$q.defer();
 
     modalInstance.result.then((comment) => {
       let promises = [];
+      const answersId = this.usersAnswersId[userId];
 
-      promises.push(this.rejectRequest(answerIndex, questionIndex));
-      promises.push(this.rejectComment(answerIndex, questionIndex, comment));
+      promises.push(this.rejectRequest(answersId, questionIndex, subQuestion));
+      promises.push(this.rejectComment(answersId, questionIndex, comment, subQuestion));
 
-      this.$q.all(promises).then((response) => {
-        console.log('reject response', response);
-      });
+      this.$q.all(promises)
+        .then((response) => {
+          this.getAnswers(userId)
+            .then((answers) => {
+              deffered.resolve(answers);
+            });
+        }, () => {
+          deffered.reject();
+        });
     });
+
+    return deffered.promise;
   };
 
-  approveAnswer = (answerIndex, questionIndex) => {
-    const approveAnswersReq = {
-      method: 'PUT',
-      url: this.apiURL + '/survey/' + answerIndex + '/answers' + questionIndex + '/approve',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
-      },
-    };
+  approveAnswer = (userId, questionIndex, subQuestion) => {
+    const answersId = this.usersAnswersId[userId];
 
-    return this.$http(approveAnswersReq)
-      .then((response) => {
-        return response.data;
+    let deffered = this.$q.defer();
+
+    if (subQuestion) {
+        const answersDetail = this.questionFactory.getAnswer(userId, questionIndex, subQuestion);
+        let approvePromises = [];
+
+        for (var key in answersDetail) {
+          if (key != 'status') {
+            let subQuestionIndex = key.substr(key.length - 1);
+
+            const approveAnswersReq = {
+              method: 'PUT',
+              url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/approve',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+              },
+            };
+
+            approvePromises.push(this.$http(approveAnswersReq));
+          }
+        }
+
+        this.$q.all(approvePromises).then((response) => {
+          this.getAnswers(userId) .then((answers) => {
+            deffered.resolve(answers);
+          });
+        }, () => {
+          deffered.reject();
+        });
+    } else {
+      const approveAnswersReq = {
+        method: 'PUT',
+        url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + '/approve',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+        },
+      };
+
+      
+
+      this.$http(approveAnswersReq) .then((response) => {
+        this.getAnswers(userId) .then((answers) => {
+          deffered.resolve(answers);
+        });
+      }, () => {
+        deffered.reject();
       });
+    }
+
+    return deffered.promise;
   };
 
-  rejectRequest = (answerIndex, questionIndex) => {
-    const rejectAnswersReq = {
-      method: 'PUT',
-      url: this.apiURL + '/survey/' + answerIndex + '/answers' + questionIndex + '/reject',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
-      },
-    };
+  rejectRequest = (answersId, questionIndex, subQuestion) => {
+    let deffered = this.$q.defer();
 
-    return this.$http(rejectAnswersReq)
-      .then((response) => {
-        return response.data;
+    if (subQuestion) {
+      const answersDetail = this.questionFactory.getAnswer(userId, questionIndex, subQuestion);
+      let rejectPromises = [];
+
+      for (var key in answersDetail) {
+        if (key != 'status') {
+          let subQuestionIndex = key.substr(key.length - 1);
+
+          const rejectAnswersReq = {
+            method: 'PUT',
+            url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/approve',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+            },
+          };
+
+          rejectPromises.push(this.$http(rejectAnswersReq));
+        }
+      }
+
+      this.$q.all(rejectPromises).then((response) => {
+        deffered.resolve(response);
+      }, () => {
+        deffered.reject();
       });
+    } else {
+      const rejectAnswersReq = {
+        method: 'PUT',
+        url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + '/reject',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+        },
+      };
+
+      this.$http(rejectAnswersReq) .then((response) => {
+        deffered.resolve(response);
+      }, () => {
+        deffered.reject();
+      });
+    }
+
+    return deffered.promise;
   };
 
-  rejectComment = (answerIndex, questionIndex, comment) => {
-    const rejectAnswersReq = {
-      method: 'PUT',
-      url: this.apiURL + '/survey/' + answerIndex + '/answers' + questionIndex + '/comment',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
-      },
-    };
+  rejectComment = (answersId, questionIndex, comment, subQuestion) => {
+    let deffered = this.$q.defer();
 
-    return this.$http(rejectAnswersReq)
-      .then((response) => {
-        return response.data;
+    if (subQuestion) {
+      const answersDetail = this.questionFactory.getAnswer(userId, questionIndex, subQuestion);
+      let commentPromises = [];
+
+      let answerIndex = 0;
+      for (var key in answersDetail) {
+        if (key != 'status') {
+          let subQuestionIndex = key.substr(key.length - 1);
+
+          const commentAnswersReq = {
+            method: 'PUT',
+            url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/comment',
+            data:$.param({comment: comment[answerIndex]}),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+            },
+          };
+
+          commentPromises.push(this.$http(commentAnswersReq));
+          answerIndex++;
+        }
+      }
+
+      this.$q.all(commentPromises).then((response) => {
+        deffered.resolve(response);
+      }, () => {
+        deffered.reject();
       });
+
+    } else{
+      const commentAnswersReq = {
+        method: 'PUT',
+        url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + '/comment',
+        data:$.param({comment: comment}),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+        },
+      };
+
+      this.$http(commentAnswersReq) .then((response) => {
+        deffered.resolve(response);
+      }, () => {
+        deffered.reject();
+      });
+    }
+
+    return deffered.promise;
   };
 
   getAnswers = (userId) => {
@@ -103,9 +240,40 @@ class questionService {
 
     return this.$http(answersReq)
       .then((response) => {
+        this.usersAnswersId[userId] = response.data.data.id;
+
         this.questionFactory.setAnswers(response.data.data.detail, userId);
         this.questionFactory.setStatus(response.data.data.status, userId);
       });
+  }
+
+  updateAnswersStatus = (userId) => {
+    const answersId = this.usersAnswersId[userId];
+
+    let allChecked = this.questionFactory.isAnswersChecked(userId);
+    let rejectedExist = this.questionFactory.rejectedAnswerExist(userId);
+
+    if (allChecked) {
+      var statusReqUrl = this.apiURL + '/survey/' + answersId + '/approve';
+
+      if (rejectedExist) {
+        statusReqUrl = this.apiURL + '/survey/' + answersId + '/reject';
+      }
+
+      const updateAnswersStatusReq = {
+        method: 'PUT',
+        url: statusReqUrl,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+        },
+      };
+
+      this.$http(updateAnswersStatusReq)
+        .then((response) => {
+            console.log('updateAnswersStatus', response);
+        });
+    }
   }
 }
 

@@ -4,7 +4,7 @@ import './survey.styl';
 
 let surveyComponent = {
   restrict: 'E',
-  bindings : {correspondentDetail: "=", userId: '='},
+  bindings : {correspondentDetail: "=", userId: '=', answers: '='},
   template,
   controller
 };

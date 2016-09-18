@@ -1,6 +1,6 @@
 <div class="card questions">
   <div class="question-content">
-    <div class="question-body form-horizontal">
+    <div class="question-body form-horizontal ta-r">
       <p>
        Uraikan jumlah belanja kegiatan litbang (pertanyaan <a ui-sref='question2'><span class="blue"><b>No. 2</b></span></a>) menurut sumber dananya?
       </p>
@@ -11,7 +11,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" class="form-control" value="{{$ctrl.getTotalQ3()}}">
+          <input type="text" class="form-control" value="{{$ctrl.getTotalQ3() |formatMoney}}">
         </div>
       </div>
       <br>
@@ -22,7 +22,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" class="form-control" value="{{$ctrl.getTotalDIPA()}}">
+          <input type="text" class="form-control" value="{{$ctrl.getTotalDIPA() |formatMoney}}">
         </div>
       </div>
 
@@ -35,7 +35,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.dipa_danapemerintah" class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.dipa_danapemerintah |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -47,7 +47,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" class="form-control" value="{{$ctrl.getTotalPNPB()}}">
+          <input type="text" class="form-control" value="{{$ctrl.getTotalPNPB() |formatMoney}}">
         </div>
       </div>
 
@@ -58,7 +58,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.dipa_pnbp_perusahaanswasta" class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_perusahaanswasta |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -69,7 +69,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.dipa_pnbp_instansipemerintah"  class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_instansipemerintah |formatMoney}}"  class="form-control">
         </div>
       </div>
 
@@ -80,7 +80,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.dipa_pnbp_swastanonprofit" class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_swastanonprofit |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -91,7 +91,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.dipa_pnbp_luarnegeri" class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_luarnegeri |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -103,7 +103,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.dipa_phln" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" value="{{$ctrl.answer.data.dipa_phln |formatMoney}}" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
       <br>
@@ -114,7 +114,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" class="form-control" value="{{$ctrl.getTotalNonDIPA()}}">
+          <input type="text" class="form-control" value="{{$ctrl.getTotalNonDIPA() |formatMoney}}">
         </div>
       </div>
 
@@ -127,7 +127,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.nondipa_insentif_ristekdikti" class="form-control">
+          <input type="text" value="{{ $ctrl.answer.data.nondipa_insentif_ristekdikti |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -140,7 +140,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.nondipa_insentif_dalamnegeri" class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.nondipa_insentif_dalamnegeri |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -153,7 +153,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" ng-model="$ctrl.answer.data.nondipa_insentif_researchgrant" class="form-control">
+          <input type="text" value="{{$ctrl.answer.data.nondipa_insentif_researchgrant |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -161,9 +161,18 @@
   </div>
 </div>
 
-<div class="question-tool">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.comment}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="question-tool" ng-if="$ctrl.answer">
     <div class="pull-right text-center mtop20">
-      <a href="#" class="btn btn-sm btn-success" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</a>
-      <a href="#" class="btn btn-sm btn-danger" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</a>
+      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

@@ -47,8 +47,8 @@
           </div> -->
 
           <div class="x_content" >
-            <div class="dt-buttons btn-group">
-              <a ng-click="$ctrl.getRandom()" class="btn btn-primary buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons"><span>Ambil data responden</span></a
+            <div class="dt-buttons btn-group mb-10" style="margin-bottom: 5px;">
+              <a ng-click="$ctrl.getRandom()" class="btn btn-primary buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons"><span><i class="fa fa-plus"></i>&nbsp;Ambil data responden</span></a
                 >
             </div>
 
@@ -56,11 +56,11 @@
               <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
                 <tr class="even pointer" ng-repeat="row in $data">
                   <td>{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
-                  <td class="col-md-3">{{row.approved_by.puslit}}</td>
-                  <td class="col-md-2">{{row.name}}</td>
-                  <td class=" ">{{row.nip}}</td>
-                  <td class=" ">{{row.approved_by.name}}</td>
-                  <td class=" ">{{row.timestamp.created_string}}</td>
+                  <td class="col-md-3">{{row.relationships.correspondent.approved_by.puslit}}</td>
+                  <td class="col-md-2">{{row.relationships.correspondent.name}}</td>
+                  <td class=" ">{{row.relationships.correspondent.nip}}</td>
+                  <td class=" ">{{row.relationships.correspondent.approved_by.name}}</td>
+                  <td class=" ">{{row.relationships.correspondent.timestamp.created_string}}</td>
                   <td class="a-right a-right status" ng-switch on="row.status">
                     <span class="label label-aero" ng-switch-when="prosesvalidasi" >Proses Validasi</span>
                     <span class="label label-green" ng-switch-when="diterima">Diterima</span>

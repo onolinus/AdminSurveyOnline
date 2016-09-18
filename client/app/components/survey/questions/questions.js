@@ -24,10 +24,13 @@ import questionService from './question.service';
 
 import questionFactory from './question.factory';
 
+import modalRejectController from './modalReject.controller';
+
 import uiBootstrapModal from 'angular-ui-bootstrap/src/modal';
+import uiBootstrapTabs from 'angular-ui-bootstrap/src/tabs';
 
 let questionsModule = angular.module('questions', [
-  uiRouter, 'ui.bootstrap.modal', 'uib/template/modal/window.html'
+  uiRouter, 'ui.bootstrap.modal', 'ui.bootstrap.module.tabs', 'uib/template/modal/window.html'
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {
@@ -363,6 +366,8 @@ let questionsModule = angular.module('questions', [
 .service('questionService', questionService)
 
 .factory('questionFactory', [questionFactory])
+
+.controller('modalReject', modalRejectController)
 
 .name;
 

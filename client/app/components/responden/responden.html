@@ -1,0 +1,106 @@
+<app-menu class="app-menu"></app-menu>
+<navbar class="app-navbar"></navbar>
+
+<!-- page content -->
+<div class="right_col" role="main">
+  <div>
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Daftar Koresponden</h3>
+      </div>
+
+      <!-- <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row" block-ui="correspondentBlockUI">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <!-- <div class="x_title">
+            <h2>Table design <small>Custom design</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div> -->
+
+          <div class="x_content" >
+
+            <div class="table-responsive">
+              <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
+                <tr class="even pointer" ng-repeat="row in $data">
+                  <td>{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
+                  <td class="col-md-3">{{row.approved_by.puslit}}</td>
+                  <td class="col-md-2">{{row.name}}</td>
+                  <td class=" ">{{row.nip}}</td>
+                  <td class=" ">{{row.approved_by.name}}</td>
+                  <td class=" ">{{row.timestamp.created_string}}</td>
+                  <td class="a-right a-right status" ng-switch on="row.survey.status">
+                  	<span class="label" ng-switch-when="terkirim" >Terkirim</span>
+                    <span class="label label-aero" ng-switch-when="prosesvalidasi" >Proses Validasi</span>
+                    <span class="label label-green" ng-switch-when="diterima">Diterima</span>
+                    <span class="label label-red" ng-switch-when="ditolak">Ditolak</span>
+                  </td>
+                  <td class=" last" ng-switch on="row.survey.status">
+                  	<a ng-switch-when="prosesvalidasi" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
+                  	<a ng-switch-when="terkirim" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
+                  	<a ng-switch-when="diterima" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
+                  	
+                  </td>
+                </tr>
+                <tr ng-if="$data.length == 0">
+                  <td colspan="8"><p>
+                    Data responden belum ada
+                  </p></td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="userListTableHeader.html">
+  <tr>
+    <th>No</th>
+    <th class="column-title">Lembaga </th>
+    <th class="column-title">Nama Koresponden</th>
+    <th class="column-title">NIK/NIP</th>
+    <th class="column-title">Nama Menyetujui</th>
+    <th class="column-title">Tanggal Pengisian</th>
+    <th class="column-title">Status </th>
+    <th class="column-title no-link last"><span class="nobr">Action</span>
+    </th>
+  </tr>
+</script>
+
+<!-- /page content -->
+
+<app-footer></app-footer>

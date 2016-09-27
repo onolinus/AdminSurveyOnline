@@ -46,22 +46,30 @@
 
               <ul class="list-unstyled user_data">
                 <li>
-                  <i class="fa fa-phone user-profile-icon"></i>
-                  <span>Telepon {{$ctrl.correspondentDetail.telephone_number}}</span>
+                  <span><b>Telepon :</b></span>
+                  <span> {{$ctrl.correspondentDetail.telephone_number}}</span>
                 </li>
                 <li>
-                  <i class="fa fa-mobile user-profile-icon"></i>
-                  <span>Handphone {{$ctrl.correspondentDetail.handphone_number}}</span>
+                  <span><b>Handphone :</b></span>
+                  <span>{{$ctrl.correspondentDetail.handphone_number}}</span>
                 </li>
 
                 <li>
-                  <i class="fa fa-briefcase user-profile-icon"></i>
-                  <span>Role sebagai {{$ctrl.correspondentDetail.role}}</span>
+                  <span><b>Role :</b></span>
+                  <span>{{$ctrl.correspondentDetail.role}}</span>
                 </li>
 
                 <li class="m-top-xs">
-                  <i class="fa fa-external-link user-profile-icon"></i>
-                  <span>NIP {{$ctrl.correspondentDetail.nip}}</span>
+                  <span><b>NIP :</b></span>
+                  <span>{{$ctrl.correspondentDetail.nip}}</span>
+                </li>
+                <li class="m-top-xs">
+                  <span><b>Lembaga :</b></span>
+                  <span>{{$ctrl.correspondentDetail.approved_by.lembaga.name}}</span>
+                </li>
+                <li class="m-top-xs">
+                  <span><b>Puslit :</b></span>
+                  <span>{{$ctrl.correspondentDetail.approved_by.puslit}}</span>
                 </li>
               </ul>
 

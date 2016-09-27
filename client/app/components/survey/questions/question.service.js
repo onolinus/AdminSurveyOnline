@@ -51,8 +51,8 @@ class questionService {
       let promises = [];
       const answersId = this.usersAnswersId[userId];
 
-      promises.push(this.rejectRequest(answersId, questionIndex, subQuestion));
-      promises.push(this.rejectComment(answersId, questionIndex, comment, subQuestion));
+      promises.push(this.rejectRequest(userId, answersId, questionIndex, subQuestion));
+      promises.push(this.rejectComment(userId, answersId, questionIndex, comment, subQuestion));
 
       this.$q.all(promises)
         .then((response) => {
@@ -111,7 +111,7 @@ class questionService {
         },
       };
 
-      
+
 
       this.$http(approveAnswersReq) .then((response) => {
         this.getAnswers(userId) .then((answers) => {
@@ -125,7 +125,7 @@ class questionService {
     return deffered.promise;
   };
 
-  rejectRequest = (answersId, questionIndex, subQuestion) => {
+  rejectRequest = (userId, answersId, questionIndex, subQuestion) => {
     let deffered = this.$q.defer();
 
     if (subQuestion) {
@@ -138,7 +138,7 @@ class questionService {
 
           const rejectAnswersReq = {
             method: 'PUT',
-            url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/approve',
+            url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/reject',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -174,7 +174,7 @@ class questionService {
     return deffered.promise;
   };
 
-  rejectComment = (answersId, questionIndex, comment, subQuestion) => {
+  rejectComment = (userId, answersId, questionIndex, comment, subQuestion) => {
     let deffered = this.$q.defer();
 
     if (subQuestion) {

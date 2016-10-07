@@ -23,7 +23,7 @@
       </div>
       <br>
 
-      <div class="form-group">
+      <div class="form-group" ng-if="$ctrl.answer.data">
         <div class="col-md-4 col-sm-4 col-xs-6">
           <label for="">Lisensi</label>
         </div>
@@ -52,7 +52,7 @@
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>

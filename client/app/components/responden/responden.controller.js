@@ -13,7 +13,7 @@ class RespondenController {
       getData: (params) => {
         const request = {
           method: 'GET',
-          url: apiURL + '/admin/correspondent' + '?page=' + params.url().page + '&include=approved_by,surveystatus',
+          url: apiURL + '/admin/correspondent' + '?page=' + params.url().page + '&include=approved_by,surveystatus&filter=correspondent',
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

@@ -22,7 +22,7 @@
         </div>
       </div>
       <br>
-      
+
       <div class="form-group">
         <div class="col-md-5 col-sm-6 col-xs-12">
           <label for="">Nama Jurnal</label>
@@ -34,7 +34,7 @@
           <label for="">Jumlah</label>
         </div>
       </div>
-      
+
       <div class="form-group" ng-repeat="detail in $ctrl.answer.data" >
         <div class="col-md-5 col-sm-6 col-xs-12">
           <input type="text" class="form-control" value="{{detail.nama_jurnal}}" placeholder="Nama Jurnal">
@@ -51,7 +51,7 @@
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>

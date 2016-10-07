@@ -9,13 +9,14 @@ class QuestionController {
     this.statusUpdated = false;
 
     console.log('answer ', this.$state.$current.no, this.answer);
+
+    this.questionService.updateAnswersStatus(this.userId);
   }
 
   reject = (subQuestion=false) => {
     this.questionService.rejectAnswer(this.userId, this.$state.$current.no, subQuestion)
       .then(() => {
         this.statusUpdated = true;
-        this.questionService.updateAnswersStatus(this.userId);
       });
   }
 
@@ -62,7 +63,7 @@ class QuestionController {
 
     angular.forEach(this.klasifikasi, (klasifikasi) => {
       if (code == klasifikasi.code) {
-        bidang_ilmu = klasifikasi.bidang_ilmu;
+        bidang_ilmu = klasifikasi.kelompok;
       }
     });
 

@@ -8,11 +8,11 @@ class HomeController {
     // Get the reference to the block service.
     this.myBlockUI = blockUI.instances.get('correspondentBlockUI');
 
-    this.correnspondenceTableParams = new NgTableParams( {count: 1000 }, {
+    this.correnspondenceTableParams = new NgTableParams( {count: 10 }, {
       getData: (params) => {
         const request = {
           method: 'GET',
-          url: apiURL + '/validator/survey?include=correspondent,approvedby',
+          url: apiURL + '/validator/survey?include=correspondent,approvedby&page=' + params.url().page,
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

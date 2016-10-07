@@ -22,7 +22,7 @@
         </div>
       </div>
       <br>
-      
+
       <div class="form-group">
         <div class="col-md-4 col-sm-4 col-xs-6">
           <label for="">Lisensi</label>
@@ -34,7 +34,7 @@
           <label for="">Nilai</label>
         </div>
       </div>
-      
+
       <div class="form-group" ng-repeat="data in $ctrl.answer.data">
         <div class="col-md-4 col-sm-4 col-xs-6">
           <input type="text" class="form-control" placeholder="Lisensi" value="{{data.lisensi}}">
@@ -63,7 +63,7 @@
 
 <div class="question-tool" ng-if="$ctrl.answer">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

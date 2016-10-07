@@ -8,7 +8,7 @@ class HomeController {
     // Get the reference to the block service.
     this.myBlockUI = blockUI.instances.get('correspondentBlockUI');
 
-    this.correnspondenceTableParams = new NgTableParams( {count: 10 }, {
+    this.correnspondenceTableParams = new NgTableParams( {count: 1000 }, {
       getData: (params) => {
         const request = {
           method: 'GET',

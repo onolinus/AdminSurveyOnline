@@ -327,10 +327,10 @@ let questionsModule = angular.module('questions', [
       component: 'question17',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 17, true);
+          return questionFactory.getAnswer($stateParams.user_id, 17);
         },
         checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 17, true);
+          return questionFactory.getChecked($stateParams.user_id, 17);
         }
       }
     })

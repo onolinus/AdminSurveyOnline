@@ -51,7 +51,7 @@ class QuestionController {
     let subject = '';
     angular.forEach(this.researchFields, (researchField) => {
       if (code == researchField.code) {
-        subject = researchField.category;
+        subject = researchField.group;
       }
     });
 

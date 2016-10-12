@@ -23,7 +23,7 @@
       </div>
       <br>
 
-      <div class="form-group">
+      <div class="form-group" ng-if="$ctrl.answer.data">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <label for="">Nama Award</label>
         </div>
@@ -31,7 +31,7 @@
           <label for="">Kode Penerima</label>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-          <label for="">Negara Pemberi</label>
+          <label for="">Institusi Pemberi</label>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
           <input type="text" class="form-control" value="{{detail.nama_penerima_award}}" placeholder="Nama Penerima">
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-          <input type="text" class="form-control" value="{{detail.institusi_pemberi_award}}" placeholder="Nama Pemberi">
+          <input type="text" class="form-control" value="{{detail.institusi_pemberi_award}}" placeholder="Institusi Pemberi">
         </div>
       </div>
 

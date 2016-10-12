@@ -23,7 +23,7 @@
       </div>
       <br>
 
-      <div class="form-group">
+      <div class="form-group" ng-if="$ctrl.answer.data">
         <div class="col-md-5 col-sm-6 col-xs-12">
           <label for="">Nama Peneliti</label>
         </div>
@@ -31,7 +31,7 @@
           <label for="">Kode Seminar</label>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <label for="">Negara Penelenggara Seminar</label>
+          <label for="">Negara Penyelenggara Seminar</label>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
           <input type="text" class="form-control" value="{{detail.nama_seminar}}" placeholder="Nama Seminar">
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <input type="text" class="form-control" value="{{detail.negara_penyelenggara_seminar}}" placeholder="Negara Penelenggara Seminar">
+          <input type="text" class="form-control" value="{{detail.negara_penyelenggara_seminar}}" placeholder="Negara Penyelenggara Seminar">
         </div>
       </div>
 

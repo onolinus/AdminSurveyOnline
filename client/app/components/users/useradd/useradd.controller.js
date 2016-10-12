@@ -42,7 +42,7 @@ class UseraddController {
           form.password.$setValidity("required", false);
           form.email.$setValidity("required", false);
 
-          console.log(form.email);
+          // console.log(form.email);
         });
     } else {
       this.toastr.error('Isi semua data dengan benar', 'Validation Error');

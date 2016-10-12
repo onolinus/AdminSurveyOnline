@@ -36,7 +36,9 @@ let QuestionFactory = function () {
         angular.forEach(answers[userId], function(ans, index){
           let questionKey = 'answer' + questionId;
           if (index.indexOf(questionKey) > -1) {
-            questionStatus = ans.status;
+            if (ans.status != 'diterima') {
+              questionStatus = ans.status;
+            }
           }
         });
         return questionStatus;
@@ -64,7 +66,7 @@ let QuestionFactory = function () {
   }
 
   let setAnswers = (data, userId) => {
-    console.log('all answer', data);
+    // console.log('all answer', data);
     answers[userId] = data;
   };
 

@@ -8,7 +8,7 @@ class QuestionController {
 
     this.statusUpdated = false;
 
-    console.log('answer ', this.$state.$current.no, this.answer);
+    // console.log('answer ', this.$state.$current.no, this.answer);
 
     this.questionService.updateAnswersStatus(this.userId);
   }

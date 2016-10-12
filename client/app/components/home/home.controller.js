@@ -22,7 +22,7 @@ class HomeController {
         this.myBlockUI.start();
 
         return $http(request).then((users) => {
-          console.log('survey data: ', users.data.data);
+          // console.log('survey data: ', users.data.data);
           params.total(users.data.meta.pagination.total);
           return users.data.data;
         }, () => {
@@ -35,7 +35,7 @@ class HomeController {
       counts: []
     });
 
-    console.log(this.correnspondenceTableParams);
+    // console.log(this.correnspondenceTableParams);
   }
 
   getRandom = () => {

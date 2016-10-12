@@ -13,7 +13,6 @@ class RespondenController {
       getData: (params) => {
         const request = {
           method: 'GET',
-          url: apiURL + '/admin/correspondent' + '?page=' + params.url().page + '&include=approved_by,surveystatus&filter=correspondent',
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -23,7 +22,7 @@ class RespondenController {
         this.myBlockUI.start();
 
         return $http(request).then((users) => {
-          console.log('survey data: ', users.data.data);
+          // console.log('survey data: ', users.data.data);
           params.total(users.data.meta.pagination.total);
           return users.data.data;
         }, () => {

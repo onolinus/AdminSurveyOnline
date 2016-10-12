@@ -253,7 +253,7 @@ class questionService {
     let allChecked = this.questionFactory.isAnswersChecked(userId);
     let rejectedExist = this.questionFactory.rejectedAnswerExist(userId);
 
-    console.log(allChecked, rejectedExist);
+    // console.log(allChecked, rejectedExist);
 
     if (allChecked) {
       var statusReqUrl = this.apiURL + '/survey/' + answersId + '/approve';
@@ -273,7 +273,7 @@ class questionService {
 
       this.$http(updateAnswersStatusReq)
         .then((response) => {
-            console.log('updateAnswersStatus', response);
+            // console.log('updateAnswersStatus', response);
         });
     }
   }

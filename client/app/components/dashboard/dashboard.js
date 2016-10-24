@@ -208,7 +208,6 @@ let dashboardModule = angular.module('dashboard', [
         },
         graph77: (chartService) => {
           return chartService.graph77().then((response) => {
-            console.log('graph77Req', response);
             return response;
           });
         }

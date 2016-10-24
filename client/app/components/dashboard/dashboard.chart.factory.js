@@ -14,7 +14,7 @@ let ChartFactory = function ($http, $q, $cookies, apiURL) {
         chart: {
           height: 500,
           type: 'bar'
-        }
+        },
       }
     },
     'column': {

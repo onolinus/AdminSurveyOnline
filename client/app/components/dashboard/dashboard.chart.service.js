@@ -178,6 +178,11 @@ class ChartService {
       );
 
       angular.extend(graphConfig, {loading: false});
+      angular.extend(graphConfig.options, {tooltip: {
+        formatter: function() {
+          return this.x +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 2, '.', ',') +'</b> Milyar';
+        }
+      }});
 
       return graphConfig;
     });
@@ -213,17 +218,19 @@ class ChartService {
                 depth: 35,
                 dataLabels: {
                   enabled: true,
-                  format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
+                  format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                },
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
             }
           }
         },
         title: {
           text: 'Distribusi Total Belanja Litbang menurut Jenis Pengeluaran'
         },
-        tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        }
       };
 
       graphConf['series'] = [{
@@ -292,8 +299,12 @@ class ChartService {
             series: {
               stacking: 'normal'
             },
-
           },
+          tooltip: {
+            formatter: function() {
+              return this.x +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
+            }
+          }
         },
         title: {
           text: 'Jenis Pengeluaran Belanja Litbang Menurut Lembaga'
@@ -302,10 +313,7 @@ class ChartService {
           categories: categories
         },
         yAxis: {
-          min: 0,
-          title: {
-            text: 'Total fruit consumption'
-          }
+          min: 0
         },
         legend: {
           reversed: true
@@ -368,6 +376,11 @@ class ChartService {
                     enabled: true,
                     format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
             }
           }
         },
@@ -447,13 +460,15 @@ class ChartService {
                     format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
             }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
+            }
           }
         },
         title: {
           text: 'Total Belanja Litbang Sektor Pemerintah menurut Sumber Pendanaan (Non DIPA)'
-        },
-        tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         series: [{
           name: 'Total Belanja',
@@ -512,6 +527,11 @@ class ChartService {
                   enabled: true,
                   format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
             }
           }
         },
@@ -1201,22 +1221,23 @@ class ChartService {
       let graphConf = {
         options: {
           chart: {
-              type: 'column',
-              margin: 75,
-              options3d: {
-                enabled: true,
-                  alpha: 15,
-                  beta:30,
-                  depth: 200
-              }
+            renderTo: 'graph53',
+            type: 'column',
+            margin: 100,
+            options3d: {
+              enabled: true,
+              alpha: 10,
+              beta: 30,
+              depth: 250,
+              viewDistance: 25,
+            }
           },
           plotOptions: {
-              column: {
-                  depth: 40,
-                  stacking: false,
-                  grouping: false,
-                  groupZPadding: 40
-              }
+            column: {
+              grouping: false,
+              groupZPadding: 40,
+              depth: 25
+            }
           },
           legend: {
             layout: 'vertical',

@@ -15,7 +15,7 @@ class LoginController {
 
     if(form.$valid){
       this.userFactory.authenticate(this.auth.email, this.auth.password).then((res) => {
-        if (this.userFactory.getAuth().user_type == 'validator') {
+        if (this.userFactory.getAuth().user_type == 'validator' || this.userFactory.getAuth().user_type == 'guest') {
           this.$state.go('home');
         } else {
           this.$state.go('dashboard');

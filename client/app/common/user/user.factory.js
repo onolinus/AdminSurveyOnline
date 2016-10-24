@@ -41,7 +41,7 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
     $http(authRequest).success((data) => {
         if (data.user_type == 'correspondent') {
           deffered.reject({error: {
-            message: 'Akun tidak diberi akses untuk menggunakan aplikasi'
+            message: ['Akun tidak diberi akses untuk menggunakan aplikasi']
           }});
         } else {
           let currDate = new Date ();

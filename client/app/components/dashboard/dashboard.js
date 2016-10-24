@@ -4,7 +4,7 @@ import dashboardComponent from './dashboard.component';
 import anggaranComponent from './anggaran/anggaran.component';
 import belanjaComponent from './belanja/belanja.component';
 import personilComponent from './personil/personil.component';
-import penelitiComponent from './peneliti/peneliti.component';
+import patenComponent from './paten/paten.component';
 
 import chartFactory from './dashboard.chart.factory';
 import chartService from './dashboard.chart.service';
@@ -102,21 +102,21 @@ let dashboardModule = angular.module('dashboard', [
             return response;
           });
         },
-        // graph17: (chartService) => {
-        //   return chartService.graph17().then((response) => {
-        //     return response;
-        //   });
-        // },
-        // graph42: (chartService) => {
-        //   return chartService.graph42().then((response) => {
-        //     return response;
-        //   });
-        // },
-        // graph43: (chartService) => {
-        //   return chartService.graph43().then((response) => {
-        //     return response;
-        //   });
-        // }
+        graph17: (chartService) => {
+          return chartService.graph17().then((response) => {
+            return response;
+          });
+        },
+        graph42: (chartService) => {
+          return chartService.graph42().then((response) => {
+            return response;
+          });
+        },
+        graph43: (chartService) => {
+          return chartService.graph43().then((response) => {
+            return response;
+          });
+        }
       },
       data: {
         permission: {
@@ -128,16 +128,75 @@ let dashboardModule = angular.module('dashboard', [
       url: '/personil',
       component: 'personil',
       parent: 'dashboard',
+      resolve: {
+        graph46: (chartService) => {
+          return chartService.graph46().then((response) => {
+            return response;
+          });
+        },
+        graph47: (chartService) => {
+          return chartService.graph47().then((response) => {
+            return response;
+          });
+        },
+        graph48: (chartService) => {
+          return chartService.graph48().then((response) => {
+            return response;
+          });
+        },
+        graph50: (chartService) => {
+          return chartService.graph50().then((response) => {
+            return response;
+          });
+        },
+        graph51: (chartService) => {
+          return chartService.graph51().then((response) => {
+            return response;
+          });
+        },
+        graph52: (chartService) => {
+          return chartService.graph52().then((response) => {
+            return response;
+          });
+        },
+        graph53: (chartService) => {
+          return chartService.graph53().then((response) => {
+            return response;
+          });
+        },
+        graph63: (chartService) => {
+          return chartService.graph63().then((response) => {
+            return response;
+          });
+        },
+        graph65: (chartService) => {
+          return chartService.graph65().then((response) => {
+            return response;
+          });
+        },
+      },
       data: {
         permission: {
           only : ['admin','guest']
         }
       }
     })
-    .state('peneliti', {
-      url: '/peneliti',
-      component: 'peneliti',
+    .state('paten', {
+      url: '/paten',
+      component: 'paten',
       parent: 'dashboard',
+      resolve: {
+        graph67: (chartService) => {
+          return chartService.graph67().then((response) => {
+            return response;
+          });
+        },
+        graph68: (chartService) => {
+          return chartService.graph68().then((response) => {
+            return response;
+          });
+        },
+      },
       data: {
         permission: {
           only : ['admin','guest']
@@ -150,7 +209,7 @@ let dashboardModule = angular.module('dashboard', [
 .component('anggaran', anggaranComponent)
 .component('belanja', belanjaComponent)
 .component('personil', personilComponent)
-.component('peneliti', penelitiComponent)
+.component('paten', patenComponent)
 
 .factory('chartFactory', [chartFactory])
 

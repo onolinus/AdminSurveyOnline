@@ -218,7 +218,7 @@ class ChartService {
                 depth: 35,
                 dataLabels: {
                   enabled: true,
-                  format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                  format: '<b>{point.name}</b>: {point.percentage:.2f} %',
                 },
             }
           },
@@ -380,7 +380,7 @@ class ChartService {
                 depth: 35,
                 dataLabels: {
                     enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    format: '<b>{point.name}</b>: {point.percentage:.2f} %'
                 }
             }
           },
@@ -463,7 +463,7 @@ class ChartService {
                 depth: 35,
                 dataLabels: {
                     enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    format: '<b>{point.name}</b>: {point.percentage:.2f} %'
                 }
             }
           },
@@ -531,7 +531,7 @@ class ChartService {
                 depth: 35,
                 dataLabels: {
                   enabled: true,
-                  format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                  format: '<b>{point.name}</b>: {point.percentage:.2f} %'
                 }
             }
           },
@@ -1224,15 +1224,17 @@ class ChartService {
     };
 
     return this.$http(graph53).then((response) => {
+      console.log(response);
       let graphConf = {
         options: {
           chart: {
+            height: 600,
             renderTo: 'graph53',
             type: 'column',
             margin: 100,
             options3d: {
               enabled: true,
-              alpha: 10,
+              alpha: 35,
               beta: 30,
               depth: 250,
               viewDistance: 25,
@@ -1259,41 +1261,106 @@ class ChartService {
         },
         xAxis: {
           categories: [
-            'Agricukultural Sciences',
-            'Astronomy and Astrophysics',
+            'Agricultural Sciences',
+            'Anthropology',
             'Chemistry',
+            'Demography',
             'Earth and Space Sciences',
-            'Life Siences',
+            'Economic Sciences',
+            'Geography',
+            'History',
+            'Juridical Sciences & Law',
+            'Life Sciences',
             'Logic',
             'Mathematics',
             'Medical Sciences',
             'Physics',
-            'Technological Sciences',
-            'Economic Sciences',
-            'Political Sciences',
+            'Political Science',
+            'Psychology',
+            'Sciences of Art & Letter',
             'Sociology',
-            'Other Social Sciences'
+            'Technological Sciences'
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          text: 'Jumlah',
+          min: 0,
         },
         series: [{
           name: "S3",
-          data: [301, 0, 20, 111, 140, 0, 11, 4, 5, 256, 10, 3, 0, 5],
+          data: [
+            parseInt(response.data.data[0]['Agricultural sciences'].s3.value, 10),
+            parseInt(response.data.data[1]['Anthropology'].s3.value, 10),
+            parseInt(response.data.data[2]['Chemistry'].s3.value, 10),
+            parseInt(response.data.data[3]['Demography'].s3.value, 10),
+            parseInt(response.data.data[4]['Earth and Space Sciences'].s3.value, 10),
+            parseInt(response.data.data[5]['Economic sciences'].s3.value, 10),
+            parseInt(response.data.data[6]['Geography'].s3.value, 10),
+            parseInt(response.data.data[7]['History'].s3.value, 10),
+            parseInt(response.data.data[8]['Juridical Sciences & Law'].s3.value, 10),
+            parseInt(response.data.data[9]['Life Sciences'].s3.value, 10),
+            parseInt(response.data.data[10]['Logic'].s3.value, 10),
+            parseInt(response.data.data[11]['Mathematics'].s3.value, 10),
+            parseInt(response.data.data[12]['Medical Sciences'].s3.value, 10),
+            parseInt(response.data.data[13]['Physics'].s3.value, 10),
+            parseInt(response.data.data[14]['Political Science'].s3.value, 10),
+            parseInt(response.data.data[15]['Psychology'].s3.value, 10),
+            parseInt(response.data.data[16]['Sciences of Art & Letter'].s3.value, 10),
+            parseInt(response.data.data[17]['Sociology'].s3.value, 10),
+            parseInt(response.data.data[18]['Technological Sciences'].s3.value, 10),
+          ],
         }, {
           name: 'S2',
-          data: [3401, 794, 1635],
+          data: [
+            parseInt(response.data.data[0]['Agricultural sciences'].s2.value, 10),
+            parseInt(response.data.data[1]['Anthropology'].s2.value, 10),
+            parseInt(response.data.data[2]['Chemistry'].s2.value, 10),
+            parseInt(response.data.data[3]['Demography'].s2.value, 10),
+            parseInt(response.data.data[4]['Earth and Space Sciences'].s2.value, 10),
+            parseInt(response.data.data[5]['Economic sciences'].s2.value, 10),
+            parseInt(response.data.data[6]['Geography'].s2.value, 10),
+            parseInt(response.data.data[7]['History'].s2.value, 10),
+            parseInt(response.data.data[8]['Juridical Sciences & Law'].s2.value, 10),
+            parseInt(response.data.data[9]['Life Sciences'].s2.value, 10),
+            parseInt(response.data.data[10]['Logic'].s2.value, 10),
+            parseInt(response.data.data[11]['Mathematics'].s2.value, 10),
+            parseInt(response.data.data[12]['Medical Sciences'].s2.value, 10),
+            parseInt(response.data.data[13]['Physics'].s2.value, 10),
+            parseInt(response.data.data[14]['Political Science'].s2.value, 10),
+            parseInt(response.data.data[15]['Psychology'].s2.value, 10),
+            parseInt(response.data.data[16]['Sciences of Art & Letter'].s2.value, 10),
+            parseInt(response.data.data[17]['Sociology'].s2.value, 10),
+            parseInt(response.data.data[18]['Technological Sciences'].s2.value, 10),
+          ],
         }, {
           name: 'S1',
-          data: [3401, 794, 1635],
+          data: [
+            parseInt(response.data.data[0]['Agricultural sciences'].s1.value, 10),
+            parseInt(response.data.data[1]['Anthropology'].s1.value, 10),
+            parseInt(response.data.data[2]['Chemistry'].s1.value, 10),
+            parseInt(response.data.data[3]['Demography'].s1.value, 10),
+            parseInt(response.data.data[4]['Earth and Space Sciences'].s1.value, 10),
+            parseInt(response.data.data[5]['Economic sciences'].s1.value, 10),
+            parseInt(response.data.data[6]['Geography'].s1.value, 10),
+            parseInt(response.data.data[7]['History'].s1.value, 10),
+            parseInt(response.data.data[8]['Juridical Sciences & Law'].s1.value, 10),
+            parseInt(response.data.data[9]['Life Sciences'].s1.value, 10),
+            parseInt(response.data.data[10]['Logic'].s1.value, 10),
+            parseInt(response.data.data[11]['Mathematics'].s1.value, 10),
+            parseInt(response.data.data[12]['Medical Sciences'].s1.value, 10),
+            parseInt(response.data.data[13]['Physics'].s1.value, 10),
+            parseInt(response.data.data[14]['Political Science'].s1.value, 10),
+            parseInt(response.data.data[15]['Psychology'].s1.value, 10),
+            parseInt(response.data.data[16]['Sciences of Art & Letter'].s1.value, 10),
+            parseInt(response.data.data[17]['Sociology'].s3.value, 10),
+            parseInt(response.data.data[18]['Technological Sciences'].s1.value, 10),
+          ],
         }]
       };
 
       return graphConf;
     });
   }
-
 
   graph63 = () => {
     const graph63Req = {
@@ -1573,6 +1640,370 @@ class ChartService {
 
       return graphConf;
     });
+  }
+
+  graph70 = () => {
+    const graph70Req = {
+      method: 'GET',
+      url: this.apiURL + '/stats/makalah-ilmiah/internasional/lembaga',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(graph70Req).then((response) => {
+
+      let graphConf = {
+        options: {
+          chart: {
+            renderTo: 'graph53',
+            height: 600,
+            type: 'column',
+            margin: 100,
+            options3d: {
+              enabled: true,
+              alpha: 25,
+              beta: 25,
+              depth: 250,
+              viewDistance: 25,
+            }
+          },
+          plotOptions: {
+            column: {
+              grouping: false,
+              groupZPadding: 40,
+              depth:35
+            }
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -10,
+            y: 100,
+            borderWidth: 0
+          },
+        },
+        title: {
+          text: response.data.meta.title
+        },
+        xAxis: {
+          categories: [
+            'BPPT',
+            'KKP',
+            'Kemen LHK',
+            'Kementan',
+            'LIPI',
+            'BATAN',
+            'Kemenperin',
+            'Kemenkes',
+            'Kemenristekdikti',
+            'LAPAN'
+          ]
+        },
+        yAxis: {
+          text: 'Jumlah'
+        },
+        series: [
+        {
+          name: "AGRICULTURAL AND ENVIRONMENTAL SCIENCES",
+          data: [
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Kelautan dan Perikanan - KKP'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Lingkungan Hidup dan Kehutanan - Kemen LHK'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Pertanian - Kementan'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ]
+        },
+        {
+          name: 'ENGINEERING AND TECHNOLOGY',
+          data: [
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            0,
+            0,
+            0,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Badan Tenaga Nuklir Nasional - BATAN'].value,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Kementerian Perindustrian - Kemenperin'].value,
+            0,
+            0,
+            0
+          ],
+        },
+        {
+          name: 'MEDICAL SCIENCES',
+          data: [
+          0,
+          0,
+          0,
+          0,
+          response.data.data['MEDICAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+          0,
+          0,
+          response.data.data['MEDICAL SCIENCES']['Kementerian Kesehatan - Kemenkes'].value,
+          response.data.data['MEDICAL SCIENCES']['Kementerian Riset, Teknologi dan Pendidikan Tinggi - Kemenristekdikti'].value,
+          0
+          ],
+        },
+        {
+          name: 'NATURAL SCIENCES',
+          data: [
+            response.data.data['NATURAL SCIENCES']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            response.data.data['NATURAL SCIENCES']['Kementerian Kelautan dan Perikanan - KKP'].value,
+            response.data.data['NATURAL SCIENCES']['Kementerian Lingkungan Hidup dan Kehutanan - Kemen LHK'].value,
+            0,
+            response.data.data['NATURAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            response.data.data['NATURAL SCIENCES']['Badan Tenaga Nuklir Nasional - BATAN'].value,
+            response.data.data['NATURAL SCIENCES']['Kementerian Perindustrian - Kemenperin'].value,
+            0,
+            response.data.data['MEDICAL SCIENCES']['Kementerian Riset, Teknologi dan Pendidikan Tinggi - Kemenristekdikti'].value,
+            response.data.data['NATURAL SCIENCES']['Lembaga Penerbangan dan Antariksa Nasional - LAPAN'].value,
+
+          ],
+        },
+        {
+          name: 'SOCIAL SCIENCES',
+          data: [
+            0,
+            0,
+            0,
+            0,
+            response.data.data['SOCIAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+        }]
+      };
+
+      return graphConf;
+    });
+
+  }
+
+  graph71 = () => {
+    const graph71Req = {
+      method: 'GET',
+      url: this.apiURL + '/stats/makalah-ilmiah/nasional/lembaga',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(graph71Req).then((response) => {
+      let graphConf = {
+        options: {
+          chart: {
+            renderTo: 'graph53',
+            type: 'column',
+            height: 600,
+            margin: 10,
+            options3d: {
+              enabled: true,
+              alpha: 25,
+              beta: 25,
+              depth: 250,
+              viewDistance: 25,
+            }
+          },
+          plotOptions: {
+            column: {
+              grouping: false,
+              groupZPadding: 40,
+              depth: 35
+            }
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -10,
+            y: 40,
+            borderWidth: 0
+          },
+        },
+        title: {
+          text: response.data.meta.title
+        },
+        xAxis: {
+          categories: [
+            'BPPT',
+            'KKP',
+            'Kemen LHK',
+            'Kementan',
+            'LIPI',
+            'BATAN',
+            'Kemenperin',
+            'Kemenkes',
+            'Kemenristekdikti',
+            'LAPAN',
+            'Kemen PUPR'
+          ]
+        },
+        yAxis: {
+          text: 'Jumlah'
+        },
+        series:[
+        {
+          name: "AGRICULTURAL AND ENVIRONMENTAL SCIENCES",
+          data: [
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Kelautan dan Perikanan - KKP'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Lingkungan Hidup dan Kehutanan - Kemen LHK'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Pertanian - Kementan'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Badan Tenaga Nuklir Nasional - BATAN'].value,
+            0,
+            0,
+            0,
+            0,
+            response.data.data['AGRICULTURAL AND ENVIRONMENTAL SCIENCES']['Kementerian Pekerjaan Umum dan Perumahan Rakyat - Kemen PUPR'].value,
+          ]
+        },
+        {
+          name: 'ENGINEERING AND TECHNOLOGY',
+          data: [
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Kementerian Kelautan dan Perikanan - KKP'].value,
+            0,
+            0,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Badan Tenaga Nuklir Nasional - BATAN'].value,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Kementerian Perindustrian - Kemenperin'].value,
+            0,
+            0,
+            0,
+            response.data.data['ENGINEERING AND TECHNOLOGY']['Kementerian Pekerjaan Umum dan Perumahan Rakyat - Kemen PUPR'].value,
+          ],
+        },
+        {
+          name: 'MEDICAL SCIENCES',
+          data: [
+          0,
+          0,
+          0,
+          0,
+          response.data.data['MEDICAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+          0,
+          0,
+          response.data.data['MEDICAL SCIENCES']['Kementerian Kesehatan - Kemenkes'].value,
+          response.data.data['MEDICAL SCIENCES']['Kementerian Riset, Teknologi dan Pendidikan Tinggi - Kemenristekdikti'].value,
+          0,
+          0
+          ],
+        },
+        {
+          name: 'NATURAL SCIENCES',
+          data: [
+            response.data.data['NATURAL SCIENCES']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            response.data.data['NATURAL SCIENCES']['Kementerian Kelautan dan Perikanan - KKP'].value,
+            0,
+            response.data.data['NATURAL SCIENCES']['Kementerian Pertanian - Kementan'].value,
+            response.data.data['NATURAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            response.data.data['NATURAL SCIENCES']['Badan Tenaga Nuklir Nasional - BATAN'].value,
+            0,
+            0,
+            response.data.data['MEDICAL SCIENCES']['Kementerian Riset, Teknologi dan Pendidikan Tinggi - Kemenristekdikti'].value,
+            response.data.data['NATURAL SCIENCES']['Lembaga Penerbangan dan Antariksa Nasional - LAPAN'].value,
+            0
+          ],
+        },
+        {
+          name: 'SOCIAL SCIENCES',
+          data: [
+            response.data.data['SOCIAL SCIENCES']['Badan Pengkajian dan Penerapan Teknologi - BPPT'].value,
+            0,
+            0,
+            0,
+            response.data.data['SOCIAL SCIENCES']['Lembaga Ilmu Pengetahuan Indonesia - LIPI'].value,
+            0,
+            0,
+            0,
+            0,
+            0,
+            response.data.data['SOCIAL SCIENCES']['Kementerian Pekerjaan Umum dan Perumahan Rakyat - Kemen PUPR'].value,
+          ],
+        }]
+      };
+
+      return graphConf;
+    });
+  }
+
+  graph77 = () => {
+    const graph77Req = {
+      method: 'GET',
+      url: this.apiURL + '/stats/produk/barang',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+     return this.$http(graph77Req).then((response) => {
+
+      const data = response.data.data;
+
+      let graphConf = {
+        options: {
+          chart: {
+              type: 'column',
+              margin: 75,
+              options3d: {
+                enabled: true,
+                  alpha: 0,
+                  beta:0,
+                  depth: 100
+              }
+          },
+          plotOptions: {
+              column: {
+                  depth: 40,
+                  stacking: false,
+                  grouping: true,
+                  groupZPadding: 40
+              }
+          },
+        },
+        title: {
+          text: 'Perkembangan Jumlah produk barang tahun 2013-2015 (perbandingan yang sudah dan belum terkomersialisasi)'
+        },
+        xAxis: {
+          categories: Object.keys(data)
+        },
+        yAxis: {
+          text: 'Jumlah'
+        },
+        series: [
+          {
+            name: "Terkomersialisasi",
+            data: [
+              data[Object.keys(data)[0]]['terkomersialisasi'].value,
+              data[Object.keys(data)[1]]['terkomersialisasi'].value,
+              data[Object.keys(data)[2]]['terkomersialisasi'].value],
+          },
+          {
+            name: 'Belum Terkomersialisasi',
+            data: [
+              data[Object.keys(data)[0]]['belum terkomersialisasi'].value,
+              data[Object.keys(data)[1]]['belum terkomersialisasi'].value,
+              data[Object.keys(data)[2]]['belum terkomersialisasi'].value],
+          }
+        ]
+      };
+
+      return graphConf;
+    });
+
   }
 }
 

@@ -196,6 +196,22 @@ let dashboardModule = angular.module('dashboard', [
             return response;
           });
         },
+        graph70: (chartService) => {
+          return chartService.graph70().then((response) => {
+            return response;
+          });
+        },
+        graph71: (chartService) => {
+          return chartService.graph71().then((response) => {
+            return response;
+          });
+        },
+        graph77: (chartService) => {
+          return chartService.graph77().then((response) => {
+            console.log('graph77Req', response);
+            return response;
+          });
+        }
       },
       data: {
         permission: {

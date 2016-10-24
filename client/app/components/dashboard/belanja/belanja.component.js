@@ -4,7 +4,7 @@ import './belanja.styl';
 
 let belanjaComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {graph4: '=', graph5: '=', graph6: '=', graph7a: '=', graph7b: '=', graph9: '='},
   template,
   controller
 };

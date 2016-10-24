@@ -4,7 +4,7 @@ import './anggaran.styl';
 
 let anggaranComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {graph2: '='},
   template,
   controller
 };

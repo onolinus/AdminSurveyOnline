@@ -49,6 +49,13 @@ let dashboardModule = angular.module('dashboard', [
       url: '/anggaran',
       component: 'anggaran',
       parent: 'dashboard',
+      // resolve: {
+      //   graph2: (chartService) => {
+      //     return chartService.graph2().then((response) => {
+      //       return response;
+      //     });
+      //   }
+      // },
       data: {
         permission: {
           only : ['admin','guest']
@@ -59,6 +66,58 @@ let dashboardModule = angular.module('dashboard', [
       url: '/belanja',
       component: 'belanja',
       parent: 'dashboard',
+      resolve: {
+        graph4: (chartService) => {
+          return chartService.graph4().then((response) => {
+            return response;
+          });
+        },
+        graph5: (chartService) => {
+          return chartService.graph5().then((response) => {
+            return response;
+          });
+        },
+        graph6: (chartService) => {
+          return chartService.graph6().then((response) => {
+            return response;
+          });
+        },
+        graph7a: (chartService) => {
+          return chartService.graph7a().then((response) => {
+            return response;
+          });
+        },
+        graph7b: (chartService) => {
+          return chartService.graph7b().then((response) => {
+            return response;
+          });
+        },
+        graph9: (chartService) => {
+          return chartService.graph9().then((response) => {
+            return response;
+          });
+        },
+        graph11: (chartService) => {
+          return chartService.graph11().then((response) => {
+            return response;
+          });
+        },
+        // graph17: (chartService) => {
+        //   return chartService.graph17().then((response) => {
+        //     return response;
+        //   });
+        // },
+        // graph42: (chartService) => {
+        //   return chartService.graph42().then((response) => {
+        //     return response;
+        //   });
+        // },
+        // graph43: (chartService) => {
+        //   return chartService.graph43().then((response) => {
+        //     return response;
+        //   });
+        // }
+      },
       data: {
         permission: {
           only : ['admin','guest']

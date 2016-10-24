@@ -310,10 +310,16 @@ class ChartService {
           text: 'Jenis Pengeluaran Belanja Litbang Menurut Lembaga'
         },
         xAxis: {
-          categories: categories
+          categories: categories,
         },
         yAxis: {
-          min: 0
+          min: 0,
+          labels: {
+            enabled: false
+          },
+          title: {
+            text: null
+          }
         },
         legend: {
           reversed: true

@@ -959,11 +959,13 @@ class ChartService {
             'S2',
             'S1',
             'D3',
-            '<D3'
+            '&lt;D3'
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Peneliti'
+          }
         },
         series: [{
           name: "Peneliti",
@@ -1024,7 +1026,9 @@ class ChartService {
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Peneliti'
+          }
         },
         series: [{
           name: "Laki Laki",
@@ -1082,7 +1086,9 @@ class ChartService {
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Peneliti'
+          }
         },
         series: [{
           name: "Laki Laki",
@@ -1136,11 +1142,13 @@ class ChartService {
           categories: [
             'S1',
             'D3',
-            '<D3'
+            '&lt;D3'
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Peneliti'
+          }
         },
         series: [{
           name: "Laki Laki",
@@ -1178,14 +1186,6 @@ class ChartService {
                   depth: 100
               }
           },
-          plotOptions: {
-              column: {
-                  depth: 40,
-                  stacking: false,
-                  grouping: true,
-                  groupZPadding: 40
-              }
-          },
         },
         title: {
           text: response.data.meta.title
@@ -1194,11 +1194,13 @@ class ChartService {
           categories: [
             'S1',
             'D3',
-            '<D3'
+            '&lt;D3'
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Peneliti'
+          }
         },
         series: [{
           name: "Laki Laki",
@@ -1287,8 +1289,9 @@ class ChartService {
           ]
         },
         yAxis: {
-          text: 'Jumlah',
-          min: 0,
+          title: {
+            text: 'Jumlah Peneliti'
+          }
         },
         series: [{
           name: "S3",
@@ -1568,7 +1571,9 @@ class ChartService {
           categories: Object.keys(data)
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Paten'
+          }
         },
         series: [{
           name: "Disetujui",
@@ -1627,7 +1632,9 @@ class ChartService {
           categories: Object.keys(data)
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Paten'
+          }
         },
         series: [
           {
@@ -1719,7 +1726,9 @@ class ChartService {
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah'
+          }
         },
         series: [
         {
@@ -1866,7 +1875,9 @@ class ChartService {
           ]
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah'
+          }
         },
         series:[
         {
@@ -1997,7 +2008,9 @@ class ChartService {
           categories: Object.keys(data)
         },
         yAxis: {
-          text: 'Jumlah'
+          title: {
+            text: 'Jumlah Produk Barang'
+          }
         },
         series: [
           {

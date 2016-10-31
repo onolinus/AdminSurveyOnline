@@ -39,7 +39,7 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
     };
 
     $http(authRequest).success((data) => {
-        if (data.user_type == 'correspondent') {
+        if ($.inArray(data.user_type, [ "validator", "guest", "correspondent", "admin"]) == -1) {
           deffered.reject({error: {
             message: ['Akun tidak diberi akses untuk menggunakan aplikasi']
           }});

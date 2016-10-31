@@ -622,6 +622,11 @@ class ChartService {
                   format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
             }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
+            }
           }
         },
         title: {
@@ -687,6 +692,11 @@ class ChartService {
                   enabled: true,
                   format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +'</b>';
             }
           }
         },
@@ -817,6 +827,11 @@ class ChartService {
                   enabled: true,
                   format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.name +'<br> Total Belanja : <b>Rp '+ Highcharts.numberFormat(this.y, 0, '.', ',') +' Miliar</b>';
             }
           }
         },

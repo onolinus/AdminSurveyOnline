@@ -92,6 +92,11 @@ let dashboardModule = angular.module('dashboard', [
             return response;
           });
         },
+        compareAnggaranDipa: (chartService) => {
+          return chartService.compareAnggaranDipa().then((response) => {
+            return response;
+          });
+        },
         graph9: (chartService) => {
           return chartService.graph9().then((response) => {
             return response;
@@ -203,6 +208,11 @@ let dashboardModule = angular.module('dashboard', [
         },
         graph71: (chartService) => {
           return chartService.graph71().then((response) => {
+            return response;
+          });
+        },
+        graph72: (chartService) => {
+          return chartService.graph72().then((response) => {
             return response;
           });
         },

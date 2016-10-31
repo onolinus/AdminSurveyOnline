@@ -402,6 +402,11 @@ class ChartService {
             y: response.data.data.dipa.data.dipa_danapemerintah.value,
             sliced: true,
             selected: true
+          },{
+            name: 'DIPA PHLN',
+            y: response.data.data.dipa.data.dipa_phln.value,
+            sliced: true,
+            selected: true
           }, {
             name: 'PNPB Instansi Pemerintah',
             sliced: true,
@@ -717,7 +722,6 @@ class ChartService {
 
     return this.$http(graph42Req).then((response) => {
       let series_data = [];
-
       angular.forEach(response.data.data, (data) => {
         series_data.push({
           name: Object.keys(data)[0],
@@ -763,7 +767,17 @@ class ChartService {
         series: [{
           name: 'Total Belanja',
           colorByPoint: true,
-          data: series_data
+          data: [{
+              name: 'Ekstramural',
+              y: response.data.data.ekstramural.value,
+              sliced: true,
+              selected: true
+            },{
+              name: 'Intramural',
+              y: response.data.data.intramural.value,
+              sliced: true,
+              selected: true
+            }]
         }]
       };
 
@@ -782,17 +796,6 @@ class ChartService {
     };
 
     return this.$http(graph43Req).then((response) => {
-      let series_data = [];
-
-      angular.forEach(response.data.data, (data) => {
-        series_data.push({
-          name: Object.keys(data)[0],
-          y: data[Object.keys(data)[0]].value,
-          sliced: true,
-          selected: true
-        });
-      });
-
       let graphConf = {
         options: {
           chart: {
@@ -829,7 +832,38 @@ class ChartService {
         series: [{
           name: 'Total Belanja',
           colorByPoint: true,
-          data: series_data
+          data: [
+            {
+              name: 'Asing',
+              y: response.data.data.asing.value,
+              sliced: true,
+              selected: true
+            },
+            {
+              name: 'Industri',
+              y: response.data.data.industri.value,
+              sliced: true,
+              selected: true
+            },
+            {
+              name: 'Lembaga Swadaya',
+              y: response.data.data.lembagaswadaya.value,
+              sliced: true,
+              selected: true
+            },
+            {
+              name: 'Pemerintah',
+              y: response.data.data.pemerintah.value,
+              sliced: true,
+              selected: true
+            },
+            {
+              name: 'Perguruan Tinggi',
+              y: response.data.data.perguruantinggi.value,
+              sliced: true,
+              selected: true
+            }
+          ]
         }]
       };
 
@@ -1226,7 +1260,6 @@ class ChartService {
     };
 
     return this.$http(graph53).then((response) => {
-      console.log(response);
       let graphConf = {
         options: {
           chart: {
@@ -1966,6 +1999,71 @@ class ChartService {
     });
   }
 
+  graph72 = () => {
+    const graph72Req = {
+      method: 'GET',
+      url: this.apiURL + '/stats/lembaga/pemilik-lisensi',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+
+
+    return this.$http(graph72Req).then((response) => {
+      const data = response.data.data;
+
+      const categories = [];
+
+      angular.forEach(data, function(cat){
+        categories.push(cat.name);
+      });
+
+      let graphConf = {
+        options: {
+          chart: {
+              type: 'column',
+              margin: 75,
+              options3d: {
+                enabled: true,
+                  alpha: 0,
+                  beta:0,
+                  depth: 100
+              }
+          },
+          plotOptions: {
+              column: {
+                  depth: 40,
+                  stacking: false,
+                  grouping: true,
+                  groupZPadding: 40
+              }
+          },
+        },
+        title: {
+          text: response.data.meta.title
+        },
+        xAxis: {
+          categories: categories
+        },
+        yAxis: {
+          title: {
+            text: 'Jumlah Lisensi'
+          }
+        },
+        series: [
+          {
+            showInLegend: false,
+            data: data.map(function(item){ return item.value})
+          }
+        ]
+      };
+
+      return graphConf;
+    });
+  }
+
   graph77 = () => {
     const graph77Req = {
       method: 'GET',
@@ -2033,6 +2131,106 @@ class ChartService {
       return graphConf;
     });
 
+  }
+
+  compareAnggaranDipa = () => {
+    var that = this;
+
+    const compareAnggaranDipaReq = {
+      method: 'GET',
+      url: this.apiURL + '/stats/compare/anggaran-and-dipa',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+
+
+    return this.$http(compareAnggaranDipaReq).then((response) => {
+      const data = response.data.data;
+      const g_categories = [];
+      const realisasi = [];
+      const dipa = [];
+
+      angular.forEach(data, function(cat){
+        g_categories.push(Object.keys(cat)[0]);
+      });
+
+      angular.forEach(data, function(cat){
+        realisasi.push(cat[Object.keys(cat)[0]].realisasi_anggaran);
+      });
+
+      angular.forEach(data, function(cat){
+        dipa.push(cat[Object.keys(cat)[0]].dipa);
+      });
+
+      let graphConf = {
+        options: {
+          chart: {
+              type: 'column',
+              height: 600,
+              margin: 180,
+               options3d: {
+                enabled: true,
+                  alpha: 0,
+                  beta:0,
+                  depth: 40
+              }
+          },
+          plotOptions: {
+              column: {
+                  depth: 40,
+                  stacking: false,
+                  grouping: true,
+                  groupZPadding: 40
+              }
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -10,
+            y: 100,
+            borderWidth: 0
+          }
+        },
+        title: {
+          text: response.data.meta.title
+        },
+        xAxis: {
+          categories: g_categories
+        },
+        yAxis: {
+          title: {
+            text: 'Jumlah'
+          },
+          labels: {
+            formatter: function () {
+              return that.chartFactory.labelFormatter(this);
+            }
+          }
+        },
+        series: [
+          {
+            name: "Realisasi Anggaran",
+            data: realisasi,
+          },
+          {
+            name: 'Dipa',
+            data: dipa,
+          }
+        ]
+      };
+
+      angular.extend(graphConf.options, {tooltip: {
+        formatter: function() {
+          return this.x +'<br>'+ this.point.series.name + ' : <b>Rp '+ Highcharts.numberFormat(this.y, 2, '.', ',') +'</b>';
+        }
+      }});
+
+      return graphConf;
+    });
   }
 }
 

@@ -9,6 +9,7 @@ let patenComponent = {
     graph68: '=',
     graph70: '=',
     graph71: '=',
+    graph72: '=',
     graph77: '='
   },
   template,

@@ -1286,15 +1286,15 @@ class ChartService {
       let graphConf = {
         options: {
           chart: {
-            height: 600,
+            height: 650,
             renderTo: 'graph53',
             type: 'column',
-            margin: 100,
+            margin: 200,
             options3d: {
               enabled: true,
-              alpha: 35,
-              beta: 30,
-              depth: 250,
+              alpha: 25,
+              beta: 25,
+              depth: 230,
               viewDistance: 25,
             }
           },
@@ -1748,12 +1748,12 @@ class ChartService {
             renderTo: 'graph53',
             height: 600,
             type: 'column',
-            margin: 100,
+            margin: 200,
             options3d: {
               enabled: true,
               alpha: 25,
               beta: 25,
-              depth: 250,
+              depth: 400,
               viewDistance: 25,
             }
           },
@@ -1896,12 +1896,12 @@ class ChartService {
             renderTo: 'graph53',
             type: 'column',
             height: 600,
-            margin: 10,
+            margin: 200,
             options3d: {
               enabled: true,
               alpha: 25,
               beta: 25,
-              depth: 250,
+              depth: 400,
               viewDistance: 25,
             }
           },

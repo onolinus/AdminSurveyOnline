@@ -80,7 +80,6 @@ let QuestionFactory = function () {
 
   let isAnswersChecked = (userId) => {
     let checked = true;
-    console.log('isAnswersChecked', answers[userId]);
     angular.forEach(answers[userId], function(ans, index){
       if(checked){
         if (ans.status == 'terkirim' ) {

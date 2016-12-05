@@ -21,7 +21,6 @@ class LoginController {
           this.$state.go('dashboard');
         }
       }, (data) => {
-        console.log(data.error.message);
         angular.forEach(data.error.message, (message) => {
           this.toastr.error(message, 'Login error');
         });

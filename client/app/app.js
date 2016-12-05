@@ -9,6 +9,7 @@ require('gentelella/vendors/nprogress/nprogress');
 require('angular-block-ui/dist/angular-block-ui.min.js');
 require('angular-block-ui/dist/angular-block-ui.min.css');
 
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import stateEvent from 'angular-ui-router/release/stateEvents.min.js';

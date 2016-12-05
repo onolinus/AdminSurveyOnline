@@ -121,7 +121,17 @@ let dashboardModule = angular.module('dashboard', [
           return chartService.graph43().then((response) => {
             return response;
           });
-        }
+        },
+        jabatanFungsionalPerLembaga: (chartService) => {
+          // return chartService.jabatanFungsionalPerLembaga().then((response) => {
+          //   console.log(response);
+          //   return response;
+          // });
+          //
+
+
+          return {};
+        },
       },
       data: {
         permission: {
@@ -239,6 +249,8 @@ let dashboardModule = angular.module('dashboard', [
 .factory('chartFactory', [chartFactory])
 
 .service('chartService', chartService)
+
+
 .name;
 
 export default dashboardModule;

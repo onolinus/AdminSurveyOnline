@@ -3,88 +3,22 @@
 
 <!-- page content -->
 <div class="right_col dashboard" role="main">
-  <!-- <div class="row">
-
-    <div class="col-sm-6 col-lg-3">
-      <div class="panel media pad-all">
-        <div class="media-left">
-          <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
-          <i class="fa fa-suitcase icon-2x"></i>
-          </span>
-        </div>
-
-        <div class="media-body">
-          <p class="text-2x mar-no text-thin">241</p>
-          <p class="text-muted mar-no">Total Lembaga</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3">
-      <div class="panel media pad-all">
-        <div class="media-left">
-          <span class="icon-wrap icon-wrap-sm icon-circle bg-info">
-          <i class="fa fa-shield icon-2x"></i>
-          </span>
-        </div>
-
-        <div class="media-body">
-          <p class="text-2x mar-no text-thin">543</p>
-          <p class="text-muted mar-no">Total Unit</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3">
-      <div class="panel media pad-all">
-        <div class="media-left">
-          <span class="icon-wrap icon-wrap-sm icon-circle bg-warning">
-            <i class="fa fa-users icon-2x"></i>
-          </span>
-        </div>
-
-        <div class="media-body">
-          <p class="text-2x mar-no text-thin">34</p>
-          <p class="text-muted mar-no">Total Responden</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-3">
-      <div class="panel media pad-all">
-        <div class="media-left">
-          <span class="icon-wrap icon-wrap-sm icon-circle bg-danger">
-            <i class="fa fa-share-alt icon-2x"></i>
-          </span>
-        </div>
-
-        <div class="media-body">
-          <p class="text-2x mar-no text-thin">654</p>
-          <p class="text-muted mar-no">Total Hasil Survei</p>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <!-- top tiles -->
   <div class="row tile_count">
 
     <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
       <span class="count_top">
-        <!-- <i class="fa fa-user"></i>  -->
         Total Lembaga
       </span>
       <div class="count">{{$ctrl.summaryStats.lembaga}}</div>
-      <!-- <span class="count_bottom"><i class="green">4% </i> From last Week</span> -->
     </div>
 
     <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
       <span class="count_top">
-        <!-- <i class="fa fa-user"></i> -->
         Total Responden
       </span>
       <div class="count green">{{$ctrl.summaryStats.correspondent}}</div>
-      <!-- <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
     </div>
 
     <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
@@ -93,7 +27,6 @@
         Total Hasil Survei
       </span>
       <div class="count">{{$ctrl.summaryStats.answers}}</div>
-      <!-- <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span> -->
     </div>
   </div>
   <!-- /top tiles -->

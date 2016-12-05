@@ -394,6 +394,7 @@ class ChartService {
           text: 'Total Belanja Litbang Sektor Pemerintah menurut Sumber Pendanaan (DIPA)'
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: [
@@ -482,6 +483,7 @@ class ChartService {
           text: 'Total Belanja Litbang Sektor Pemerintah menurut Sumber Pendanaan (Non DIPA)'
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: [
@@ -556,6 +558,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: [
@@ -639,6 +642,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: series_data
@@ -710,6 +714,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: series_data
@@ -775,6 +780,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: [{
@@ -845,6 +851,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Total Belanja',
           colorByPoint: true,
           data: [
@@ -931,6 +938,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Jumlah',
           colorByPoint: true,
           data: [{
@@ -1474,6 +1482,7 @@ class ChartService {
             enabled: false
         },
         series: [{
+          type:'pie',
           name: 'Jumlah',
           colorByPoint: true,
           data: [{
@@ -1525,13 +1534,13 @@ class ChartService {
           },
           plotOptions: {
             pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                depth: 35,
-                dataLabels: {
-                  enabled: true,
-                  format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
+              allowPointSelect: true,
+              cursor: 'pointer',
+              depth: 35,
+              dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+              }
             }
           }
         },
@@ -1540,39 +1549,37 @@ class ChartService {
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        }
-      };
-
-      graphConf['series'] = [{
-        type:'pie',
-        name: 'Jumlah',
-        colorByPoint: true,
-        data: [
-        {
-          name: 'Asing',
-          y: response.data.data.asing.value,
-          sliced: true,
-          selected: true
-        }, {
-          name: 'Industri',
-          sliced: true,
-          y: response.data.data.industri.value
-        },{
-          name: 'Lembaga Swadaya',
-          sliced: true,
-          y: response.data.data.lembagaswadaya.value
-        },{
-          name: 'Pemerintah',
-          sliced: true,
-          y: response.data.data.pemerintah.value
         },
-        {
-          name: 'Perguruan Tinggi',
-          sliced: true,
-          y: response.data.data.perguruan_tinggi.value
+        series: [{
+          type:'pie',
+          name: 'Jumlah',
+          colorByPoint: true,
+          data: [
+          {
+            name: 'Asing',
+            y: response.data.data.asing.value,
+            sliced: true,
+            selected: true
+          }, {
+            name: 'Industri',
+            sliced: true,
+            y: response.data.data.industri.value
+          },{
+            name: 'Lembaga Swadaya',
+            sliced: true,
+            y: response.data.data.lembagaswadaya.value
+          },{
+            name: 'Pemerintah',
+            sliced: true,
+            y: response.data.data.pemerintah.value
+          },
+          {
+            name: 'Perguruan Tinggi',
+            sliced: true,
+            y: response.data.data.perguruan_tinggi.value
+          }]
         }]
-      }];
-
+      };
 
       return graphConf;
     })
@@ -1592,26 +1599,26 @@ class ChartService {
       const data = response.data.data;
 
       let graphConf = {
-        options: {
-          chart: {
-              type: 'column',
-              margin: 75,
-              options3d: {
-                enabled: true,
-                  alpha: 0,
-                  beta:0,
-                  depth: 100
-              }
-          },
-          plotOptions: {
-              column: {
-                  depth: 40,
-                  stacking: false,
-                  grouping: true,
-                  groupZPadding: 40
-              }
-          },
-        },
+        // options: {
+        //   chart: {
+        //       type: 'column',
+        //       margin: 75,
+        //       options3d: {
+        //         enabled: true,
+        //           alpha: 0,
+        //           beta:0,
+        //           depth: 100
+        //       }
+        //   },
+        //   plotOptions: {
+        //       column: {
+        //           depth: 40,
+        //           stacking: false,
+        //           grouping: true,
+        //           groupZPadding: 40
+        //       }
+        //   },
+        // },
         title: {
           text: response.data.meta.title
         },
@@ -1621,7 +1628,12 @@ class ChartService {
         yAxis: {
           title: {
             text: 'Jumlah Paten'
-          }
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
         },
         series: [{
           name: "Disetujui",
@@ -1653,26 +1665,26 @@ class ChartService {
       const data = response.data.data;
 
       let graphConf = {
-        options: {
-          chart: {
-              type: 'column',
-              margin: 75,
-              options3d: {
-                enabled: true,
-                  alpha: 0,
-                  beta:0,
-                  depth: 100
-              }
-          },
-          plotOptions: {
-              column: {
-                  depth: 40,
-                  stacking: false,
-                  grouping: true,
-                  groupZPadding: 40
-              }
-          },
-        },
+        // options: {
+        //   chart: {
+        //       type: 'column',
+        //       margin: 75,
+        //       options3d: {
+        //         enabled: true,
+        //           alpha: 0,
+        //           beta:0,
+        //           depth: 100
+        //       }
+        //   },
+        //   plotOptions: {
+        //       column: {
+        //           depth: 40,
+        //           stacking: false,
+        //           grouping: true,
+        //           groupZPadding: 40
+        //       }
+        //   },
+        // },
         title: {
           text: response.data.meta.title
         },
@@ -1682,7 +1694,12 @@ class ChartService {
         yAxis: {
           title: {
             text: 'Jumlah Paten'
-          }
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
         },
         series: [
           {
@@ -2094,26 +2111,26 @@ class ChartService {
       const data = response.data.data;
 
       let graphConf = {
-        options: {
-          chart: {
-              type: 'column',
-              margin: 75,
-              options3d: {
-                enabled: true,
-                  alpha: 0,
-                  beta:0,
-                  depth: 100
-              }
-          },
-          plotOptions: {
-              column: {
-                  depth: 40,
-                  stacking: false,
-                  grouping: true,
-                  groupZPadding: 40
-              }
-          },
-        },
+        // options: {
+        //   chart: {
+        //       type: 'column',
+        //       margin: 75,
+        //       options3d: {
+        //         enabled: true,
+        //           alpha: 0,
+        //           beta:0,
+        //           depth: 100
+        //       }
+        //   },
+        //   plotOptions: {
+        //       column: {
+        //           depth: 40,
+        //           stacking: false,
+        //           grouping: true,
+        //           groupZPadding: 40
+        //       }
+        //   },
+        // },
         title: {
           text: 'Perkembangan Jumlah produk barang tahun 2013-2015 (perbandingan yang sudah dan belum terkomersialisasi)'
         },
@@ -2123,7 +2140,12 @@ class ChartService {
         yAxis: {
           title: {
             text: 'Jumlah Produk Barang'
-          }
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
         },
         series: [
           {
@@ -2246,6 +2268,83 @@ class ChartService {
 
       return graphConf;
     });
+  }
+
+
+
+  jabatanFungsionalPerLembaga = () => {
+    const jabatanFungsionalPerLembagaReq = {
+      method: 'GET',
+      url: this.apiURL + '/stats/personil/peneliti/jabatan-fungsional-per-lembaga',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      },
+    };
+
+    return this.$http(jabatanFungsionalPerLembagaReq).then((response) => {
+
+      const data = response.data.data;
+
+      var seriesData = [];
+      var categories = [];
+
+      angular.forEach(data, (item) => {
+          categories.push(item.lembaga.nama);
+      });
+
+      angular.forEach(data, (item) => {
+          seriesData.push(item.jumlah.value);
+      });
+
+
+      let graphConf = {
+        options: {
+          chart: {
+            type: 'column',
+            margin: 75,
+            options3d: {
+              enabled: true,
+                alpha: 0,
+                beta:0,
+                depth: 100
+            }
+          },
+          plotOptions: {
+              column: {
+                depth: 40,
+                stacking: false,
+                grouping: true,
+                groupZPadding: 40
+              }
+          },
+        },
+        title: {
+          text: response.data.meta.title
+        },
+        xAxis: {
+            categories: categories,
+            title: {
+              text: 'Nama Lembaga'
+            }
+        },
+        yAxis: {
+          title: {
+            text: 'Jumlah Produk Barang'
+          }
+        },
+        series: [
+          {
+            name: 'Jabatan Fungsional',
+            data:  seriesData
+          },
+        ]
+      };
+
+
+
+      return graphConf;
+    })
   }
 }
 

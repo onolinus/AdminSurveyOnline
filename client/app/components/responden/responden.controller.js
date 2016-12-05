@@ -20,7 +20,6 @@ class RespondenController {
           }
         };
 
-        console.log('getData', request);
         this.myBlockUI.start();
 
         return $http(request).then((users) => {

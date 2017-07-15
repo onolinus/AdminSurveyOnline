@@ -1,8 +1,8 @@
 class HomeController {
-  constructor(NgTableParams, $http, User, apiURL, blockUI) {
+  constructor(NgTableParams, $http, User, appConfig, blockUI) {
     "ngInject";
     this.User = User;
-    this.apiURL = apiURL;
+    this.apiURL = appConfig.api_url;
     this.$http = $http;
 
     // Get the reference to the block service.
@@ -12,7 +12,7 @@ class HomeController {
       getData: (params) => {
         const request = {
           method: 'GET',
-          url: apiURL + '/validator/survey?include=correspondent,approvedby&page=' + params.url().page,
+          url: this.apiURL + '/validator/survey?include=correspondent,approvedby&page=' + params.url().page,
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

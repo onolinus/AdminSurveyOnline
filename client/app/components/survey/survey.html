@@ -42,34 +42,24 @@
 
               </div>
 
-              <h3>{{$ctrl.correspondentDetail.name}}</h3>
+              <h3>{{$ctrl.correspondent.name}}</h3>
 
               <ul class="list-unstyled user_data">
                 <li>
-                  <span><b>Telepon :</b></span>
-                  <span> {{$ctrl.correspondentDetail.telephone_number}}</span>
-                </li>
-                <li>
                   <span><b>Handphone :</b></span>
-                  <span>{{$ctrl.correspondentDetail.handphone_number}}</span>
+                  <span>{{$ctrl.survey.respondent.hp}}</span>
                 </li>
-
                 <li>
-                  <span><b>Role :</b></span>
-                  <span>{{$ctrl.correspondentDetail.role}}</span>
+                  <span><b>Email :</b></span>
+                  <span>{{$ctrl.survey.respondent.email}}</span>
                 </li>
-
-                <li class="m-top-xs">
-                  <span><b>NIP :</b></span>
-                  <span>{{$ctrl.correspondentDetail.nip}}</span>
+                <li>
+                  <span><b>Jabatan :</b></span>
+                  <span>{{$ctrl.survey.respondent.jabatan}}</span>
                 </li>
                 <li class="m-top-xs">
                   <span><b>Lembaga :</b></span>
-                  <span>{{$ctrl.correspondentDetail.approved_by.lembaga.name}}</span>
-                </li>
-                <li class="m-top-xs">
-                  <span><b>Puslit :</b></span>
-                  <span>{{$ctrl.correspondentDetail.approved_by.puslit}}</span>
+                  <span>{{$ctrl.survey.respondent.organization}}</span>
                 </li>
               </ul>
 
@@ -97,10 +87,10 @@
                 <div class="card-panel">
                   <div class="row">
 
-                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 1}">
-                      <a class="bootcards-summary-item" ui-sref="question1">
-                        <p>1</p>
-                        <h4 ng-switch on="$ctrl.getStatus(1)">
+                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-repeat="q in $ctrl.answerCheckList" ng-class="{'active': $ctrl.activeIndex == q.number}">
+                      <a class="bootcards-summary-item" ui-sref="question{{q.number}}">
+                        <p>{{q.number}}</p>
+                        <h4 ng-switch on="$ctrl.getStatus(q.number, q.subquestion)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
                           <span ng-switch-when="diterima" class="label label-success"><i class="fa fa-check"></i></span>
                           <span ng-switch-when="ditolak" class="label label-danger"><i class="fa fa-remove"></i></span>
@@ -108,7 +98,7 @@
                       </a>
                     </div>
 
-                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 2}">
+                    <!-- <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 2}">
                       <a class="bootcards-summary-item" ui-sref="question2">
                         <p>2</p>
                         <h4 ng-switch on="$ctrl.getStatus(2)">
@@ -293,7 +283,9 @@
                           <span ng-switch-when="ditolak" class="label label-danger"><i class="fa fa-remove"></i></span>
                         </h4>
                       </a>
-                    </div>
+                    </div> -->
+
+
                   </div>
 
                 </div>

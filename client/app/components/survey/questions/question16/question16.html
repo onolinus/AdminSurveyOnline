@@ -6,25 +6,24 @@
       </p>
 
       <br>
-
       <div class="form-group">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
+              <input type="checkbox" ng-checked="$ctrl.answer['16A'].detail.length" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer['16A'].detail.length" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
 
-      <div class="form-group" ng-if="$ctrl.checked">
+      <div class="form-group" ng-if="$ctrl.answer['16A'].detail.length > 0">
         <div class="col-md-12 col-sm-12 col-xs-12">
 
           <table class="table table-bordered">
@@ -46,7 +45,7 @@
             </thead>
 
             <tbody>
-              <tr ng-repeat="detail in $ctrl.answer.answer16a.data">
+              <tr ng-repeat="detail in $ctrl.answer['16A'].detail">
                 <td><input type="text" class="form-control" value="{{detail.tahun}}"></td>
                 <td><input type="text" class="form-control" value="{{detail.usulan_paten}}"></td>
                 <td><input type="text" class="form-control" value="{{detail.usulan_patensederhana}}"></td>
@@ -62,14 +61,14 @@
       </div>
 
       <br>
-      <p ng-if="$ctrl.checked">
+      <p ng-if="$ctrl.answer['16B']">
         Dari semua paten tersebut di atas, berapa paten yang terdaftar/disetujui di kantor paten luar negeri?
       </p>
       <br>
 
-      <div class="form-group" ng-if="$ctrl.checked">
+      <div class="form-group">
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" class="form-control" value="{{$ctrl.answer.answer16b.data.jumlah_patenluarnegeri}}">
+          <input type="text" class="form-control" value="{{$ctrl.answer['16B'].jumlah_patenluarnegeri}}">
         </div>
       </div>
 
@@ -86,9 +85,9 @@
   </div>
 </div>
 
-<div class="question-tool" ng-if="$ctrl.answer">
+<div class="question-tool" ng-if="$ctrl.answer['16A'].detail.length > 0">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.answer16a.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.answer16a.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer['16A'].status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer['16A'].status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

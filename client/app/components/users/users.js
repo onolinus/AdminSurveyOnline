@@ -39,10 +39,10 @@ let usersModule = angular.module('users', [
       url: '/users/:user_id',
       component: 'usersDetail',
       resolve: {
-        userDetail : ($http, $stateParams, User, apiURL, blockUI) =>  {
+        userDetail : ($http, $stateParams, User, appConfig, blockUI) =>  {
           const request = {
             method: 'GET',
-            url: apiURL + '/user/' + $stateParams.user_id,
+            url: appConfig.api_url + '/user/' + $stateParams.user_id,
             cache: true,
             headers: {
               'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',

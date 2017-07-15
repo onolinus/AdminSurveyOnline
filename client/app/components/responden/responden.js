@@ -10,15 +10,20 @@ let respondenModule = angular.module('responden', [
 .config(($stateProvider, $urlRouterProvider) => {
   "ngInject";
 
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/responden.list');
 
   $stateProvider
     .state('responden', {
+      url: '',
+      template: '<div ui-view></div>',
+      abstract: true
+    })
+    .state('responden.list', {
       url: '/responden',
       component: 'responden',
       data: {
         permission: {
-          only : ['admin']
+          only : ['admin', 'validator', 'respondent']
         }
       }
     });

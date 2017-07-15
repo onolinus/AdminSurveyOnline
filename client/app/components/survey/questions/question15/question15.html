@@ -11,26 +11,26 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
+              <input type="checkbox" ng-checked="$ctrl.answer['15A'].detail.length" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer['15A'].detail.length" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
 
-      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.checked">
+      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.answer['15A'].detail.length">
         <div class="pull-left">
           <span class="l-number-small t-l">a.</span>Produk berbentuk barang
         </div>
       </div>
-      <div class="ml-10" ng-if="$ctrl.checked">
-        <div class="form-group" ng-repeat="detailBarang in $ctrl.answer.answer15a.data">
+      <div class="ml-10" ng-if="$ctrl.answer['15A'].detail.length">
+        <div class="form-group" ng-repeat="detailBarang in $ctrl.answer['15A'].detail">
           <div class="col-md-8 col-sm-12 col-xs-12">
             <input type="text" class="form-control" value="{{detailBarang.nama_barang}}">
           </div>
@@ -43,13 +43,13 @@
         </div>
       </div>
 
-      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.checked">
+      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.answer['15B'].detail.length">
         <div class="pull-left">
           <span class="l-number-small t-l">b.</span>Produk berbentuk jasa
         </div>
       </div>
-      <div class="ml-10" ng-if="$ctrl.checked">
-        <div class="form-group" ng-repeat="detailJasa in $ctrl.answer.answer15b.data">
+      <div class="ml-10" ng-if="$ctrl.answer['15B'].detail.length">
+        <div class="form-group" ng-repeat="detailJasa in $ctrl.answer['15B'].detail">
           <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" class="form-control" value="{{detailJasa.nama_jasa}}">
           </div>
@@ -64,7 +64,7 @@
     </div>
   </div>
 </div>
-
+<div class="clearfix"></div>
 <div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">

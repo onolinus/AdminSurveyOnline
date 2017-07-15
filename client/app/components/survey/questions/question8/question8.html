@@ -2,7 +2,7 @@
   <div class="question-content">
     <div class="question-body form-horizontal">
       <p>
-       Apakah unit kerja Saudara mendanai kegiatan litbang yang pelaksanaannya dilakukan oleh unit kerja/institusi lain (belanja litbang extramural) selama tahun 2015?
+       Apakah unit kerja Saudara mendanai kegiatan litbang yang pelaksanaannya dilakukan oleh unit kerja/institusi lain (belanja litbang extramural) selama tahun {{$ctrl.year - 1}}?
       </p>
       <br>
 
@@ -23,9 +23,9 @@
         </div>
       </div>
       <br>
-      <div class="form-group" ng-repeat="detail in $ctrl.answer.data">
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.detail">
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" ng-model="detail.institusi" required="required" class="form-control col-md-7 col-xs-12" placeholder="Instruksi Pelaksana">
+          <input type="text" id="first-name" value="{{detail.institusi | institusi:$ctrl.institusi}}" required="required" class="form-control col-md-7 col-xs-12" placeholder="Instruksi Pelaksana">
         </div>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>

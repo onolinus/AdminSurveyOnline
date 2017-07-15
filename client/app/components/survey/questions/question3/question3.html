@@ -35,7 +35,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.dipa_danapemerintah |formatMoney}}" class="form-control">
+          <input type="text" value="{{$ctrl.answer.dipa_danapemerintah |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -58,7 +58,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_perusahaanswasta |formatMoney}}" class="form-control">
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_perusahaanswasta |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -69,7 +69,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_instansipemerintah |formatMoney}}"  class="form-control">
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_instansipemerintah |formatMoney}}"  class="form-control">
         </div>
       </div>
 
@@ -80,7 +80,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_swastanonprofit |formatMoney}}" class="form-control">
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_swastanonprofit |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -91,7 +91,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.dipa_pnbp_luarnegeri |formatMoney}}" class="form-control">
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_luarnegeri |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -103,13 +103,27 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.dipa_phln |formatMoney}}" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" value="{{$ctrl.answer.dipa_phln |formatMoney}}" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+      <br>
+      <div class="form-group" ng-if="$ctrl.year=='2017'">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span>II.</span>
+          Dana DIPA (non- Satker)
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.answer.dipa_non_satker |formatMoney}}">
         </div>
       </div>
       <br>
       <div class="form-group">
         <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
-          <span>II.</span>
+          <ng-switch on="$ctrl.year">
+            <span ng-switch-when="2016">II.</span>
+            <span ng-switch-default>III.</span>
+          </ng-switch>
           Non-DIPA
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
@@ -127,7 +141,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{ $ctrl.answer.data.nondipa_insentif_ristekdikti |formatMoney}}" class="form-control">
+          <input type="text" value="{{ $ctrl.answer.nondipa_insentif_ristekdikti |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -140,7 +154,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.nondipa_insentif_dalamnegeri |formatMoney}}" class="form-control">
+          <input type="text" value="{{$ctrl.answer.nondipa_insentif_dalamnegeri |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -153,7 +167,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" value="{{$ctrl.answer.data.nondipa_insentif_researchgrant |formatMoney}}" class="form-control">
+          <input type="text" value="{{$ctrl.answer.nondipa_insentif_researchgrant |formatMoney}}" class="form-control">
         </div>
       </div>
 
@@ -161,11 +175,11 @@
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>
-      <p>{{$ctrl.answer.comment}}</p>
+      <p>{{$ctrl.answer.status_comment}}</p>
     </div>
   </div>
 </div>

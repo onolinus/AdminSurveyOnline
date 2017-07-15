@@ -23,7 +23,7 @@
       </div>
       <br>
 
-      <div class="form-group" ng-if="$ctrl.answer.data">
+      <div class="form-group" ng-if="$ctrl.answer">
         <div class="col-md-4 col-sm-4 col-xs-6">
           <label for="">Lisensi</label>
         </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <div class="form-group" ng-repeat="data in $ctrl.answer.data">
+      <div class="form-group" ng-repeat="data in $ctrl.answer.detail">
         <div class="col-md-4 col-sm-4 col-xs-6">
           <input type="text" class="form-control" placeholder="Lisensi" value="{{data.lisensi}}">
         </div>

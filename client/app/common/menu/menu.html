@@ -84,7 +84,10 @@
             </ul>
 
             <ul ng-switch-when="validator" class="nav side-menu">
-              <li><a ui-sref="home"><i class="fa fa-users"></i> Koresponden</a></li>
+              <li>
+                <a ui-sref="home.dashboard"><i class="fa fa-bar-chart"></i> Dashboard</a>
+              </li>
+              <li><a ui-sref="responden.list"><i class="fa fa-users"></i> Koresponden</a></li>
             </ul>
 
             <ul ng-switch-when="guest" class="nav side-menu">

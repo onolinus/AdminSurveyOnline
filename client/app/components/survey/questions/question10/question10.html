@@ -2,64 +2,32 @@
   <div class="question-content">
     <div class="question-body form-horizontal">
       <p>
-        Adakah peneliti luar yang terlibat dalam aktivitas litbang di unit kerja Saudara pada tahun 2015?
+        Adakah peneliti luar yang terlibat dalam aktivitas litbang di unit kerja Saudara pada tahun {{$ctrl.year - 1}}?
       </p>
       <br>
       <div class="form-group">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
+              <input type="checkbox" ng-checked="$ctrl.answer.detail.length">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer.detail.length" value="0">Tidak
             </label>
           </div>
         </div>
       </div>
       <br>
-      <div ng-if="$ctrl.checked">
-        <div class="form-group">
-          <label class="control-label col-md-4 col-sm-4 col-xs-12">Litbang Pemerintah
+      <div ng-if="$ctrl.answer.detail.length">
+        <div class="form-group" ng-repeat="detail in $ctrl.answer.detail">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">{{detail.institusi | institusi:$ctrl.institusi}}
           </label>
           <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_pemerintah" class="form-control" placeholder="Orang">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-md-4 col-sm-4 col-xs-12">Perguruan Tinggi
-          </label>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_perguruantinggi" class="form-control" placeholder="Orang">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-md-4 col-sm-4 col-xs-12">Industri / BUMN
-          </label>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_industri" class="form-control" placeholder="Orang">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-md-4 col-sm-4 col-xs-12">Lembaga Swadaya Masyarakat
-          </label>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_lembagaswadaya" class="form-control" placeholder="Orang">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label col-md-4 col-sm-4 col-xs-12">Luar Negeri / Asing
-          </label>
-          <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" ng-model="$ctrl.answer.data.jumlah_peneliti_asing" class="form-control" placeholder="Orang">
+            <input type="text" ng-model="detail.jumlah_peneliti" class="form-control" placeholder="Orang">
           </div>
         </div>
 
@@ -67,7 +35,7 @@
           <label class="control-label col-md-4 col-sm-4 col-xs-12"><b>Total</b>
           </label>
           <div class="col-md-4 col-sm-4 col-xs-6">
-            <input type="text" class="form-control" value="{{ $ctrl.answer.data.jumlah_peneliti_pemerintah + $ctrl.answer.data.jumlah_peneliti_perguruantinggi + $ctrl.answer.data.jumlah_peneliti_industri + $ctrl.answer.data.jumlah_peneliti_lembagaswadaya + $ctrl.answer.data.jumlah_peneliti_asing}}" placeholder="Orang">
+            <input type="text" class="form-control" value="{{ $ctrl.countAnswer10()}}" placeholder="Orang">
           </div>
         </div>
       </div>

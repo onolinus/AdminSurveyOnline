@@ -1,8 +1,9 @@
 class RespondenController {
-  constructor(NgTableParams, $http, User, apiURL, blockUI, toastr) {
+  constructor($state, NgTableParams, $http, User, appConfig, blockUI, toastr) {
     "ngInject";
     this.User = User;
-    this.apiURL = apiURL;
+    this.$state = $state;
+    this.apiURL = appConfig.api_url;
     this.$http = $http;
     this.toastr = toastr;
 
@@ -13,7 +14,7 @@ class RespondenController {
       getData: (params) => {
         const request = {
           method: 'GET',
-          url: apiURL + '/admin/correspondent' + '?page=' + params.url().page + '&include=approved_by,surveystatus&filter=correspondent',
+          url: this.apiURL + '/api/validator/survey?status=' + '&page=' + params.url().page + '&includes=respondent,validator',
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -22,10 +23,9 @@ class RespondenController {
 
         this.myBlockUI.start();
 
-        return $http(request).then((users) => {
-          // console.log('survey data: ', users.data.data);
-          params.total(users.data.meta.pagination.total);
-          return users.data.data;
+        return $http(request).then((res) => {
+          params.total(res.data.meta.pagination.total);
+          return res.data.data;
         }, () => {
           params.total(0);
           return [];
@@ -57,6 +57,9 @@ class RespondenController {
   	});
   }
 
+  detail = (survey) => {
+    this.$state.go('survey', {survey_id: survey.id, year: survey.year});
+  }
 }
 
 export default RespondenController;

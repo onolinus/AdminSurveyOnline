@@ -1,11 +1,11 @@
 class UseraddController {
-  constructor($http, User, toastr, $state, apiURL) {
+  constructor($http, User, toastr, $state, appConfig) {
     "ngInject";
 
     this.$http = $http;
     this.User = User;
     this.$state = $state;
-    this.apiURL = apiURL;
+    this.apiURL = appConfig.api_url;
     this.toastr = toastr;
 
     this.user = {};

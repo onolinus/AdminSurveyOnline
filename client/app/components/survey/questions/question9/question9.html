@@ -9,14 +9,14 @@
 
       <div class="form-group">
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <input type="text" ng-model="$ctrl.answer.answer9a.data.total_pegawai" class="form-control">
+          <input type="text" ng-model="$ctrl.answer['9A'].total_pegawai" class="form-control">
         </div>
       </div>
 
 
       <div class="form-group">
         <label class="control-label col-md-12 col-sm-12 col-xs-12">
-          <span class="l-number">b.</span>Sebutkan jumlah personil yang terlibat dalam kegiatan litbang yang dilakukan di unit kerja Saudara selama tahun 2015 (termasuk personil dari luar unit kerja Saudara, jika ada) dalam head count dan Full Time Equivalent (FTE). Lihat Petunjuk Pengisian Kuesioner untuk pengertian FTE. Jika mengalami kesulitan menghitung FTE, mohon diberikan taksiran yang paling tepat di unit kerja Saudara.
+          <span class="l-number">b.</span>Sebutkan jumlah personil yang terlibat dalam kegiatan litbang yang dilakukan di unit kerja Saudara selama tahun {{$ctrl.year - 1}} (termasuk personil dari luar unit kerja Saudara, jika ada) dalam head count dan Full Time Equivalent (FTE). Lihat Petunjuk Pengisian Kuesioner untuk pengertian FTE. Jika mengalami kesulitan menghitung FTE, mohon diberikan taksiran yang paling tepat di unit kerja Saudara.
         </label>
         <br>
         <div class="col-md-12 col-sm-12 col-xs-12 p-2">
@@ -52,24 +52,24 @@
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>S2</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s2_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s2_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s2_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s2_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>S1</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s1_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s1_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s1_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_peneliti_s1_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_fte_p"></td>
               </tr>
 
 
@@ -82,24 +82,24 @@
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>S2</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>S1</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_fte_p"></td>
               </tr>
 
 
@@ -112,24 +112,24 @@
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>S2</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s2_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s2_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s2_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s2_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>S1</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s1_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s1_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s1_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.peneliti_nonfungsional_s1_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_fte_p"></td>
               </tr>
 
 
@@ -142,24 +142,24 @@
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S1</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_s1_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_s1_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_s1_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_s1_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>D3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_d3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_d3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_d3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_d3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>< D3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_belowd3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_belowd3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_belowd3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.teknisi_belowd3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_fte_p"></td>
               </tr>
 
 
@@ -172,24 +172,24 @@
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S1</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_s1_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_s1_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_s1_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_s1_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>D3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_d3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_d3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_d3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_d3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_fte_p"></td>
               </tr>
               <tr>
                 <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>< D3</p></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_belowd3_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_belowd3_p"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_belowd3_fte_l"></td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.answer.answer9b.data.staffpendukung_belowd3_fte_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_fte_p"></td>
               </tr>
 
 
@@ -208,7 +208,7 @@
 
       <div class="form-group">
         <label class="control-label col-md-12 col-sm-12 col-xs-12" for="first-name">
-          <span class="l-number">c.</span> Sebutkan jumlah peneliti yang terlibat dalam kegiatan litbang yang dilakukan di unit kerja Saudara selama tahun 2015 menurut kategori bidang ilmu dalam pendidikan terakhir peneliti. Perhatikan bahwa total peneliti pada tabel berikut harus sama dengan total peneliti pada tabel 9b.1.
+          <span class="l-number">c.</span> Sebutkan jumlah peneliti yang terlibat dalam kegiatan litbang yang dilakukan di unit kerja Saudara selama tahun 2015 menurut kategori bidang ilmu dalam pendidikan terakhir peneliti. Perhatikan bahwa total peneliti pada tabel berikut harus sama dengan total peneliti pada tabel 9B.1.
         </label>
         <br>
         <div class="col-md-12 col-sm-12 col-xs-12 p-2">
@@ -230,7 +230,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="detail in $ctrl.answer.answer9c.data">
+              <tr ng-repeat="detail in $ctrl.answer['9C'].detail">
                 <td><input type="text" value="{{$ctrl.getBidangIlmuFromKlasifikasiFieldCode(detail.code)}}" class="form-control"></td>
                 <td><input type="text" ng-model="detail.s1_l" class="form-control"></td>
                 <td><input type="text" ng-model="detail.s1_p" class="form-control"></td>
@@ -250,7 +250,7 @@
                 <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s3_p()}}"></td>
               </tr>
               <tr>
-                <td colspan="1">Tabel 9b.1 Total</td>
+                <td colspan="1">Tabel 9B.1 Total</td>
                 <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S1_l()}}"></td>
                 <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S1_p()}}"></td>
                 <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S2_l()}}"></td>

@@ -3,38 +3,39 @@ let QuestionFactory = function () {
   let answers = [];
   let answersStatus = [];
 
-  let getAnswer = (userId, questionId, subQuestion=false) => {
-    if ( answers[userId]) {
+  let getAnswer = (surveyId, questionId, subQuestion=false) => {
+    if ( answers[surveyId]) {
       if (!subQuestion) {
-        return answers[userId]['answer' + questionId];
+        return answers[surveyId][questionId];
       } else {
         let questionAnswer = [];
-        angular.forEach(answers[userId], function(ans, index){
-          let questionKey = 'answer' + questionId + (subQuestion ? '' : '_');
+        angular.forEach(answers[surveyId], function(ans, index){
+          let questionKey = questionId;
           if (index.indexOf(questionKey) > -1) {
             questionAnswer[index] = ans;
             questionAnswer.status = ans.status;
           }
         });
+
         if (questionAnswer.status) {
           return questionAnswer;
         } else {
-          return;
+          return [];
         }
       }
+    } else {
+      return [];
     }
-
-    return;
   };
 
-  let getAnswerStatus = (userId, questionId, subQuestion=false) => {
-    if ( answers[userId]) {
+  let getAnswerStatus = (surveyId, questionId, subQuestion=false) => {
+    if ( answers[surveyId]) {
       if (!subQuestion) {
-        return angular.isDefined(answers[userId]['answer' + questionId]) ? answers[userId]['answer' + questionId].status : 'diterima';
+        return angular.isDefined(answers[surveyId][questionId]) ? answers[surveyId][questionId].status : 'diterima';
       } else {
         let questionStatus = 'diterima';
-        angular.forEach(answers[userId], function(ans, index){
-          let questionKey = 'answer' + questionId;
+        angular.forEach(answers[surveyId], function(ans, index){
+          let questionKey = questionId;
           if (index.indexOf(questionKey) > -1) {
             if (ans.status != 'diterima') {
               questionStatus = ans.status;
@@ -48,12 +49,12 @@ let QuestionFactory = function () {
     return;
   };
 
-  let getChecked = (userId, questionId) => {
-    if ( answers[userId]) {
+  let getChecked = (surveyId, questionId) => {
+    if ( answers[surveyId]) {
       let checked = false;
 
-      angular.forEach(answers[userId], function(ans, index){
-        let questionKey = 'answer' + questionId;
+      angular.forEach(answers[surveyId], function(ans, index){
+        let questionKey =  questionId;
         if (index.indexOf(questionKey) > -1) {
           checked = true
         }
@@ -65,22 +66,22 @@ let QuestionFactory = function () {
     return false;
   }
 
-  let setAnswers = (data, userId) => {
+  let setAnswers = (data, surveyId) => {
     // console.log('all answer', data);
-    answers[userId] = data;
+    answers[surveyId] = data;
   };
 
-  let setStatus = (status, userId) => {
-    answersStatus[userId] = status;
+  let setStatus = (status, surveyId) => {
+    answersStatus[surveyId] = status;
   };
 
-  let updateStatus = (userId, questionId, status) => {
-    answersStatus[userId]['answer'+ questionId].status = status;
+  let updateStatus = (surveyId, questionId, status) => {
+    answersStatus[surveyId]['answer'+ questionId].status = status;
   };
 
-  let isAnswersChecked = (userId) => {
+  let isAnswersChecked = (surveyId) => {
     let checked = true;
-    angular.forEach(answers[userId], function(ans, index){
+    angular.forEach(answers[surveyId], function(ans, index){
       if(checked){
         if (ans.status == 'terkirim' ) {
           checked = false;
@@ -93,9 +94,9 @@ let QuestionFactory = function () {
     return checked;
   }
 
-  let rejectedAnswerExist = (userId) => {
+  let rejectedAnswerExist = (surveyId) => {
     let rejected = false;
-    angular.forEach(answers[userId], function(ans, index){
+    angular.forEach(answers[surveyId], function(ans, index){
       if(!rejected){
         if (ans.status == 'ditolak' ) {
           rejected = true;

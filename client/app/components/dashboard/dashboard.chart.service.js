@@ -1,10 +1,10 @@
 class ChartService {
-  constructor($http, $timeout, User, apiURL, chartFactory) {
+  constructor($http, $timeout, User, appConfig, chartFactory) {
     "ngInject";
 
     this.$http = $http;
     this.User = User;
-    this.apiURL = apiURL;
+    this.apiURL = appConfig.api_url;
     this.chartFactory = chartFactory;
     this.$timeout = $timeout;
   }

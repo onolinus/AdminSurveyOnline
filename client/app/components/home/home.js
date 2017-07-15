@@ -13,6 +13,11 @@ let homeModule = angular.module('home', [
 
   $stateProvider
     .state('home', {
+      url: '',
+      template: '<div ui-view></div>',
+      abstract: true
+    })
+    .state('home.dashboard', {
       url: '/',
       component: 'home',
       data: {

@@ -4,7 +4,7 @@ import './question17.styl';
 
 let question17Component = {
   restrict: 'E',
-  bindings: {answer:'=', checked:'='},
+  bindings: {answer:'=', checked:'=', year: '=', aliasNo: '='},
   template,
   controller
 };

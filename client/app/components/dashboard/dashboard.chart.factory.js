@@ -1,4 +1,4 @@
-let ChartFactory = function ($http, $q, $cookies, apiURL) {
+let ChartFactory = function ($http, $q, $cookies) {
   const defaultLegendConf = {
     layout: 'vertical',
     align: 'right',

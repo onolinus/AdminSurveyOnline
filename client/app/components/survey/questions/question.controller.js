@@ -4,27 +4,27 @@ class QuestionController {
 
     this.questionService = questionService;
     this.$state = $state;
-    this.userId = $stateParams.user_id;
+    this.surveyId = $stateParams.survey_id;
 
     this.statusUpdated = false;
-
-    // console.log('answer ', this.$state.$current.no, this.answer);
-
-    this.questionService.updateAnswersStatus(this.userId);
+    console.log(this);
+    this.questionService.updateAnswersStatus(this.surveyId);
   }
 
   reject = (subQuestion=false) => {
-    this.questionService.rejectAnswer(this.userId, this.$state.$current.no, subQuestion)
+    const questionNo = this.aliasNo || this.$state.$current.no;
+    this.questionService.rejectAnswer(this.surveyId, questionNo, subQuestion)
       .then(() => {
         this.statusUpdated = true;
       });
   }
 
   approve = (subQuestion=false) => {
-    this.questionService.approveAnswer(this.userId, this.$state.$current.no, subQuestion)
+    const questionNo = this.aliasNo || this.$state.$current.no;
+    this.questionService.approveAnswer(this.surveyId, questionNo, subQuestion)
       .then(()=> {
         this.statusUpdated = true;
-        this.questionService.updateAnswersStatus(this.userId);
+        this.questionService.updateAnswersStatus(this.surveyId);
       });
   }
 
@@ -76,73 +76,74 @@ class QuestionController {
 
 
   getTotalDIPA = () => {
-    return this.parseMoney(this.answer.data.dipa_danapemerintah) + this.parseMoney(this.getTotalPNPB()) + this.parseMoney(this.answer.data.dipa_phln);
+    return this.parseMoney(this.answer.dipa_danapemerintah) + this.parseMoney(this.getTotalPNPB()) + this.parseMoney(this.answer.dipa_phln);
   }
 
   getTotalNonDIPA = () => {
-    return this.parseMoney(this.answer.data.nondipa_insentif_ristekdikti) + this.parseMoney(this.answer.data.nondipa_insentif_researchgrant) + this.parseMoney(this.answer.data.nondipa_insentif_dalamnegeri);
+    return this.parseMoney(this.answer.nondipa_insentif_ristekdikti) + this.parseMoney(this.answer.nondipa_insentif_researchgrant) + this.parseMoney(this.answer.nondipa_insentif_dalamnegeri);
   }
 
   getTotalPNPB = () => {
-    return this.parseMoney(this.answer.data.dipa_pnbp_perusahaanswasta) + this.parseMoney(this.answer.data.dipa_pnbp_instansipemerintah) + this.parseMoney(this.answer.data.dipa_pnbp_swastanonprofit) + this.parseMoney(this.answer.data.dipa_pnbp_luarnegeri);
+    return this.parseMoney(this.answer.dipa_pnbp_perusahaanswasta) + this.parseMoney(this.answer.dipa_pnbp_instansipemerintah) + this.parseMoney(this.answer.dipa_pnbp_swastanonprofit) + this.parseMoney(this.answer.dipa_pnbp_luarnegeri);
   }
 
   getTotalQ4 = () => {
-    return this.parseMoney(this.answer.data.belanja_pegawai_upah) + this.parseMoney(this.answer.data.belanja_modal_properti) + this.parseMoney(this.answer.data.belanja_modal_mesin) + this.parseMoney(this.answer.data.belanja_operasional_maintenance);
+    return this.parseMoney(this.answer.belanja_pegawai_upah) + this.parseMoney(this.answer.belanja_modal_properti) + this.parseMoney(this.answer.belanja_modal_mesin) + this.parseMoney(this.answer.belanja_operasional_maintenance);
   }
 
   getTotalQ7 = () => {
-    return this.parseMoney(this.answer.data.penelitian_dasar) + this.parseMoney(this.answer.data.penelitian_terapan) + this.parseMoney(this.answer.data.pengembangan_eksperimental);
+    return this.parseMoney(this.answer.penelitian_dasar) + this.parseMoney(this.answer.penelitian_terapan) + this.parseMoney(this.answer.pengembangan_eksperimental);
   }
 
   getTotalQ9_FP_HL = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s3_l + this.answer.answer9b.data.peneliti_fungsional_peneliti_s2_l + this.answer.answer9b.data.peneliti_fungsional_peneliti_s1_l;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s3_l + this.answer['9B'].peneliti_fungsional_peneliti_s2_l + this.answer['9B'].peneliti_fungsional_peneliti_s1_l;
   }
 
   getTotalQ9_FP_HP = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s3_p + this.answer.answer9b.data.peneliti_fungsional_peneliti_s2_p + this.answer.answer9b.data.peneliti_fungsional_peneliti_s1_p;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s3_p + this.answer['9B'].peneliti_fungsional_peneliti_s2_p + this.answer['9B'].peneliti_fungsional_peneliti_s1_p;
   }
 
   getTotalQ9_FP_FTEL = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s3_fte_l + this.answer.answer9b.data.peneliti_fungsional_peneliti_s2_fte_l + this.answer.answer9b.data.peneliti_fungsional_peneliti_s1_fte_l;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s3_fte_l + this.answer['9B'].peneliti_fungsional_peneliti_s2_fte_l + this.answer['9B'].peneliti_fungsional_peneliti_s1_fte_l;
   }
 
   getTotalQ9_FP_FTEP = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s3_fte_p + this.answer.answer9b.data.peneliti_fungsional_peneliti_s2_fte_p + this.answer.answer9b.data.peneliti_fungsional_peneliti_s1_fte_p;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s3_fte_p + this.answer['9B'].peneliti_fungsional_peneliti_s2_fte_p + this.answer['9B'].peneliti_fungsional_peneliti_s1_fte_p;
   }
 
   //peneliti non fungsional
   getTotalQ9_FNP_HL = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_l;
+    console.log(this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l);
+    return this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_l;
   }
 
   getTotalQ9_FNP_HP = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_p;
+    return this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_p;
   }
 
   getTotalQ9_FNP_FTEL = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_fte_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_fte_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_fte_l;
+    return this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_fte_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_fte_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_fte_l;
   }
 
   getTotalQ9_FNP_FTEP = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_fte_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_fte_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_fte_p;
+    return this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_fte_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_fte_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_fte_p;
   }
 
   // peneliti tanpa jabatan fungsional
   getTotalQ9_NF_HL = () => {
-    return this.answer.answer9b.data.peneliti_nonfungsional_s3_l + this.answer.answer9b.data.peneliti_nonfungsional_s2_l + this.answer.answer9b.data.peneliti_nonfungsional_s1_l;
+    return this.answer['9B'].peneliti_nonfungsional_s3_l + this.answer['9B'].peneliti_nonfungsional_s2_l + this.answer['9B'].peneliti_nonfungsional_s1_l;
   }
 
   getTotalQ9_NF_HP = () => {
-    return this.answer.answer9b.data.peneliti_nonfungsional_s3_p + this.answer.answer9b.data.peneliti_nonfungsional_s2_p + this.answer.answer9b.data.peneliti_nonfungsional_s1_p;
+    return this.answer['9B'].peneliti_nonfungsional_s3_p + this.answer['9B'].peneliti_nonfungsional_s2_p + this.answer['9B'].peneliti_nonfungsional_s1_p;
   }
 
   getTotalQ9_NF_FTEL = () => {
-    return this.answer.answer9b.data.peneliti_nonfungsional_s3_fte_l + this.answer.answer9b.data.peneliti_nonfungsional_s2_fte_l + this.answer.answer9b.data.peneliti_nonfungsional_s1_fte_l;
+    return this.answer['9B'].peneliti_nonfungsional_s3_fte_l + this.answer['9B'].peneliti_nonfungsional_s2_fte_l + this.answer['9B'].peneliti_nonfungsional_s1_fte_l;
   }
 
   getTotalQ9_NF_FTEP = () => {
-    return this.answer.answer9b.data.peneliti_nonfungsional_s3_fte_p + this.answer.answer9b.data.peneliti_nonfungsional_s2_fte_p + this.answer.answer9b.data.peneliti_nonfungsional_s1_fte_p;
+    return this.answer['9B'].peneliti_nonfungsional_s3_fte_p + this.answer['9B'].peneliti_nonfungsional_s2_fte_p + this.answer['9B'].peneliti_nonfungsional_s1_fte_p;
   }
 
   // peneliti
@@ -164,36 +165,36 @@ class QuestionController {
 
   // teknisi
   getTotalQ9_teknisi_HL = () => {
-    return this.answer.answer9b.data.teknisi_s1_l + this.answer.answer9b.data.teknisi_d3_l + this.answer.answer9b.data.teknisi_belowd3_l;
+    return this.answer['9B'].teknisi_s1_l + this.answer['9B'].teknisi_d3_l + this.answer['9B'].teknisi_belowd3_l;
   }
 
   getTotalQ9_teknisi_HP = () => {
-    return this.answer.answer9b.data.teknisi_s1_p + this.answer.answer9b.data.teknisi_d3_p + this.answer.answer9b.data.teknisi_belowd3_p;
+    return this.answer['9B'].teknisi_s1_p + this.answer['9B'].teknisi_d3_p + this.answer['9B'].teknisi_belowd3_p;
   }
 
   getTotalQ9_teknisi_FTEL = () => {
-    return this.answer.answer9b.data.teknisi_s1_fte_l + this.answer.answer9b.data.teknisi_d3_fte_l + this.answer.answer9b.data.teknisi_belowd3_fte_l;
+    return this.answer['9B'].teknisi_s1_fte_l + this.answer['9B'].teknisi_d3_fte_l + this.answer['9B'].teknisi_belowd3_fte_l;
   }
 
   getTotalQ9_teknisi_FTEP = () => {
-    return this.answer.answer9b.data.teknisi_s1_fte_p + this.answer.answer9b.data.teknisi_d3_fte_p + this.answer.answer9b.data.teknisi_belowd3_fte_p;
+    return this.answer['9B'].teknisi_s1_fte_p + this.answer['9B'].teknisi_d3_fte_p + this.answer['9B'].teknisi_belowd3_fte_p;
   }
 
   //staff lainnya
   getTotalQ9_staff_HL = () => {
-    return this.answer.answer9b.data.staffpendukung_s1_l + this.answer.answer9b.data.staffpendukung_d3_l + this.answer.answer9b.data.staffpendukung_belowd3_l;
+    return this.answer['9B'].staffpendukung_s1_l + this.answer['9B'].staffpendukung_d3_l + this.answer['9B'].staffpendukung_belowd3_l;
   }
 
   getTotalQ9_staff_HP = () => {
-    return this.answer.answer9b.data.staffpendukung_s1_p + this.answer.answer9b.data.staffpendukung_d3_p + this.answer.answer9b.data.staffpendukung_belowd3_p;
+    return this.answer['9B'].staffpendukung_s1_p + this.answer['9B'].staffpendukung_d3_p + this.answer['9B'].staffpendukung_belowd3_p;
   }
 
   getTotalQ9_staff_FTEL = () => {
-    return this.answer.answer9b.data.staffpendukung_s1_fte_l + this.answer.answer9b.data.staffpendukung_d3_fte_l + this.answer.answer9b.data.staffpendukung_belowd3_fte_l;
+    return this.answer['9B'].staffpendukung_s1_fte_l + this.answer['9B'].staffpendukung_d3_fte_l + this.answer['9B'].staffpendukung_belowd3_fte_l;
   }
 
   getTotalQ9_staff_FTEP = () => {
-    return this.answer.answer9b.data.staffpendukung_s1_fte_p + this.answer.answer9b.data.staffpendukung_d3_fte_p + this.answer.answer9b.data.staffpendukung_belowd3_fte_p;
+    return this.answer['9B'].staffpendukung_s1_fte_p + this.answer['9B'].staffpendukung_d3_fte_p + this.answer['9B'].staffpendukung_belowd3_fte_p;
   }
 
   //total
@@ -214,33 +215,33 @@ class QuestionController {
   }
 
   getTotalQ9B_S1_l = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s1_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_l + this.answer.answer9b.data.peneliti_nonfungsional_s1_l;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s1_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_l + this.answer['9B'].peneliti_nonfungsional_s1_l;
   }
 
   getTotalQ9B_S1_p = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s1_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s1_p + this.answer.answer9b.data.peneliti_nonfungsional_s1_p;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s1_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_p + this.answer['9B'].peneliti_nonfungsional_s1_p;
   }
 
   getTotalQ9B_S2_l = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s2_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_l + this.answer.answer9b.data.peneliti_nonfungsional_s2_l;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s2_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_l + this.answer['9B'].peneliti_nonfungsional_s2_l;
   }
 
   getTotalQ9B_S2_p = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s2_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s2_p + this.answer.answer9b.data.peneliti_nonfungsional_s2_p;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s2_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_p + this.answer['9B'].peneliti_nonfungsional_s2_p;
   }
 
   getTotalQ9B_S3_l = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s3_l + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_l + this.answer.answer9b.data.peneliti_nonfungsional_s3_l;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s3_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l + this.answer['9B'].peneliti_nonfungsional_s3_l;
   }
 
   getTotalQ9B_S3_p = () => {
-    return this.answer.answer9b.data.peneliti_fungsional_peneliti_s3_p + this.answer.answer9b.data.peneliti_fungsional_nonpeneliti_s3_p + this.answer.answer9b.data.peneliti_nonfungsional_s3_p;
+    return this.answer['9B'].peneliti_fungsional_peneliti_s3_p + this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_p + this.answer['9B'].peneliti_nonfungsional_s3_p;
   }
 
   countAnswer9c_s1_l = () => {
     let total = 0;
 
-    angular.forEach(this.answer.answer9c.data, function(ans, index){
+    angular.forEach(this.answer['9C'].detail, function(ans, index){
       total += parseInt(ans.s1_l);
     });
 
@@ -250,7 +251,7 @@ class QuestionController {
   countAnswer9c_s1_p = () => {
     let total = 0;
 
-    angular.forEach(this.answer.answer9c.data, function(ans, index){
+    angular.forEach(this.answer['9C'].detail, function(ans, index){
       total += parseInt(ans.s1_p);
     });
 
@@ -260,7 +261,7 @@ class QuestionController {
   countAnswer9c_s2_l = () => {
     let total = 0;
 
-    angular.forEach(this.answer.answer9c.data, function(ans, index){
+    angular.forEach(this.answer['9C'].detail, function(ans, index){
       total += parseInt(ans.s2_l);
     });
 
@@ -270,7 +271,7 @@ class QuestionController {
   countAnswer9c_s2_p = () => {
     let total = 0;
 
-    angular.forEach(this.answer.answer9c.data, function(ans, index){
+    angular.forEach(this.answer['9C'].detail, function(ans, index){
       total += parseInt(ans.s2_p);
     });
 
@@ -281,7 +282,7 @@ class QuestionController {
   countAnswer9c_s3_l = () => {
     let total = 0;
 
-    angular.forEach(this.answer.answer9c.data, function(ans, index){
+    angular.forEach(this.answer['9C'].detail, function(ans, index){
       total += parseInt(ans.s3_l);
     });
 
@@ -291,13 +292,22 @@ class QuestionController {
   countAnswer9c_s3_p = () => {
     let total = 0;
 
-    angular.forEach(this.answer.answer9c.data, function(ans, index){
+    angular.forEach(this.answer['9C'].detail, function(ans, index){
       total += parseInt(ans.s3_p);
     });
 
     return total;
   }
 
+  countAnswer10 = () => {
+    let total = 0;
+
+    angular.forEach(this.answer.detail, function(ans, index){
+      total += parseInt(ans.jumlah_peneliti);
+    });
+
+    return total;
+  }
 }
 
 export default QuestionController;

@@ -58,29 +58,33 @@ angular.module('app', [
     "ngInject";
 
     $rootScope.$on('$stateChangeStart',  (event, toState, toStateParams) => {
+      console.log('User.isSignedIn()', User.isSignedIn(), toState.name);
       if (!User.isSignedIn()) {
+
         if (toState.name !== 'login') {
           $state.go('login');
           event.preventDefault();
         }
       } else {
         if (toState.name == 'login') {
-          if (User.getAuth().user_type == 'validator') {
-            $state.go('home');
-            event.preventDefault();
-          } else {
-            $state.go('dashboard');
-            event.preventDefault();
-          }
+          $state.go('responden.list');
+          // if (User.getAuth().user_type == 'validator') {
+          //   $state.go('home');
+          //   event.preventDefault();
+          // } else {
+          //   $state.go('dashboard');
+          //   event.preventDefault();
+          // }
         } else {
           if (angular.isDefined(toState.data.permission) && toState.data.permission.only.indexOf(User.getAuth().user_type) == -1) {
-            if (User.getAuth().user_type == 'validator') {
-              $state.go('home');
-              event.preventDefault();
-            } else {
-              $state.go('dashboard');
-              event.preventDefault();
-            }
+            $state.go('responden.list');
+            // if (User.getAuth().user_type == 'validator') {
+            //   $state.go('home');
+            //   event.preventDefault();
+            // } else {
+            //   $state.go('dashboard');
+            //   event.preventDefault();
+            // }
           }
         }
       }

@@ -1,3 +1,5 @@
 module.exports = {
-  API: 'http://api.esurvei.ristekdikti.go.id'
+  api_url: 'http://api.survey.local',
+  client_id: 3,
+  client_secret: 'CvrHI3bOifYCxxanRtjj8KSaRdUDDlArpbLC2UtV',
 };

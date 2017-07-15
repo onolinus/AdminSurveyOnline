@@ -5,7 +5,7 @@ import appConfig from '../../../../app.config.js';
 
 let userModule = angular.module('user', [])
 
-.constant('apiURL', appConfig.API)
+.constant('appConfig', appConfig)
 
 .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
@@ -13,7 +13,7 @@ let userModule = angular.module('user', [])
     }
 ])
 
-.factory('User', ['$http', '$q', '$cookies', 'apiURL', UserFactory])
+.factory('User', ['$http', '$q', '$cookies', 'appConfig', UserFactory])
 
 .name;
 

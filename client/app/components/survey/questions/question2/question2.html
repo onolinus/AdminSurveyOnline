@@ -2,7 +2,7 @@
   <div class="question-content">
     <div class="question-body form-horizontal ta-r">
       <p>
-        Berapa jumlah belanja kegiatan litbang yang pelaksanaan kegiatannya dilakukan oleh unit kerja Saudara (Belanja Litbang Intramural) dalam tahun 2015?
+        Berapa jumlah belanja kegiatan litbang yang pelaksanaan kegiatannya dilakukan oleh unit kerja Saudara (Belanja Litbang Intramural) dalam tahun {{$ctrl.year - 1}}, yang sumber pendanaannya berasal dari DIPA maupun non-DIPA ?
       </p>
       <br>
       <div class="form-group">
@@ -10,21 +10,22 @@
         </label>
         <div class="input-group col-md-4 col-sm-6 col-xs-12">
           <div class="input-group-addon">Rp</div>
-          <input type="text" id="first-name" required="required" value="{{$ctrl.answer.data.jumlah |formatMoney}}" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" required="required" value="{{$ctrl.answer.jumlah |formatMoney}}" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>
-      <p>{{$ctrl.answer.comment}}</p>
+      <p>{{$ctrl.answer.status_comment}}</p>
     </div>
   </div>
 </div>
+
 
 <div class="question-tool" ng-if="$ctrl.answer">
     <div class="pull-right text-center mtop20">

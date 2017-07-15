@@ -1,4 +1,4 @@
-let UserFactory = function ($http, $q, $cookies, apiURL) {
+let UserFactory = function ($http, $q, $cookies, appConfig) {
 
   const user = {};
   let auth = {};
@@ -26,31 +26,64 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
 
     const authRequest = {
       method: 'POST',
-      url: apiURL + '/auth/token/password',
+      url: appConfig.api_url + '/oauth/token',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest'
       },
       data: $.param({
-        email:email,
-        password:password,
-        client_id: 1,
-        secret_code: 'LAKKdkmakmKKKMBkap#gafgf2dT2!$KKKkjjjasjdhjd@OkjKJDSJFKHgTUHB234125213##141f4'
+        grant_type: 'password',
+        scope: 'check-status place-orders',
+        username: email,
+        password: password,
+        client_id: appConfig.client_id,
+        client_secret: appConfig.client_secret
       })
     };
 
     $http(authRequest).success((data) => {
-        if ($.inArray(data.user_type, [ "validator", "guest", "correspondent", "admin"]) == -1) {
+        auth = data;
+
+        getProfile(auth)
+          .then(function(profile){
+            deffered.resolve(auth);
+          });
+      })
+      .error((error) => {
+        deffered.reject(error);
+      });
+
+    return deffered.promise;
+  };
+
+  let getProfile = (auth) => {
+    let deffered = $q.defer();
+
+    const profileRequest = {
+      method: 'GET',
+      url: appConfig.api_url + '/api/profile',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Authorization' : auth.token_type + ' ' + auth.access_token
+      }
+    };
+
+    $http(profileRequest).success((profile) => {
+        let currDate = new Date ();
+        let expDate = new Date ( currDate );
+        expDate.setSeconds( currDate.getSeconds() + auth.expires_in);
+
+        auth.user_type = profile.data.type
+        auth.profile = profile.data;
+
+        $cookies.put('app-auth', JSON.stringify(auth), {expires:expDate});
+
+        if ($.inArray(auth.user_type, [ "validator", "guest", "respondent", "admin"]) == -1) {
           deffered.reject({error: {
             message: ['Akun tidak diberi akses untuk menggunakan aplikasi']
           }});
         } else {
-          let currDate = new Date ();
-          let expDate = new Date ( currDate );
-          expDate.setSeconds( currDate.getSeconds() + data.expires_in);
-
-          $cookies.put('app-auth', JSON.stringify(data), {expires:expDate});
-          auth = data;
-
           deffered.resolve(auth);
         }
       })
@@ -59,7 +92,8 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
       });
 
     return deffered.promise;
-  };
+  }
+
 
   let validateToken = (auth = {}) => {
     let token = $cookies.get('app-auth');
@@ -82,7 +116,7 @@ let UserFactory = function ($http, $q, $cookies, apiURL) {
 
   let signout = () => {
     let deffered = $q.defer();
-
+    auth.length = 0;
     $cookies.remove('app-auth');
     deffered.resolve(true);
 

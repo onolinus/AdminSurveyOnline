@@ -19,6 +19,8 @@ import question15Component from './question15/question15.component';
 import question16Component from './question16/question16.component';
 import question17Component from './question17/question17.component';
 import question18Component from './question18/question18.component';
+import question19Component from './question19/question19.component';
+import questionDynamicComponent from './question.dynamic.component';
 
 import questionService from './question.service';
 
@@ -36,7 +38,20 @@ let questionsModule = angular.module('questions', [
 .config(($stateProvider, $urlRouterProvider) => {
   "ngInject";
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/question-1');
+
+  function getCustomBindings(no, subquestion){
+    return {
+      answer: ['$state', '$stateParams', 'questionFactory', ($state, $stateParams, questionFactory) =>  {
+        return questionFactory.getAnswer($stateParams.survey_id, no);
+      }],
+      checked: ['$stateParams', 'questionFactory',($stateParams, questionFactory) => {
+        return questionFactory.getChecked($stateParams.survey_id, no);
+      }],
+      year: ['$stateParams', ($stateParams) => $stateParams.year]
+    }
+  }
+
 
   $stateProvider
     .state('question1', {
@@ -44,44 +59,28 @@ let questionsModule = angular.module('questions', [
       parent: 'survey',
       no:1,
       component: 'question1',
-      resolve: {
-        answer : ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 1);
-        }
-      }
+      resolve: getCustomBindings(1, false)
     })
     .state('question2', {
       url: '/question-2',
       parent: 'survey',
       no:2,
       component: 'question2',
-      resolve: {
-        answer : ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 2);
-        }
-      }
+      resolve:getCustomBindings(2, false)
     })
     .state('question3', {
       url: '/question-3',
       parent: 'survey',
       no:3,
       component: 'question3',
-      resolve: {
-        answer : ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 3);
-        }
-      }
+      resolve: getCustomBindings(3, false)
     })
     .state('question4', {
       url: '/question-4',
       parent: 'survey',
       no:4,
       component: 'question4',
-      resolve: {
-        answer : ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 4);
-        }
-      }
+      resolve: getCustomBindings(4, false)
     })
     .state('question5', {
       url: '/question-5',
@@ -90,12 +89,12 @@ let questionsModule = angular.module('questions', [
       component: 'question5',
       resolve: {
         answer : ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 5);
+          return questionFactory.getAnswer($stateParams.survey_id, 5);
         },
-        researchFields: ($http, apiURL, User) => {
+        researchFields: ($http, appConfig, User) => {
           const req = {
             method: 'GET',
-            url: apiURL + '/researchfields',
+            url: appConfig.api_url + '/api/researchfields',
             cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -107,7 +106,8 @@ let questionsModule = angular.module('questions', [
             .then((response) => {
               return response.data.data;
             });
-        }
+        },
+          year: ($stateParams) => $stateParams.year
       }
     })
     .state('question6', {
@@ -117,12 +117,12 @@ let questionsModule = angular.module('questions', [
       component: 'question6',
       resolve: {
         answer : ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 6);
+          return questionFactory.getAnswer($stateParams.survey_id, 6);
         },
-        researchFields: ($http, apiURL, User) => {
+        researchFields: ($http, appConfig, User) => {
           const req = {
             method: 'GET',
-            url: apiURL + '/socioeconomics',
+            url: appConfig.api_url + '/api/socioeconomics',
             cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -134,7 +134,8 @@ let questionsModule = angular.module('questions', [
             .then((response) => {
               return response.data.data;
             });
-        }
+        },
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question7', {
@@ -142,11 +143,7 @@ let questionsModule = angular.module('questions', [
       parent: 'survey',
       no:7,
       component: 'question7',
-      resolve: {
-        answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 7);
-        }
-      }
+      resolve: getCustomBindings(7, false)
     })
     .state('question8', {
       url: '/question-8',
@@ -155,11 +152,28 @@ let questionsModule = angular.module('questions', [
       component: 'question8',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 8);
+          return questionFactory.getAnswer($stateParams.survey_id, 8);
         },
         checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 8);
-        }
+          return questionFactory.getChecked($stateParams.survey_id, 8);
+        },
+        institusi: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/institusi',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data.data;
+            });
+        },
+          year: ($stateParams) => $stateParams.year
       }
     })
     .state('question9', {
@@ -169,12 +183,13 @@ let questionsModule = angular.module('questions', [
       component: 'question9',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 9, true);
+          console.log(questionFactory.getAnswer($stateParams.survey_id, 9, true));
+          return questionFactory.getAnswer($stateParams.survey_id, 9, true);
         },
-        klasifikasi: ($http, apiURL, User) => {
+        klasifikasi: ($http, appConfig, User) => {
           const req = {
             method: 'GET',
-            url: apiURL + '/bidangilmu',
+            url: appConfig.api_url + '/api/bidangilmu',
             cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -186,8 +201,8 @@ let questionsModule = angular.module('questions', [
             .then((response) => {
               return response.data.data;
             });
-
-        }
+        },
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question10', {
@@ -197,11 +212,28 @@ let questionsModule = angular.module('questions', [
       component: 'question10',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 10);
+          return questionFactory.getAnswer($stateParams.survey_id, 10);
         },
         checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 10);
-        }
+          return questionFactory.getChecked($stateParams.survey_id, 10);
+        },
+        institusi: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/institusi',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data.data;
+            });
+        },
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question11', {
@@ -211,15 +243,15 @@ let questionsModule = angular.module('questions', [
       component: 'question11',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 11);
+          return questionFactory.getAnswer($stateParams.survey_id, 11);
         },
         checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 11);
+          return questionFactory.getChecked($stateParams.survey_id, 11);
         },
-        researchFields: ($http, apiURL, User) => {
+        researchFields: ($http, appConfig, User) => {
           const req = {
             method: 'GET',
-            url: apiURL + '/researchfields',
+            url: appConfig.api_url + '/api/researchfields',
             cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -231,7 +263,8 @@ let questionsModule = angular.module('questions', [
             .then((response) => {
               return response.data.data;
             });
-        }
+        },
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question12', {
@@ -241,15 +274,15 @@ let questionsModule = angular.module('questions', [
       component: 'question12',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 12);
+          return questionFactory.getAnswer($stateParams.survey_id, 12);
         },
         checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 12);
+          return questionFactory.getChecked($stateParams.survey_id, 12);
         },
-        researchFields: ($http, apiURL, User) => {
+        researchFields: ($http, appConfig, User) => {
           const req = {
             method: 'GET',
-            url: apiURL + '/researchfields',
+            url: appConfig.api_url + '/api/researchfields',
             cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -261,7 +294,8 @@ let questionsModule = angular.module('questions', [
             .then((response) => {
               return response.data.data;
             });
-        }
+        },
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question13', {
@@ -271,79 +305,65 @@ let questionsModule = angular.module('questions', [
       component: 'question13',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 13);
+          return questionFactory.getAnswer($stateParams.survey_id, 13);
         },
         checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 13);
-        }
+          return questionFactory.getChecked($stateParams.survey_id, 13);
+        },
+        countries: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/countries',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data;
+            });
+        },
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question14', {
       url: '/question-14',
       parent: 'survey',
       no:14,
-      component: 'question14',
-      resolve: {
-        answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 14);
-        },
-        checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 14);
-        }
-      }
+      component: 'questionDynamic'
     })
     .state('question15', {
       url: '/question-15',
       parent: 'survey',
       no:15,
-      component: 'question15',
-      resolve: {
-        answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 15, true);
-        },
-        checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 15, true);
-        }
-      }
+      component: 'questionDynamic'
     })
     .state('question16', {
       url: '/question-16',
       parent: 'survey',
       no:16,
-      component: 'question16',
-      resolve: {
-        answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 16, true);
-        },
-        checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 16, true);
-        }
-      }
+      component: 'questionDynamic',
     })
     .state('question17', {
       url: '/question-17',
       parent: 'survey',
       no:17,
-      component: 'question17',
-      resolve: {
-        answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 17);
-        },
-        checked: ($stateParams, questionFactory) => {
-          return questionFactory.getChecked($stateParams.user_id, 17);
-        }
-      }
+      component: 'questionDynamic',
     })
     .state('question18', {
       url: '/question-18',
       parent: 'survey',
       no: 18,
-      component: 'question18',
-      resolve: {
-        answer: ($stateParams, questionFactory) =>  {
-          return questionFactory.getAnswer($stateParams.user_id, 18);
-        }
-      }
+      component: 'questionDynamic',
+    })
+    .state('question19', {
+      url: '/question-19',
+      parent: 'survey',
+      no: 19,
+      component: 'questionDynamic'
     });
 })
 
@@ -366,7 +386,34 @@ let questionsModule = angular.module('questions', [
 .component('question16', question16Component)
 .component('question17', question17Component)
 .component('question18', question18Component)
+.component('question19', question19Component)
+.component('questionDynamic', questionDynamicComponent)
 
+.filter('institusi', function() {
+  return function(input, options) {
+    let name = '';
+    angular.forEach(options, (item) => {
+
+      if (item.id == input) {
+        name = item.label
+      }
+    });
+    return name;
+  }
+})
+
+.filter('country', function() {
+  return function(input, options) {
+    let name = '';
+    angular.forEach(options, (item) => {
+      if (item.id == input) {
+        name = item.nama
+      }
+    });
+
+    return name;
+  }
+})
 
 .service('questionService', questionService)
 

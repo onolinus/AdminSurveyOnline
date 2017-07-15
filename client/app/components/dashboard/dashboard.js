@@ -41,7 +41,7 @@ let dashboardModule = angular.module('dashboard', [
       },
       data: {
         permission: {
-          only : ['admin','guest', 'correspondent']
+          only : ['admin','guest', 'respondent']
         }
       }
     })
@@ -58,7 +58,7 @@ let dashboardModule = angular.module('dashboard', [
       // },
       data: {
         permission: {
-          only : ['admin','guest', 'correspondent']
+          only : ['admin','guest', 'respondent']
         }
       }
     })
@@ -135,7 +135,7 @@ let dashboardModule = angular.module('dashboard', [
       },
       data: {
         permission: {
-          only : ['admin','guest', 'correspondent']
+          only : ['admin','guest', 'respondent']
         }
       }
     })
@@ -192,7 +192,7 @@ let dashboardModule = angular.module('dashboard', [
       },
       data: {
         permission: {
-          only : ['admin','guest', 'correspondent']
+          only : ['admin','guest', 'respondent']
         }
       }
     })
@@ -234,7 +234,7 @@ let dashboardModule = angular.module('dashboard', [
       },
       data: {
         permission: {
-          only : ['admin','guest', 'correspondent']
+          only : ['admin','guest', 'respondent']
         }
       }
     });

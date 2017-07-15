@@ -2,10 +2,10 @@
   <div class="question-content">
     <div class="question-body form-horizontal">
       <p>
-       Kelompokkan seluruh kegiatan litbang tahun 2015 menurut bidang penelitian. Mohon disebutkan persentase dana untuk setiap bidang, terhitung dari total dana penelitian (untuk penelitian lintas bidang, mengacu kepada bidang penelitian yang dominan).
+       Kelompokkan seluruh kegiatan litbang tahun {{$ctrl.year -1}} menurut bidang penelitian. Mohon disebutkan persentase dana untuk setiap bidang, terhitung dari total dana penelitian (untuk penelitian lintas bidang, mengacu kepada bidang penelitian yang dominan).
       </p>
       <br>
-      <div class="form-group" ng-repeat="detail in $ctrl.answer.data">
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.detail">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">{{$ctrl.getSubjectFromResearchFieldCode(detail.code)}}
         </label>
         <div class="input-group col-md-2 col-sm-3 col-xs-6">

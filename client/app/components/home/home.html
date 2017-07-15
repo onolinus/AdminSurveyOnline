@@ -6,7 +6,7 @@
   <div>
     <div class="page-title">
       <div class="title_left">
-        <h3>Daftar Koresponden</h3>
+        <h3>Home</h3>
       </div>
 
       <!-- <div class="title_right">
@@ -23,82 +23,8 @@
 
     <div class="clearfix"></div>
 
-    <div class="row" block-ui="correspondentBlockUI">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-          <!-- <div class="x_title">
-            <h2>Table design <small>Custom design</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Settings 1</a>
-                  </li>
-                  <li><a href="#">Settings 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div> -->
-
-          <div class="x_content" >
-            <div class="dt-buttons btn-group mb-10" style="margin-bottom: 5px;">
-              <a ng-click="$ctrl.getRandom()" class="btn btn-primary buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons"><span><i class="fa fa-plus"></i>&nbsp;Ambil data responden</span></a
-                >
-            </div>
-
-            <div class="table-responsive">
-              <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
-                <tr class="even pointer" ng-repeat="row in $data">
-                  <td>{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
-                  <td class="col-md-3">{{row.relationships.correspondent.approved_by.puslit}}</td>
-                  <td class="col-md-2">{{row.relationships.correspondent.name}}</td>
-                  <td class=" ">{{row.relationships.correspondent.nip}}</td>
-                  <td class=" ">{{row.relationships.correspondent.approved_by.name}}</td>
-                  <td class=" ">{{row.relationships.correspondent.timestamp.created_string}}</td>
-                  <td class="a-right a-right status" ng-switch on="row.status">
-                    <span class="label label-aero" ng-switch-when="prosesvalidasi" >Proses Validasi</span>
-                    <span class="label label-green" ng-switch-when="diterima">Diterima</span>
-                    <span class="label label-red" ng-switch-when="ditolak">Ditolak</span>
-                  </td>
-                  <td class=" last"><a ui-sref="survey({user_id:row.correspondent.id})">View</a></td>
-                </tr>
-                <tr ng-if="$data.length == 0">
-                  <td colspan="8"><p>
-                    Data responden yang akan di validasi belum ada, klik tombol <b>Ambil data responden</b> untuk mengambil data survei yang masih available untuk di validasi.
-                  </p></td>
-                </tr>
-              </table>
-            </div>
-
-          </div>
-
-
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-
-<script type="text/ng-template" id="userListTableHeader.html">
-  <tr>
-    <th>No</th>
-    <th class="column-title">Lembaga </th>
-    <th class="column-title">Nama Koresponden</th>
-    <th class="column-title">NIK/NIP</th>
-    <th class="column-title">Nama Menyetujui</th>
-    <th class="column-title">Tanggal Pengisian</th>
-    <th class="column-title">Status </th>
-    <th class="column-title no-link last"><span class="nobr">Action</span>
-    </th>
-  </tr>
-</script>
-
 <!-- /page content -->
 
 <app-footer></app-footer>

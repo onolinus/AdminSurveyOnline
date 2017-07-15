@@ -1,8 +1,10 @@
 <div class="card questions">
   <div class="question-content">
     <div class="question-body form-horizontal">
+      <h2>Realisasi anggaran DIPA tahun {{($ctrl.year - 1)}} </h2>
+      <br>
       <p>
-        Sebutkan total realisasi anggaran DIPA unit kerja Saudara dalam tahun 2015, termasuk Penerimaaan Negara Bukan Pajak (PNBP) dan Pinjaman Hibah Luar Negeri (PHLN)
+        Sebutkan total realisasi anggaran DIPA unit kerja Saudara dalam tahun {{($ctrl.year - 1)}}, termasuk Penerimaaan Negara Bukan Pajak (PNBP) dan Pinjaman Hibah Luar Negeri (PHLN)
       </p>
       <br>
       <div class="form-group">
@@ -10,7 +12,7 @@
         </label>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" id="first-name" required="required" value="{{$ctrl.answer.data.total | formatMoney}}" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" required="required" value="{{$ctrl.answer.total | formatMoney}}" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
 
@@ -18,7 +20,7 @@
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Persentase Realisasi terhadap rencana anggaran<!-- <span class="required">*</span> -->
         </label>
         <div class="input-group col-md-2 col-sm-4 col-xs-6">
-          <input type="text" id="first-name" ng-model="$ctrl.answer.data.percentage" required="required" class="form-control col-md-7 col-xs-12">
+          <input type="text" id="first-name" ng-model="$ctrl.answer.percentage" required="required" class="form-control col-md-7 col-xs-12">
           <div class="input-group-addon">%</div>
         </div>
       </div>
@@ -26,11 +28,11 @@
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>
-      <p>{{$ctrl.answer.comment}}</p>
+      <p>{{$ctrl.answer.status_comment}}</p>
     </div>
   </div>
 </div>

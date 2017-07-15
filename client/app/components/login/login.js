@@ -22,7 +22,7 @@ let loginModule = angular.module('login', [
 .config(($stateProvider, $urlRouterProvider) => {
   "ngInject";
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/masuk');
 
   $stateProvider
     .state('login', {

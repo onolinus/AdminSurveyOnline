@@ -1,11 +1,11 @@
 class ValidatorController {
-  constructor($state, toastr, User, NgTableParams, apiURL, blockUI, $http, $uibModal) {
+  constructor($state, toastr, User, NgTableParams, appConfig, blockUI, $http, $uibModal) {
     "ngInject";
 
     this.toastr = toastr;
     this.$state = $state;
     this.$http = $http;
-    this.apiURL = apiURL;
+    this.apiURL = appConfig.api_url;
     this.$uibModal = $uibModal;
     this.User = User;
 

@@ -9,12 +9,9 @@ import Users from './users/users';
 
 let componentModule = angular.module('app.components', [
   Home,
+  Responden,
   Login,
-  Survey,
-  Dashboard,
-  Validator,
-  Users,
-  Responden
+  Survey
 ])
 
 .name;

@@ -1,20 +1,21 @@
 import modalReject from './modalReject.html';
 
 class questionService {
-  constructor($http, $uibModal, $q, User, apiURL, questionFactory) {
+  constructor($http, $uibModal, $q, User, appConfig, questionFactory) {
     "ngInject";
 
     this.$uibModal = $uibModal;
     this.$http = $http;
     this.$q = $q;
     this.User = User;
-    this.apiURL = apiURL;
+    this.apiURL = appConfig.api_url;
+
     this.questionFactory = questionFactory;
 
     this.usersAnswersId = [];
   }
 
-  rejectAnswer = (userId, questionIndex, subQuestion=false) => {
+  rejectAnswer = (answerId, questionIndex, subQuestion=false) => {
     const modalInstance = this.$uibModal.open({
       animation: true,
       template: modalReject,
@@ -31,7 +32,7 @@ class questionService {
             return [];
           } else {
             let answerkeys = [];
-            const answersDetail = questionFactory.getAnswer(userId, questionIndex, subQuestion);
+            const answersDetail = questionFactory.getAnswer(answerId, questionIndex, subQuestion);
             for (var key in answersDetail) {
               if (key != 'status') {
                 let subQuestionIndex = key.substr(key.length - 1);
@@ -49,14 +50,13 @@ class questionService {
 
     modalInstance.result.then((comment) => {
       let promises = [];
-      const answersId = this.usersAnswersId[userId];
 
-      promises.push(this.rejectRequest(userId, answersId, questionIndex, subQuestion));
-      promises.push(this.rejectComment(userId, answersId, questionIndex, comment, subQuestion));
+      promises.push(this.rejectRequest(answerId, questionIndex, subQuestion));
+      promises.push(this.rejectComment(answerId, questionIndex, comment, subQuestion));
 
       this.$q.all(promises)
         .then((response) => {
-          this.getAnswers(userId)
+          this.getAnswers(answerId)
             .then((answers) => {
               deffered.resolve(answers);
             });
@@ -68,13 +68,13 @@ class questionService {
     return deffered.promise;
   };
 
-  approveAnswer = (userId, questionIndex, subQuestion) => {
-    const answersId = this.usersAnswersId[userId];
+  approveAnswer = (surveyId, questionIndex, subQuestion) => {
+    const answersId = surveyId
 
     let deffered = this.$q.defer();
 
     if (subQuestion) {
-        const answersDetail = this.questionFactory.getAnswer(userId, questionIndex, subQuestion);
+        const answersDetail = this.questionFactory.getAnswer(answersId, questionIndex, subQuestion);
         let approvePromises = [];
 
         for (var key in answersDetail) {
@@ -83,19 +83,18 @@ class questionService {
 
             const approveAnswersReq = {
               method: 'PUT',
-              url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/approve',
+              url: this.apiURL + '/api/survey/' + answersId + '/' + questionIndex + subQuestionIndex + '/approve',
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
                 'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
               },
             };
-
             approvePromises.push(this.$http(approveAnswersReq));
           }
         }
 
         this.$q.all(approvePromises).then((response) => {
-          this.getAnswers(userId) .then((answers) => {
+          this.getAnswers(answersId) .then((answers) => {
             deffered.resolve(answers);
           });
         }, () => {
@@ -104,17 +103,15 @@ class questionService {
     } else {
       const approveAnswersReq = {
         method: 'PUT',
-        url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + '/approve',
+        url: this.apiURL + '/api/survey/' + answersId + '/' + questionIndex + '/approve',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
         },
       };
 
-
-
       this.$http(approveAnswersReq) .then((response) => {
-        this.getAnswers(userId) .then((answers) => {
+        this.getAnswers(answersId) .then((answers) => {
           deffered.resolve(answers);
         });
       }, () => {
@@ -125,11 +122,12 @@ class questionService {
     return deffered.promise;
   };
 
-  rejectRequest = (userId, answersId, questionIndex, subQuestion) => {
+  rejectRequest = (surveyId, questionIndex, subQuestion) => {
+    const answersId = surveyId
     let deffered = this.$q.defer();
 
     if (subQuestion) {
-      const answersDetail = this.questionFactory.getAnswer(userId, questionIndex, subQuestion);
+      const answersDetail = this.questionFactory.getAnswer(answersId, questionIndex, subQuestion);
       let rejectPromises = [];
 
       for (var key in answersDetail) {
@@ -138,7 +136,7 @@ class questionService {
 
           const rejectAnswersReq = {
             method: 'PUT',
-            url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/reject',
+            url: this.apiURL + '/api/survey/' + answersId + '/' + questionIndex + subQuestionIndex + '/reject',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -157,7 +155,7 @@ class questionService {
     } else {
       const rejectAnswersReq = {
         method: 'PUT',
-        url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + '/reject',
+        url: this.apiURL + '/api/survey/' + answersId + '/' + questionIndex + '/reject',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -174,7 +172,7 @@ class questionService {
     return deffered.promise;
   };
 
-  rejectComment = (userId, answersId, questionIndex, comment, subQuestion) => {
+  rejectComment = (answersId, questionIndex, comment, subQuestion) => {
     let deffered = this.$q.defer();
 
     if (subQuestion) {
@@ -188,7 +186,7 @@ class questionService {
 
           const commentAnswersReq = {
             method: 'PUT',
-            url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + subQuestionIndex + '/comment',
+            url: this.apiURL + '/api/survey/' + answersId + '/' + questionIndex + subQuestionIndex + '/comment',
             data:$.param({comment: comment[answerIndex]}),
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -210,7 +208,7 @@ class questionService {
     } else{
       const commentAnswersReq = {
         method: 'PUT',
-        url: this.apiURL + '/survey/' + answersId + '/answers' + questionIndex + '/comment',
+        url: this.apiURL + '/api/survey/' + answersId + '/' + questionIndex + '/comment',
         data:$.param({comment: comment}),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -228,10 +226,10 @@ class questionService {
     return deffered.promise;
   };
 
-  getAnswers = (userId) => {
+  getAnswers = (surveyId) => {
     const answersReq = {
       method: 'GET',
-      url: this.apiURL + '/correspondent/' + userId + '/survey/detail',
+      url: this.apiURL + '/api/validator/survey/' + surveyId,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -240,26 +238,24 @@ class questionService {
 
     return this.$http(answersReq)
       .then((response) => {
-        this.usersAnswersId[userId] = response.data.data.id;
+        const responseData = response.data.data;
 
-        this.questionFactory.setAnswers(response.data.data.detail, userId);
-        this.questionFactory.setStatus(response.data.data.status, userId);
+        this.questionFactory.setAnswers(responseData.answers, surveyId);
+        this.questionFactory.setStatus(responseData.status, surveyId);
+
+        return responseData.answers;
       });
   }
 
-  updateAnswersStatus = (userId) => {
-    const answersId = this.usersAnswersId[userId];
-
-    let allChecked = this.questionFactory.isAnswersChecked(userId);
-    let rejectedExist = this.questionFactory.rejectedAnswerExist(userId);
-
-    // console.log(allChecked, rejectedExist);
+  updateAnswersStatus = (answersId) => {
+    let allChecked = this.questionFactory.isAnswersChecked(answersId);
+    let rejectedExist = this.questionFactory.rejectedAnswerExist(answersId);
 
     if (allChecked) {
-      var statusReqUrl = this.apiURL + '/survey/' + answersId + '/approve';
+      var statusReqUrl = this.apiURL + '/api/survey/' + answersId + '/approve';
 
       if (rejectedExist) {
-        statusReqUrl = this.apiURL + '/survey/' + answersId + '/reject';
+        statusReqUrl = this.apiURL + '/api/survey/' + answersId + '/reject';
       }
 
       const updateAnswersStatusReq = {

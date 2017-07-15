@@ -4,3 +4,7 @@
 node_modules
 .settings
 *.log
+.htaccess
+admin.pptx
+docs/
+tree.txt

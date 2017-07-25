@@ -7,7 +7,6 @@ class QuestionController {
     this.surveyId = $stateParams.survey_id;
 
     this.statusUpdated = false;
-    console.log(this);
     this.questionService.updateAnswersStatus(this.surveyId);
   }
 
@@ -113,7 +112,6 @@ class QuestionController {
 
   //peneliti non fungsional
   getTotalQ9_FNP_HL = () => {
-    console.log(this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l);
     return this.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s2_l + this.answer['9B'].peneliti_fungsional_nonpeneliti_s1_l;
   }
 

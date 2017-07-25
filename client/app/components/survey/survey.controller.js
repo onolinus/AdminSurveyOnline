@@ -71,7 +71,6 @@ class SurveyController {
       }
     }
 
-    console.log(this.$stateParams.year, questionId, this.questionFactory.getAnswerStatus(this.surveyId, questionId, subQuestion));
     return this.questionFactory.getAnswerStatus(this.surveyId, questionId, subQuestion);
   }
 }

@@ -6,15 +6,52 @@ class RespondenController {
     this.apiURL = appConfig.api_url;
     this.$http = $http;
     this.toastr = toastr;
+    this.statuses = [
+      { id: 'diterima', title: "Diterima"},
+      { id: 'ditolak', title: "Ditolak"},
+      { id: 'prosesvalidasi', title: "Proses Validasi"}
+    ];
 
+    this.lembaga = [];
+    angular.forEach(this.industri, (lembaga) => {
+      const i = {
+        id: lembaga.id,
+        title: lembaga.name
+      }
+
+      this.lembaga.push(i)
+    })
+
+    angular.forEach(this.litbang, (lembaga) => {
+      const i = {
+        id: lembaga.id,
+        title: lembaga.name
+      }
+
+      this.lembaga.push(i)
+    })
     // Get the reference to the block service.
     this.myBlockUI = blockUI.instances.get('correspondentBlockUI');
 
-    this.correnspondenceTableParams = new NgTableParams( {count: 10 }, {
+    this.correnspondenceTableParams = new NgTableParams( {
+      count: 10,
+      sorting: {id: "asc"},
+    }, {
       getData: (params) => {
+
+        const sort = params.sorting();
+        const filter = params.filter();
+        let query = 'page=' + params.url().page + '&includes=respondent,validator';
+
+        angular.forEach(filter, (item, key) => {
+          if (key != '$' && item) {
+            query += '&search[' + key + ']=' + item
+          }
+        });
+
         const request = {
           method: 'GET',
-          url: this.apiURL + '/api/validator/survey?status=' + '&page=' + params.url().page + '&includes=respondent,validator',
+          url: this.apiURL + '/api/validator/survey?' + query,
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -55,6 +92,20 @@ class RespondenController {
           this.toastr.error(message, 'Unlock Responden');
         });
   	});
+  }
+
+  getLembaga = (organization, id) => {
+    let namaLembaga = 'Tidak ditemukan';
+    angular.forEach(this[organization], (lembaga) => {
+      if (lembaga.id == id) {
+        namaLembaga = lembaga.name;
+      }
+    });
+
+    return namaLembaga;
+  }
+  search = () => {
+    this.correnspondenceTableParams.filter({ $: this.searchTerm });
   }
 
   detail = (survey) => {

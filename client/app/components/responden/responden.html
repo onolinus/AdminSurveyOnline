@@ -12,7 +12,7 @@
       <div class="title_right">
         <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.searchTerm">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Search!</button>
             </span>
@@ -49,21 +49,21 @@
           <div class="x_content" >
 
             <div class="table-responsive">
-              <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action" template-header="userListTableHeader.html">
+              <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action">
                 <tr class="even pointer" ng-repeat="row in $data">
-                  <td>{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
-                  <td class="col-md-2">{{row.approved_by.puslit}}</td>
-                  <td class="col-md-2">{{row.respondent.name}}</td>
-                  <td>{{row.respondent.hp}}</td>
-                  <td>{{row.respondent.approved_by.name}}</td>
-                  <td>{{row.timestamp.created_string}}</td>
-                  <td class="a-right a-right status" ng-switch on="row.status">
+                  <td width="3%" data-title="'No'" sortable="'id'">{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
+                  <td width="20%" data-title="'Lembaga'" sortable="'lembaga'" class="col-md-2" filter="{ 'lembaga': 'select' }" filter-data="$ctrl.lembaga" >{{ $ctrl.getLembaga(row.respondent.organization, row.respondent.id_lembaga)}}</td>
+                  <td width="12%" data-title="'Nama Koresponden'" sortable="'name'" class="col-md-2" filter="{ 'respondent-name': 'text' }">{{row.respondent.name}}</td>
+                  <td width="10%" data-title="'No HP'" sortable="'hp'" >{{row.respondent.hp}}</td>
+                  <td width="15%" data-title="'Nama Menyetujui'" sortable="'approved_by'" filter="{ 'approved-by-name': 'text' }">{{row.respondent.approved_by.name}}</td>
+                  <td width="15%" data-title="'Tanggal Pengisian'" sortable="'created'" >{{row.timestamp.created_string}}</td>
+                  <td width="10%" data-title="'Status'" class="a-right a-right status" filter="{ 'status': 'select' }" filter-data="$ctrl.statuses" ng-switch on="row.status">
                   	<span class="label" ng-switch-when="terkirim" >Terkirim</span>
                     <span class="label label-aero" ng-switch-when="prosesvalidasi" >Proses Validasi</span>
                     <span class="label label-green" ng-switch-when="diterima">Diterima</span>
                     <span class="label label-red" ng-switch-when="ditolak">Ditolak</span>
                   </td>
-                  <td class=" last">
+                  <td width="15%" class=" last" data-title="'Action'">
                     <ng-switch on="row.status">
                     	<a ng-switch-when="prosesvalidasi" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
                     	<a ng-switch-when="terkirim" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
@@ -86,18 +86,7 @@
   </div>
 </div>
 
-<script type="text/ng-template" id="userListTableHeader.html">
-  <tr>
-    <th>No</th>
-    <th class="column-title">Lembaga </th>
-    <th class="column-title">Nama Koresponden</th>
-    <th class="column-title">No HP</th>
-    <th class="column-title">Nama Menyetujui</th>
-    <th class="column-title">Tanggal Pengisian</th>
-    <th class="column-title">Status </th>
-    <th class="column-title no-link last"><span class="nobr">Action</span>
-    </th>
-  </tr>
+
 </script>
 
 <!-- /page content -->

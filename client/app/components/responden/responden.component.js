@@ -4,7 +4,7 @@ import './responden.styl';
 
 let respondenComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {litbang: '=', industri: '='},
   template,
   controller
 };

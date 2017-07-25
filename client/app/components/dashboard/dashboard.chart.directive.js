@@ -6,7 +6,6 @@ let highchartCustom = function($timeout, $window){
     replace: true,
     template: '<div></div>',
     link: function(scope, elem, attr){
-      console.log(scope.$eval(attr.config));
       $timeout(function(){
 
         // recompute content when resizing

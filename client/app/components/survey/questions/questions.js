@@ -173,7 +173,7 @@ let questionsModule = angular.module('questions', [
               return response.data.data;
             });
         },
-          year: ($stateParams) => $stateParams.year
+        year: ($stateParams) => $stateParams.year
       }
     })
     .state('question9', {
@@ -183,7 +183,6 @@ let questionsModule = angular.module('questions', [
       component: 'question9',
       resolve: {
         answer: ($stateParams, questionFactory) =>  {
-          console.log(questionFactory.getAnswer($stateParams.survey_id, 9, true));
           return questionFactory.getAnswer($stateParams.survey_id, 9, true);
         },
         klasifikasi: ($http, appConfig, User) => {
@@ -323,7 +322,7 @@ let questionsModule = angular.module('questions', [
 
           return $http(req)
             .then((response) => {
-              return response.data;
+              return response.data.data;
             });
         },
         year: ($stateParams) => $stateParams.year

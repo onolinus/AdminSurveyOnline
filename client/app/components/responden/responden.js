@@ -21,6 +21,40 @@ let respondenModule = angular.module('responden', [
     .state('responden.list', {
       url: '/responden',
       component: 'responden',
+      resolve: {
+        litbang: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/lembaga/litbang',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data.data;
+            });
+        },
+        industri: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/lembaga/industri',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data.data;
+            });
+        },
+      },
       data: {
         permission: {
           only : ['admin', 'validator', 'respondent']

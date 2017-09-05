@@ -17,7 +17,7 @@ class QuestionDynamicController {
     this.countries = [];
 
     this.getCountries().then((countries) => {
-      this.countries = countries;
+      this.countries = countries.data;
     });
   }
 

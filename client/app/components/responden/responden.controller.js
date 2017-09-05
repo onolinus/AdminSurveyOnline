@@ -104,6 +104,28 @@ class RespondenController {
 
     return namaLembaga;
   }
+
+  getRespondent = () => {
+    const request = {
+      method: 'GET',
+      url: this.apiURL + '/api/validator/survey/random',
+      headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
+      }
+    };
+
+    this.myBlockUI.start();
+
+    return this.$http(request).then((res) => {
+        this.correnspondenceTableParams.reload()
+    }, (err) => {
+      this.toastr.error(err.data.error.message, 'Server Error');
+    }).finally(()=>{
+      this.myBlockUI.stop()
+    });
+  }
+
   search = () => {
     this.correnspondenceTableParams.filter({ $: this.searchTerm });
   }

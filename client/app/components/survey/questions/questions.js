@@ -403,6 +403,7 @@ let questionsModule = angular.module('questions', [
 
 .filter('country', function() {
   return function(input, options) {
+    console.log(input, options)
     let name = '';
     angular.forEach(options, (item) => {
       if (item.id == input) {

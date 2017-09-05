@@ -21,9 +21,9 @@ const ChapterComponent = {
     if (no == '15' || no == '16') {
       subQuestion = true;
     }
-
+    
     return `
-      <question${no} answer="$ctrl.answer" alias-no="${no}" year="${$state.params.year}" sub="${subQuestion}"></question${no}>
+      <question${no} answer="$ctrl.answer" alias-no="${no}" countries="$ctrl.countries" year="${$state.params.year}" sub="${subQuestion}"></question${no}>
     `;
   }
 };

@@ -26,27 +26,20 @@ let UserFactory = function ($http, $q, $cookies, appConfig) {
 
     const authRequest = {
       method: 'POST',
-      url: appConfig.api_url + '/oauth/token',
+      url: appConfig.api_url + '/api/login?includes=profile,ristek_token',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       },
       data: $.param({
-        grant_type: 'password',
-        scope: 'check-status place-orders',
         username: email,
-        password: password,
-        client_id: appConfig.client_id,
-        client_secret: appConfig.client_secret
+        password: password
       })
     };
 
     $http(authRequest).success((data) => {
-        auth = data;
-
-        getProfile(auth)
+        return setProfile(data)
           .then(function(profile){
-            deffered.resolve(auth);
+            deffered.resolve(data);
           });
       })
       .error((error) => {
@@ -56,40 +49,22 @@ let UserFactory = function ($http, $q, $cookies, appConfig) {
     return deffered.promise;
   };
 
-  let getProfile = (auth) => {
+  let setProfile = (auth) => {
     let deffered = $q.defer();
 
-    const profileRequest = {
-      method: 'GET',
-      url: appConfig.api_url + '/api/profile',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'X-Requested-With': 'XMLHttpRequest',
-        'Authorization' : auth.token_type + ' ' + auth.access_token
-      }
-    };
+    let currDate = new Date ();
+    let expDate = new Date ( currDate );
+    expDate.setSeconds( currDate.getSeconds() + auth.expires_in);
 
-    $http(profileRequest).success((profile) => {
-        let currDate = new Date ();
-        let expDate = new Date ( currDate );
-        expDate.setSeconds( currDate.getSeconds() + auth.expires_in);
+    $cookies.put('app-auth', JSON.stringify(auth), { expires:expDate });
 
-        auth.user_type = profile.data.type
-        auth.profile = profile.data;
-
-        $cookies.put('app-auth', JSON.stringify(auth), {expires:expDate});
-
-        if ($.inArray(auth.user_type, [ "validator", "guest", "respondent", "admin"]) == -1) {
-          deffered.reject({error: {
-            message: ['Akun tidak diberi akses untuk menggunakan aplikasi']
-          }});
-        } else {
-          deffered.resolve(auth);
-        }
-      })
-      .error((error) => {
-        deffered.reject(error);
-      });
+    if ($.inArray(auth.includes.profile.type, [ "validator", "guest", "respondent", "admin"]) == -1) {
+      deffered.reject({error: {
+        message: ['Akun tidak diberi akses untuk menggunakan aplikasi']
+      }});
+    } else {
+      deffered.resolve(auth);
+    }
 
     return deffered.promise;
   }

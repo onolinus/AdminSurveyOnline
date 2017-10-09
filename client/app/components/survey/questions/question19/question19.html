@@ -9,14 +9,14 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.checked" value="1">Ya
+              <input type="checkbox" ng-checked="$ctrl.answer.detail.length > 0" value="1">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.checked" value="0">Tidak
+              <input type="checkbox" ng-checked="$ctrl.answer.detail.length <= 0" value="0">Tidak
             </label>
           </div>
         </div>

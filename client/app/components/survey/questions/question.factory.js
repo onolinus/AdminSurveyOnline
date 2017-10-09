@@ -10,8 +10,7 @@ let QuestionFactory = function () {
       } else {
         let questionAnswer = [];
         angular.forEach(answers[surveyId], function(ans, index){
-          let questionKey = questionId;
-          if (index.indexOf(questionKey) > -1) {
+          if (ans && index.indexOf(questionId) > -1 ) {
             questionAnswer[index] = ans;
             questionAnswer.status = ans.status;
           }
@@ -31,13 +30,15 @@ let QuestionFactory = function () {
   let getAnswerStatus = (surveyId, questionId, subQuestion=false) => {
     if ( answers[surveyId]) {
       if (!subQuestion) {
-        return angular.isDefined(answers[surveyId][questionId]) ? answers[surveyId][questionId].status : 'diterima';
+        return angular.isDefined(answers[surveyId][questionId]) && answers[surveyId][questionId]
+          ? answers[surveyId][questionId].status
+          : 'terkirim';
       } else {
-        let questionStatus = 'diterima';
+        let questionStatus = 'terkirim';
         angular.forEach(answers[surveyId], function(ans, index){
           let questionKey = questionId;
           if (index.indexOf(questionKey) > -1) {
-            if (ans.status != 'diterima') {
+            if (ans && ans.status != 'terkirim') {
               questionStatus = ans.status;
             }
           }
@@ -46,7 +47,7 @@ let QuestionFactory = function () {
       }
     }
 
-    return;
+    return 'terkirim';
   };
 
   let getChecked = (surveyId, questionId) => {
@@ -54,8 +55,7 @@ let QuestionFactory = function () {
       let checked = false;
 
       angular.forEach(answers[surveyId], function(ans, index){
-        let questionKey =  questionId;
-        if (index.indexOf(questionKey) > -1) {
+        if (ans && index == questionId) {
           checked = true
         }
       });
@@ -98,7 +98,7 @@ let QuestionFactory = function () {
     let rejected = false;
     angular.forEach(answers[surveyId], function(ans, index){
       if(!rejected){
-        if (ans.status == 'ditolak' ) {
+        if (ans && ans.status == 'ditolak' ) {
           rejected = true;
         }
       }

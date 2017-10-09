@@ -155,6 +155,7 @@ let questionsModule = angular.module('questions', [
           return questionFactory.getAnswer($stateParams.survey_id, 8);
         },
         checked: ($stateParams, questionFactory) => {
+          console.log('getChecked 8', questionFactory.getChecked($stateParams.survey_id, 8))
           return questionFactory.getChecked($stateParams.survey_id, 8);
         },
         institusi: ($http, appConfig, User) => {

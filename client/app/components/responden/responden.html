@@ -36,11 +36,12 @@
               <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action">
                 <tr class="even pointer" ng-repeat="row in $data">
                   <td width="3%" data-title="'No'" sortable="'id'">{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
-                  <td width="20%" data-title="'Lembaga'" sortable="'lembaga'" class="col-md-2" filter="{ 'lembaga': 'select' }" filter-data="$ctrl.lembaga" >{{ $ctrl.getLembaga(row.respondent.organization, row.respondent.id_lembaga)}}</td>
-                  <td width="12%" data-title="'Nama Koresponden'" sortable="'name'" class="col-md-2" filter="{ 'respondent-name': 'text' }">{{row.respondent.name}}</td>
+                  <td width="20%" data-title="'Lembaga Induk'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.induk.name }}</td>
+                  <td width="15%" data-title="'Puslit'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.unit.name }}</td>
+                  <td width="10%" data-title="'Nama Koresponden'" sortable="'name'" class="col-md-2" filter="{ 'respondent-name': 'text' }">{{row.respondent.name}}</td>
                   <td width="10%" data-title="'No HP'" sortable="'hp'" >{{row.respondent.hp}}</td>
-                  <td width="15%" data-title="'Nama Menyetujui'" sortable="'approved_by'" filter="{ 'approved-by-name': 'text' }">{{row.respondent.approved_by.name}}</td>
-                  <td width="15%" data-title="'Tanggal Pengisian'" sortable="'created'" >{{row.timestamp.created_string}}</td>
+                  <td width="10%" data-title="'Nama Menyetujui'" sortable="'approved_by'" filter="{ 'approved-by-name': 'text' }">{{row.respondent.approved_by.name}}</td>
+                  <td width="7%" data-title="'Tanggal Pengisian'" sortable="'created'" >{{row.timestamp.created_string}}</td>
                   <td width="10%" data-title="'Status'" class="a-right a-right status" filter="{ 'status': 'select' }" filter-data="$ctrl.statuses" ng-switch on="row.status">
                   	<span class="label" ng-switch-when="terkirim" >Terkirim</span>
                     <span class="label label-aero" ng-switch-when="prosesvalidasi" >Proses Validasi</span>

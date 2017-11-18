@@ -58,7 +58,6 @@ angular.module('app', [
     "ngInject";
 
     $rootScope.$on('$stateChangeStart',  (event, toState, toStateParams) => {
-
       if (!User.isSignedIn()) {
         if (toState.name !== 'login') {
           $state.go('login');
@@ -66,11 +65,7 @@ angular.module('app', [
         }
       } else {
         if (toState.name == 'login') {
-          $state.go('responden.list');
-        } else {
-          if (angular.isDefined(toState.data.permission) && toState.data.permission.only.indexOf(User.getAuth().includes.profile.type) == -1) {
-            $state.go('responden.list');
-          }
+          $state.go('home.dashboard');
         }
       }
     });

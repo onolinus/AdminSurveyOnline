@@ -2,6 +2,7 @@ class RespondenController {
   constructor($state, NgTableParams, $http, User, appConfig, blockUI, toastr) {
     "ngInject";
     this.User = User;
+
     this.$state = $state;
     this.apiURL = appConfig.api_url;
     this.$http = $http;
@@ -51,7 +52,7 @@ class RespondenController {
 
         const request = {
           method: 'GET',
-          url: this.apiURL + '/api/validator/survey?' + query,
+          url: this.apiURL + '/api/' + this.User.getAuth().includes.profile.type +'/survey?' + query,
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token

@@ -18,7 +18,8 @@ class LoginController {
         if ($.inArray(auth.includes.profile.type, [ "validator", "guest", "correspondent"])  > -1) {
           this.$state.go('responden.list');
         } else {
-          this.$state.go('dashboard');
+          console.log('go dashboard', auth.includes.profile.type)
+          this.$state.go('home.dashboard');
         }
       }, (error) => {
         this.toastr.error(error.message, 'Login error');

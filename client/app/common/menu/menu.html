@@ -30,14 +30,14 @@
 
               <li sidebar-toggle>
                 <a><i class="fa fa-bar-chart"></i> Dashboard</a>
-                <ul class="nav child_menu">
+                <!-- <ul class="nav child_menu">
                   <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('dashboard')}">
                     <a ui-sref="dashboard">Responden Survei</a>
-                  </li>
+                  </li> -->
                   <!-- <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('anggaran')}">
                     <a ui-sref="anggaran">Anggaran Litbang</a>
                   </li> -->
-                  <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('belanja')}">
+                  <!-- <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('belanja')}">
                     <a ui-sref="belanja">Belanja Litbang</a>
                   </li>
                   <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('personil')}">
@@ -45,7 +45,7 @@
                   </li>
                   <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('paten')}">
                     <a ui-sref="paten">Paten, Makalah Ilmiah & Produk Litbang</a>
-                  </li>
+                  </li> -->
                   <!-- <li sidebar-toggle-child ng-class="{'current-page': $ctrl.$state.includes('peneliti')}">
                     <a ui-sref="peneliti">Peneliti</a>
                   </li>
@@ -54,16 +54,16 @@
                   <li sidebar-toggle-child><a href="index3.html">Makalah Ilmiah</a></li>
                   <li sidebar-toggle-child><a href="index3.html">Lisensi</a></li>
                   <li sidebar-toggle-child><a href="index3.html">Kerjasama Dalam dan Luar Negeri</a></li> -->
-                </ul>
+                <!-- </ul> -->
               </li>
-              <li><a ui-sref="responden"><i class="fa fa-users"></i> Koresponden</a></li>
-              <li ng-class="{active: $ctrl.$state.includes('validator')}">
-                <a ui-sref="validator"><i class="fa fa-user"></i> Validator</a>
-              </li>
-              <li ng-class="{active: $ctrl.$state.includes('users')}"><a ui-sref="users"><i class="fa fa-users"></i> Users</a></li>
+              <li><a ui-sref="responden.list"><i class="fa fa-users"></i> Koresponden</a></li>
+              <!-- <li ng-class="{active: $ctrl.$state.includes('validator')}">
+                <a ui-sref="validator"><i class="fa fa-user"></i> Validator</a>``
+              </li> -->
+              <!-- <li ng-class="{active: $ctrl.$state.includes('users')}"><a ui-sref="users"><i class="fa fa-users"></i> Users</a></li> -->
             </ul>
 
-            <ul ng-switch-when="correspondent" class="nav side-menu">
+            <!-- <ul ng-switch-when="correspondent" class="nav side-menu">
               <li sidebar-toggle>
                 <a><i class="fa fa-bar-chart"></i> Dashboard</a>
                 <ul class="nav child_menu">
@@ -81,7 +81,7 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> -->
 
             <ul ng-switch-when="validator" class="nav side-menu">
               <li>
@@ -90,7 +90,7 @@
               <li><a ui-sref="responden.list"><i class="fa fa-users"></i> Koresponden</a></li>
             </ul>
 
-            <ul ng-switch-when="guest" class="nav side-menu">
+            <!-- <ul ng-switch-when="guest" class="nav side-menu">
               <li sidebar-toggle>
                 <a><i class="fa fa-bar-chart"></i> Dashboard</a>
                 <ul class="nav child_menu">
@@ -108,7 +108,7 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> -->
 
           </ng-switch>
         </div>

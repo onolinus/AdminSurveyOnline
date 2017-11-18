@@ -26,7 +26,7 @@
     <div class="row" block-ui="correspondentBlockUI">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
-          <div class="x_title">
+          <div class="x_title" ng-if="$ctrl.User.getAuth().includes.profile.type == 'validator'">
             <button type="button" class="btn btn-primary" ng-click="$ctrl.getRespondent()">Get Respondent</button>
           </div>
 
@@ -48,7 +48,7 @@
                     <span class="label label-green" ng-switch-when="diterima">Diterima</span>
                     <span class="label label-red" ng-switch-when="ditolak">Ditolak</span>
                   </td>
-                  <td width="15%" class=" last" data-title="'Action'">
+                  <td width="15%" class=" last" data-title="'Action'" ng-if="$ctrl.User.getAuth().includes.profile.type == 'validator'">
                     <ng-switch on="row.status">
                     	<a ng-switch-when="prosesvalidasi" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
                     	<a ng-switch-when="terkirim" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>

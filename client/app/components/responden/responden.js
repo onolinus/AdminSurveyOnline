@@ -57,7 +57,7 @@ let respondenModule = angular.module('responden', [
       },
       data: {
         permission: {
-          only : ['admin', 'validator', 'respondent']
+          only : ['admin', 'validator', 'respondent', 'adminlembagaiptek']
         }
       }
     });

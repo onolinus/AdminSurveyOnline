@@ -13,6 +13,7 @@ class RespondenController {
       { id: 'prosesvalidasi', title: "Proses Validasi"}
     ];
 
+    this.tahun = '2017';
     this.lembaga = [];
     angular.forEach(this.industri, (lembaga) => {
       const i = {
@@ -50,9 +51,20 @@ class RespondenController {
           }
         });
 
+        let url = 'validator';
+        switch (this.User.getAuth().includes.profile.type) {
+          case 'admin':
+            url = 'admin'
+            break;
+          case 'adminlembagaiptek':
+            url = 'admin-lembaga-iptek'
+            break;
+          default:
+            url = 'validator'
+        }
         const request = {
           method: 'GET',
-          url: this.apiURL + '/api/' + this.User.getAuth().includes.profile.type +'/survey?' + query,
+          url: this.apiURL + '/api/' + url +'/survey?' + query,
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
@@ -133,6 +145,11 @@ class RespondenController {
 
   detail = (survey) => {
     this.$state.go('survey', {survey_id: survey.id, year: survey.year});
+  }
+
+  getTahun = (year) => {
+    this.tahun = tahun
+    this.correnspondenceTableParams.reload()
   }
 }
 

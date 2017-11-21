@@ -247,15 +247,15 @@ class questionService {
       });
   }
 
-  updateAnswersStatus = (answersId) => {
-    let allChecked = this.questionFactory.isAnswersChecked(answersId);
-    let rejectedExist = this.questionFactory.rejectedAnswerExist(answersId);
+  updateAnswersStatus = (surveyId) => {
+    let allChecked = this.questionFactory.isAllAnswersChecked(surveyId);
+    let rejectedExist = this.questionFactory.rejectedAnswerExist(surveyId);
 
     if (allChecked) {
-      var statusReqUrl = this.apiURL + '/api/survey/' + answersId + '/approve';
+      var statusReqUrl = this.apiURL + '/api/survey/' + surveyId + '/approve';
 
       if (rejectedExist) {
-        statusReqUrl = this.apiURL + '/api/survey/' + answersId + '/reject';
+        statusReqUrl = this.apiURL + '/api/survey/' + surveyId + '/reject';
       }
 
       const updateAnswersStatusReq = {

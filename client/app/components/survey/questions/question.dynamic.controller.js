@@ -13,7 +13,7 @@ class QuestionDynamicController {
     this.surveyId = $stateParams.survey_id;
 
     this.answer = this.getAnswer();
-
+    console.log(this.answer)
     this.countries = [];
 
     this.getCountries().then((countries) => {

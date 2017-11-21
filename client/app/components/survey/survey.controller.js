@@ -18,6 +18,8 @@ class SurveyController {
     });
 
     this.answerCheckList = this.setAnswerListType()
+
+    console.log(angular.copy(this.answers))
   };
 
   setAnswerListType = () => {
@@ -57,21 +59,32 @@ class SurveyController {
     this.$state.go('question' + this.activeIndex);
   };
 
+  // racing issue
   getStatus = (questionId, subQuestion) => {
+    let status = 'terkirim'
     if (this.$stateParams.year == '2017') {
+      let sub = angular.copy(subQuestion);
+      let id = angular.copy(questionId);
+
       if (questionId == '14') {
-        questionId = 19;
+        id = 19;
       } else {
         if (questionId >= '14') {
-          questionId--;
+          id = questionId - 1;
         }
       }
-      if (questionId == '16' || questionId == '15') {
-        subQuestion = true;
+
+
+      if (id == '16' || id == '15') {
+        sub = true;
       }
+
+      status = status = this.questionFactory.getAnswerStatus(this.surveyId, id, sub);
+    } else {
+      status = this.questionFactory.getAnswerStatus(this.surveyId, questionId, subQuestion);
     }
 
-    return this.questionFactory.getAnswerStatus(this.surveyId, questionId, subQuestion);
+    return status;
   }
 }
 

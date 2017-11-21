@@ -3,7 +3,6 @@ class MenuController {
     "ngInject";
 
     this.auth = User.getAuth();
-    console.log(this.auth)
     this.$state = $state;
   }
 }

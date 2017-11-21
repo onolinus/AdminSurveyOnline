@@ -2,12 +2,12 @@
   <div class="question-content">
     <div class="question-body form-horizontal">
       <p>
-        Sebutkan produk teknologi (barang atau jasa) yang dihasilkan oleh unit kerja Saudara dalam 3 (tiga) tahun terakhir 2015-2013. Produk yang terkomersialisasi adalah produk yang telah dimanfaatkan pengguna secara massal dimana proses produksi massalnya dapat dilakukan oleh unit kerja Saudara maupun pihak lain.
+        Sebutkan produk teknologi (barang atau jasa) yang dihasilkan oleh unit kerja Saudara dalam 3 (tiga) tahun terakhir {{ $ctrl.year - 1 }}-{{ $ctrl.year - 4}}. Produk yang terkomersialisasi adalah produk yang telah dimanfaatkan pengguna secara massal dimana proses produksi massalnya dapat dilakukan oleh unit kerja Saudara maupun pihak lain.
       </p>
 
       <br>
 
-      <div class="form-group">
+      <div class="form-group" ng-if="$ctrl.answer.length">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
@@ -22,6 +22,10 @@
             </label>
           </div>
         </div>
+      </div>
+
+      <div class="form-group text-warning" ng-if="!$ctrl.answer.length">
+        <p><b>Jawaban belum di isi</b></p>
       </div>
 
       <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.answer['15A'].detail.length">

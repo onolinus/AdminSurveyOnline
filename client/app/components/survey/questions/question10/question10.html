@@ -5,7 +5,7 @@
         Adakah peneliti luar yang terlibat dalam aktivitas litbang di unit kerja Saudara pada tahun {{$ctrl.year - 1}}?
       </p>
       <br>
-      <div class="form-group">
+      <div class="form-group" ng-if="$ctrl.answer">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
@@ -16,11 +16,16 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.answer.detail.length" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer.detail.length">Tidak
             </label>
           </div>
         </div>
       </div>
+
+      <div class="form-group text-warning" ng-if="!$ctrl.answer">
+        <p><b>Jawaban belum di isi</b></p>
+      </div>
+
       <br>
       <div ng-if="$ctrl.answer.detail.length">
         <div class="form-group" ng-repeat="detail in $ctrl.answer.detail">

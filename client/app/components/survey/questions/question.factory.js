@@ -36,13 +36,13 @@ let QuestionFactory = function () {
       } else {
         let questionStatus = 'terkirim';
         angular.forEach(answers[surveyId], function(ans, index){
-          let questionKey = questionId;
-          if (index.indexOf(questionKey) > -1) {
+          if (index.startsWith(questionId)) {
             if (ans && ans.status != 'terkirim') {
               questionStatus = ans.status;
             }
           }
         });
+
         return questionStatus;
       }
     }
@@ -79,10 +79,10 @@ let QuestionFactory = function () {
     answersStatus[surveyId]['answer'+ questionId].status = status;
   };
 
-  let isAnswersChecked = (surveyId) => {
+  let isAllAnswersChecked = (surveyId) => {
     let checked = true;
     angular.forEach(answers[surveyId], function(ans, index){
-      if(checked){
+      if(checked && ans){
         if (ans.status == 'terkirim' ) {
           checked = false;
         } else {
@@ -107,7 +107,7 @@ let QuestionFactory = function () {
     return rejected;
   }
 
-  return {getAnswer, getAnswerStatus, getChecked, setAnswers, setStatus, isAnswersChecked, rejectedAnswerExist};
+  return {getAnswer, getAnswerStatus, getChecked, setAnswers, setStatus, isAllAnswersChecked, rejectedAnswerExist};
 
 };
 

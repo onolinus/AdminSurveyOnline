@@ -28,14 +28,14 @@
         <div class="x_panel">
           <div class="x_title">
             <button type="button" class="btn btn-primary" ng-if="$ctrl.User.getAuth().includes.profile.type == 'validator'" ng-click="$ctrl.getRespondent()">Get Respondent</button>
-            <h2 style="display:inline-block;float:none;" ng-if="$ctrl.User.getAuth().includes.profile.type != 'validator'">Tahun {{$ctrl.tahun}}</h2>
+            <h2 style="display:inline-block;float:none;" ng-if="$ctrl.User.getAuth().includes.profile.type != 'validator'">Tahun {{$ctrl.tahun ? $ctrl.tahun : '2016 - 2017'}}</h2>
             <ul class="nav navbar-right panel_toolbox">
               <li class="close-link">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filter Tahun&nbsp;<i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">2016</a>
+                  <li><a href="" ng-click="$ctrl.setTahun(2016)">2016</a>
                   </li>
-                  <li><a href="#">2017</a>
+                  <li><a href="" ng-click="$ctrl.setTahun(2017)">2017</a>
                   </li>
                 </ul>
               </li>

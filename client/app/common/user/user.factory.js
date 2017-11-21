@@ -58,7 +58,7 @@ let UserFactory = function ($http, $q, $cookies, appConfig) {
 
     $cookies.put('app-auth', JSON.stringify(auth), { expires:expDate });
 
-    if ($.inArray(auth.includes.profile.type, [ "validator", "guest", "respondent", "admin"]) == -1) {
+    if ($.inArray(auth.includes.profile.type, [ "validator", "guest", "respondent", "admin", "adminlembagaiptek"]) == -1) {
       deffered.reject({error: {
         message: ['Akun tidak diberi akses untuk menggunakan aplikasi']
       }});

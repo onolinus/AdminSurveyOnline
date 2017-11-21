@@ -13,7 +13,7 @@ class RespondenController {
       { id: 'prosesvalidasi', title: "Proses Validasi"}
     ];
 
-    this.tahun = '2017';
+    this.tahun = null;
     this.lembaga = [];
     angular.forEach(this.industri, (lembaga) => {
       const i = {
@@ -50,6 +50,10 @@ class RespondenController {
             query += '&search[' + key + ']=' + item
           }
         });
+
+        if (this.tahun) {
+          query +='&search[year]=' + this.tahun
+        }
 
         let url = 'validator';
         switch (this.User.getAuth().includes.profile.type) {
@@ -147,8 +151,8 @@ class RespondenController {
     this.$state.go('survey', {survey_id: survey.id, year: survey.year});
   }
 
-  getTahun = (year) => {
-    this.tahun = tahun
+  setTahun = (year) => {
+    this.tahun = year
     this.correnspondenceTableParams.reload()
   }
 }

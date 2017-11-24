@@ -7,26 +7,23 @@
 
       <br>
 
-      <div class="form-group" ng-if="$ctrl.answer.length">
+      <div class="form-group">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.answer['15A'].detail.length" value="1">Ya
+              <input type="checkbox" ng-checked="!!$ctrl.answer">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.answer['15A'].detail.length" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer">Tidak
             </label>
           </div>
         </div>
       </div>
 
-      <div class="form-group text-warning" ng-if="!$ctrl.answer.length">
-        <p><b>Jawaban belum di isi</b></p>
-      </div>
 
       <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.answer['15A'].detail.length">
         <div class="pull-left">
@@ -79,7 +76,7 @@
 </div>
 
 
-<div class="question-tool" ng-if="$ctrl.answer">
+<div class="question-tool">
     <div class="pull-right text-center mtop20">
       <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
       <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>

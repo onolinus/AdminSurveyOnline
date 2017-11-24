@@ -14,6 +14,17 @@ class RespondenController {
     ];
 
     this.tahun = null;
+    this.daftarTahun = [
+      {
+        id: 2016,
+        title: 2016
+      },
+      {
+        id: 2017,
+        title: 2017
+      }
+    ];
+
     this.lembaga = [];
     angular.forEach(this.industri, (lembaga) => {
       const i = {
@@ -49,11 +60,11 @@ class RespondenController {
           if (key != '$' && item) {
             query += '&search[' + key + ']=' + item
           }
-        });
 
-        if (this.tahun) {
-          query +='&search[year]=' + this.tahun
-        }
+          if (key == 'year') {
+            this.tahun = item
+          }
+        });
 
         let url = 'validator';
         switch (this.User.getAuth().includes.profile.type) {

@@ -29,17 +29,6 @@
           <div class="x_title">
             <button type="button" class="btn btn-primary" ng-if="$ctrl.User.getAuth().includes.profile.type == 'validator'" ng-click="$ctrl.getRespondent()">Get Respondent</button>
             <h2 style="display:inline-block;float:none;" ng-if="$ctrl.User.getAuth().includes.profile.type != 'validator'">Tahun {{$ctrl.tahun ? $ctrl.tahun : '2016 - 2017'}}</h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li class="close-link">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filter Tahun&nbsp;<i class="fa fa-chevron-down"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="" ng-click="$ctrl.setTahun(2016)">2016</a>
-                  </li>
-                  <li><a href="" ng-click="$ctrl.setTahun(2017)">2017</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </div>
 
           <div class="x_content" >
@@ -47,20 +36,21 @@
             <div class="table-responsive">
               <table ng-table="$ctrl.correnspondenceTableParams" class="table table-striped jambo_table bulk_action">
                 <tr class="even pointer" ng-repeat="row in $data">
-                  <td width="3%" data-title="'No'" sortable="'id'">{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
-                  <td width="20%" data-title="'Lembaga Induk'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.induk.name }}</td>
-                  <td width="15%" data-title="'Puslit'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.unit.name }}</td>
-                  <td width="10%" data-title="'Nama Koresponden'" sortable="'name'" class="col-md-2" filter="{ 'respondent-name': 'text' }">{{row.respondent.name}}</td>
+                  <td width="2%" data-title="'No'" sortable="'id'">{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
+                  <td width="10%" data-title="'Lembaga Induk'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.induk.name }}</td>
+                  <td width="10%" data-title="'Puslit'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.unit.name }}</td>
+                  <td data-title="'Nama Koresponden'" sortable="'name'" class="col-md-2" filter="{ 'respondent-name': 'text' }">{{row.respondent.name}}</td>
                   <td width="10%" data-title="'No HP'" sortable="'hp'" >{{row.respondent.hp}}</td>
-                  <td width="10%" data-title="'Nama Menyetujui'" sortable="'approved_by'" filter="{ 'approved-by-name': 'text' }">{{row.respondent.approved_by.name}}</td>
-                  <td width="7%" data-title="'Tanggal Pengisian'" sortable="'created'" >{{row.timestamp.created_string}}</td>
-                  <td width="10%" data-title="'Status'" class="a-right a-right status" filter="{ 'status': 'select' }" filter-data="$ctrl.statuses" ng-switch on="row.status">
+                  <td data-title="'Nama Menyetujui'" sortable="'approved_by'" filter="{ 'approved-by-name': 'text' }">{{row.respondent.approved_by.name}}</td>
+                  <td data-title="'Tanggal Pengisian'" sortable="'created'" >{{row.timestamp.created_string}}</td>
+                  <td data-title="'Tahun'" sortable="'year'" filter="{ 'year': 'select' }" filter-data="$ctrl.daftarTahun">{{row.year}}</td>
+                  <td data-title="'Status'" class="a-right a-right status" filter="{ 'status': 'select' }" filter-data="$ctrl.statuses" ng-switch on="row.status">
                   	<span class="label" ng-switch-when="terkirim" >Terkirim</span>
                     <span class="label label-aero" ng-switch-when="prosesvalidasi" >Proses Validasi</span>
                     <span class="label label-green" ng-switch-when="diterima">Diterima</span>
                     <span class="label label-red" ng-switch-when="ditolak">Ditolak</span>
                   </td>
-                  <td width="15%" class=" last" data-title="'Action'" ng-if="$ctrl.User.getAuth().includes.profile.type == 'validator'">
+                  <td width="10%" class=" last" data-title="'Action'" ng-if="$ctrl.User.getAuth().includes.profile.type == 'validator'">
                     <ng-switch on="row.status">
                     	<a ng-switch-when="prosesvalidasi" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
                     	<a ng-switch-when="terkirim" href="" ng-click="$ctrl.unlock(row)"><i class="fa fa-unlock-alt"></i>&nbsp;Unlock</a>
@@ -70,7 +60,7 @@
                   </td>
                 </tr>
                 <tr ng-if="$data.length == 0">
-                  <td colspan="8"><p>
+                  <td colspan="10"><p>
                     Data responden belum ada
                   </p></td>
                 </tr>

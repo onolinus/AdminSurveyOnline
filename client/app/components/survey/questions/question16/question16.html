@@ -5,28 +5,24 @@
         Adakah usulan paten dan paten yang disetujui (granted) dari unit kerja Saudara selama tahun {{ $ctrl.year - 1 }}?
       </p>
       <br>
-      <div class="form-group" ng-if="$ctrl.answer">
+      <div class="form-group">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.answer['16A'].detail.length > 0 || $ctrl.answer['16B']" value="1">Ya
+              <input type="checkbox" ng-checked="!!$ctrl.answer">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.answer['16A'].detail.length <= 0 && !$ctrl.answer['16B']" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer">Tidak
             </label>
           </div>
         </div>
       </div>
 
-      <div class="form-group text-warning" ng-if="!$ctrl.answer">
-        <p><b>Jawaban belum di isi</b></p>
-      </div>
-
-      <div class="form-group" ng-if="$ctrl.answer['16A'].detail.length > 0">
+      <div class="form-group">
         <div class="col-md-12 col-sm-12 col-xs-12">
 
           <table class="table table-bordered">
@@ -88,9 +84,33 @@
   </div>
 </div>
 
-<div class="question-tool" ng-if="$ctrl.answer['16A'].detail.length > 0 || $ctrl.answer['16B']">
+<div class="question-tool">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer['16A'].status!='terkirim' || $ctrl.answer['16B'].status !='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer['16A'].status!='terkirim' || $ctrl.answer['16B'].status !='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success"
+        ng-disabled="
+          (!$ctrl.answer['16A'] ||
+          (!!$ctrl.answer['16A'] && $ctrl.answer['16A'].status!='terkirim'))
+          &&
+          (!$ctrl.answer['16B'] ||
+          (!!$ctrl.answer['16B'] && $ctrl.answer['16B'].status!='terkirim'))
+          ||
+          $ctrl.statusUpdated"
+        ng-click="$ctrl.approve(true)"
+      >
+        <i class="fa fa-check"></i>Approve
+      </button>
+      <button class="btn btn-sm btn-danger"
+        ng-disabled="
+          (!$ctrl.answer['16A'] ||
+          (!!$ctrl.answer['16A'] && $ctrl.answer['16A'].status!='terkirim'))
+          &&
+          (!$ctrl.answer['16B'] ||
+          (!!$ctrl.answer['16B'] && $ctrl.answer['16B'].status!='terkirim'))
+          ||
+          $ctrl.statusUpdated"
+        ng-click="$ctrl.reject(true)"
+      >
+        <i class="fa fa-close"></i>Reject
+      </button>
     </div>
 </div>

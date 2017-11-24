@@ -5,26 +5,23 @@
         Adakah makalah ilmiah dari peneliti di unit kerja Saudara yang dipublikasikan di jurnal internasional selama tahun {{$ctrl.year - 1}}? . Mohon diperhatikan bahwa publikasi yang dihasilkan selama menempuh pendidikan doktoral atau master tidak termasuk dalam publikasi yang dimaksud dalam kuesioner ini.
       </p>
       <br>
-      <div class="form-group" ng-if="$ctrl.answer">
+      <div class="form-group">
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="$ctrl.answer.detail.length" value="1">Ya
+              <input type="checkbox" ng-checked="!!$ctrl.answer">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.answer.detail.length" value="0">Tidak
+              <input type="checkbox" ng-checked="!$ctrl.answer">Tidak
             </label>
           </div>
         </div>
       </div>
 
-      <div class="form-group text-warning" ng-if="!$ctrl.answer">
-        <p><b>Jawaban belum di isi</b></p>
-      </div>
       <br>
 
       <div class="form-group" ng-if="$ctrl.answer.detail.length">
@@ -65,7 +62,7 @@
 </div>
 
 
-<div class="question-tool" ng-if="$ctrl.answer">
+<div class="question-tool">
     <div class="pull-right text-center mtop20">
       <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
       <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>

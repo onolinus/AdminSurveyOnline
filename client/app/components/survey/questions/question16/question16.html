@@ -88,11 +88,9 @@
     <div class="pull-right text-center mtop20">
       <button class="btn btn-sm btn-success"
         ng-disabled="
-          (!$ctrl.answer['16A'] ||
-          (!!$ctrl.answer['16A'] && $ctrl.answer['16A'].status!='terkirim'))
+          (!!$ctrl.answer['16A'] && $ctrl.answer['16A'].status!='terkirim')
           &&
-          (!$ctrl.answer['16B'] ||
-          (!!$ctrl.answer['16B'] && $ctrl.answer['16B'].status!='terkirim'))
+          !!$ctrl.answer['16B'] && $ctrl.answer['16B'].status!='terkirim'))
           ||
           $ctrl.statusUpdated"
         ng-click="$ctrl.approve(true)"
@@ -101,10 +99,8 @@
       </button>
       <button class="btn btn-sm btn-danger"
         ng-disabled="
-          (!$ctrl.answer['16A'] ||
-          (!!$ctrl.answer['16A'] && $ctrl.answer['16A'].status!='terkirim'))
+          (!!$ctrl.answer['16A'] && $ctrl.answer['16A'].status!='terkirim')
           &&
-          (!$ctrl.answer['16B'] ||
           (!!$ctrl.answer['16B'] && $ctrl.answer['16B'].status!='terkirim'))
           ||
           $ctrl.statusUpdated"

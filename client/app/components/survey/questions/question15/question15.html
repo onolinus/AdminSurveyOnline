@@ -11,14 +11,14 @@
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!!$ctrl.answer">Ya
+              <input type="checkbox" ng-checked="(!!$ctrl.answer && (!!$ctrl.answer['15A'].detail && !!$ctrl.answer['15B'].detail))" value="true">Ya
             </label>
           </div>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-6">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-checked="!$ctrl.answer">Tidak
+              <input type="checkbox" ng-checked="(!$ctrl.answer || (!$ctrl.answer['15A'].detail || !$ctrl.answer['15B'].detail))"  value="false">Tidak
             </label>
           </div>
         </div>
@@ -78,7 +78,19 @@
 
 <div class="question-tool">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success" ng-disabled="
+      (($ctrl.answer['15A'].status=='diterima' || $ctrl.answer['15A'].status=='ditolak')
+      ||
+      ($ctrl.answer['15B'].status=='diterima' || $ctrl.answer['15B'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="
+      (($ctrl.answer['15A'].status=='diterima' || $ctrl.answer['15A'].status=='ditolak')
+      ||
+      ($ctrl.answer['15B'].status=='diterima' || $ctrl.answer['15B'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

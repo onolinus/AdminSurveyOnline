@@ -277,7 +277,23 @@
 
 <div class="question-tool">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger" ng-disabled="$ctrl.answer.status!='terkirim' || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success" ng-disabled="
+      (($ctrl.answer['9A'].status=='diterima' || $ctrl.answer['9A'].status=='ditolak')
+      ||
+      ($ctrl.answer['9B'].status=='diterima' || $ctrl.answer['9B'].status=='ditolak')
+      ||
+      ($ctrl.answer['9C'].status=='diterima' || $ctrl.answer['9C'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="
+      (($ctrl.answer['9A'].status=='diterima' || $ctrl.answer['9A'].status=='ditolak')
+      ||
+      ($ctrl.answer['9B'].status=='diterima' || $ctrl.answer['9B'].status=='ditolak')
+      ||
+      ($ctrl.answer['9C'].status=='diterima' || $ctrl.answer['9C'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

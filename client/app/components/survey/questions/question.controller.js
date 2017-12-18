@@ -21,7 +21,6 @@ class QuestionController {
   approve = (subQuestion=false) => {
     const questionNo = this.aliasNo || this.$state.$current.no;
 
-    console.log('approve', questionNo)
     this.questionService.approveAnswer(this.surveyId, questionNo, subQuestion)
       .then(()=> {
         this.statusUpdated = true;

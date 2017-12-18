@@ -38,6 +38,27 @@ let respondenModule = angular.module('responden', [
               return response.data.data;
             });
         },
+        smiLocal: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/smi-local?all=1',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + User.getAuth().access_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data.data.map((item) => {
+                return {
+                  id: item.id,
+                  title: item.name
+                }
+              });
+            });
+        },
         industri: ($http, appConfig, User) => {
           const req = {
             method: 'GET',

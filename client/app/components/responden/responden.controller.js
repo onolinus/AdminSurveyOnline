@@ -2,7 +2,7 @@ class RespondenController {
   constructor($state, NgTableParams, $http, User, appConfig, blockUI, toastr) {
     "ngInject";
     this.User = User;
-
+    console.log(this)
     this.$state = $state;
     this.apiURL = appConfig.api_url;
     this.$http = $http;
@@ -25,24 +25,6 @@ class RespondenController {
       }
     ];
 
-    this.lembaga = [];
-    angular.forEach(this.industri, (lembaga) => {
-      const i = {
-        id: lembaga.id,
-        title: lembaga.name
-      }
-
-      this.lembaga.push(i)
-    })
-
-    angular.forEach(this.litbang, (lembaga) => {
-      const i = {
-        id: lembaga.id,
-        title: lembaga.name
-      }
-
-      this.lembaga.push(i)
-    })
     // Get the reference to the block service.
     this.myBlockUI = blockUI.instances.get('correspondentBlockUI');
 

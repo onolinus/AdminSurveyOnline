@@ -1,0 +1,46 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal ta-r">
+      <p>
+        Unit kerja apa yang melakukan kegiatan litbang di perusahaan ini ?
+      </p>
+      <br>
+
+      <div class="form-group">
+        <div class="col-md-2 col-sm-2 col-xs-6">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-checked="!!$ctrl.answer" value="1">Ya
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-6">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-checked="!$ctrl.answer" value="0">Tidak
+            </label>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.status_comment}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

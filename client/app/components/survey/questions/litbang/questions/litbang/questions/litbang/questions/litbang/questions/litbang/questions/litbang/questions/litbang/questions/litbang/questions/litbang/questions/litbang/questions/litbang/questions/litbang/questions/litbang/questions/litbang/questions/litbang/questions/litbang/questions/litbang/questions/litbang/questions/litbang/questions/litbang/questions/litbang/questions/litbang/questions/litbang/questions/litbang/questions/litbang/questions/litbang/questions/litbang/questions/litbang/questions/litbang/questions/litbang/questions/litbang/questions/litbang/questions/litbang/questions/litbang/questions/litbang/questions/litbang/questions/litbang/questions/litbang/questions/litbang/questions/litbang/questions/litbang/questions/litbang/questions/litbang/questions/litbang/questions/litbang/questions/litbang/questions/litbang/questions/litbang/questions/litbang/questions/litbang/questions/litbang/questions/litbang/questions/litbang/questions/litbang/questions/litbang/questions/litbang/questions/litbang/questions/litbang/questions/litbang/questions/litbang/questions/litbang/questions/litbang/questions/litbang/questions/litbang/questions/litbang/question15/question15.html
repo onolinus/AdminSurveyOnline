@@ -1,0 +1,96 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal">
+      <p>
+        Sebutkan produk teknologi (barang atau jasa) yang dihasilkan oleh unit kerja Saudara dalam 3 (tiga) tahun terakhir {{ $ctrl.year - 1 }}-{{ $ctrl.year - 4}}. Produk yang terkomersialisasi adalah produk yang telah dimanfaatkan pengguna secara massal dimana proses produksi massalnya dapat dilakukan oleh unit kerja Saudara maupun pihak lain.
+      </p>
+
+      <br>
+
+      <div class="form-group">
+        <div class="col-md-2 col-sm-2 col-xs-6">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-checked="(!!$ctrl.answer && (!!$ctrl.answer['15A'].detail && !!$ctrl.answer['15B'].detail))" value="true">Ya
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-6">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-checked="(!$ctrl.answer || (!$ctrl.answer['15A'].detail || !$ctrl.answer['15B'].detail))"  value="false">Tidak
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.answer['15A'].detail.length">
+        <div class="pull-left">
+          <span class="l-number-small t-l">a.</span>Produk berbentuk barang
+        </div>
+      </div>
+      <div class="ml-10" ng-if="$ctrl.answer['15A'].detail.length">
+        <div class="form-group" ng-repeat="detailBarang in $ctrl.answer['15A'].detail">
+          <div class="col-md-8 col-sm-12 col-xs-12">
+            <input type="text" class="form-control" value="{{detailBarang.nama_barang}}">
+          </div>
+          <div class="col-md-2 col-sm-6 col-xs-6">
+            <input type="text" class="form-control" value="{{detailBarang.terkomersialisasi ? 'Sudah' : 'Belum'}}">
+          </div>
+          <div class="col-md-2 col-sm-6 col-xs-6">
+            <input type="text" class="form-control" value="{{detailBarang.tahun}}">
+          </div>
+        </div>
+      </div>
+
+      <div class="control-label col-md-12 col-sm-12 col-xs-12 pull-left" ng-if="$ctrl.answer['15B'].detail.length">
+        <div class="pull-left">
+          <span class="l-number-small t-l">b.</span>Produk berbentuk jasa
+        </div>
+      </div>
+      <div class="ml-10" ng-if="$ctrl.answer['15B'].detail.length">
+        <div class="form-group" ng-repeat="detailJasa in $ctrl.answer['15B'].detail">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" class="form-control" value="{{detailJasa.nama_jasa}}">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{detailJasa.pengguna_jasa}}">
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-6">
+            <input type="text" class="form-control" value="{{detailJasa.tahun}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.comment}}</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="
+      (($ctrl.answer['15A'].status=='diterima' || $ctrl.answer['15A'].status=='ditolak')
+      ||
+      ($ctrl.answer['15B'].status=='diterima' || $ctrl.answer['15B'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="
+      (($ctrl.answer['15A'].status=='diterima' || $ctrl.answer['15A'].status=='ditolak')
+      ||
+      ($ctrl.answer['15B'].status=='diterima' || $ctrl.answer['15B'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

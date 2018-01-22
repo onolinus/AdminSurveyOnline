@@ -2,28 +2,34 @@
 <navbar class="app-navbar"></navbar>
 
 <!-- page content -->
-<div class="right_col" role="main">
-  <div>
-    <div class="page-title">
-      <div class="title_left">
-        <h3>Home</h3>
-      </div>
-
-      <!-- <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div>
+<div class="right_col dashboard" role="main">
+  <!-- top tiles -->
+  <div class="row tile_count">
+    <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top">
+        Responden yang Register
+      </span>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <label for="" class="green">Pemerintah</label>
+          <div class="count green">{{$ctrl.respondenRegistered.pemerintah.registered.value}}</div>
         </div>
-      </div> -->
+        <div class="col-xs-12 col-md-6">
+          <label for="" class="green">Industri</label>
+          <div class="count green">{{$ctrl.respondenRegistered.industri.registered.value}}</div>
+        </div>
+      </div>
     </div>
 
-    <div class="clearfix"></div>
-
+    <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top">
+        <!-- <i class="fa fa-user"></i> -->
+        Total Hasil Survei
+      </span>
+      <div class="count">-</div>
+    </div>
   </div>
+  <!-- /top tiles -->
 </div>
 <!-- /page content -->
 

@@ -1,0 +1,192 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal ta-r">
+      <p>
+       Uraikan jumlah belanja kegiatan litbang (pertanyaan <a ui-sref='question2'><span class="blue"><b>No. 2</b></span></a>) menurut sumber dananya?
+      </p>
+      <br>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">TOTAL
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.getTotalQ3() |formatMoney}}">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <span>I.</span>
+          DIPA
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.getTotalDIPA() |formatMoney}}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <div class="ml-10">
+          <span>a.</span>
+          Dana dari Pemerintah untuk institusi Saudara
+          </div>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.dipa_danapemerintah |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <div class="ml-10">
+          <span>b.</span>PNPB
+          </div>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.getTotalPNPB() |formatMoney}}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <span class="ml-20">i.</span>
+          Perusahaan Swasta
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_perusahaanswasta |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <span class="ml-20">ii.</span>
+          Instansi Pemerintah
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_instansipemerintah |formatMoney}}"  class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <span class="ml-20">iii.</span>
+          Swasta <span class="t-i">non profit</span>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_swastanonprofit |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <span class="ml-20">iv.</span>
+          Dari Luar Negri
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.dipa_pnbp_luarnegeri |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <div class="ml-10">
+            <span>c.</span> PHLN
+          </div>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.dipa_phln |formatMoney}}" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+      <br>
+      <div class="form-group" ng-if="$ctrl.year=='2017'">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <span>II.</span>
+          Dana DIPA (non- Satker)
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.answer.dipa_non_satker |formatMoney}}">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+          <ng-switch on="$ctrl.year">
+            <span ng-switch-when="2016">II.</span>
+            <span ng-switch-default>III.</span>
+          </ng-switch>
+          Non-DIPA
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" class="form-control" value="{{$ctrl.getTotalNonDIPA() |formatMoney}}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <div class="ml-10">
+            <span>a.</span>
+            Insentif Ristekdikti
+          </div>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{ $ctrl.answer.nondipa_insentif_ristekdikti |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <div class="ml-10">
+            <span>b.</span>
+            Insentif dalam negeri lainnya
+          </div>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.nondipa_insentif_dalamnegeri |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-4 col-xs-12">
+          <div class="ml-10">
+          <span>c.</span>
+          Research Grant
+          </div>
+        </label>
+        <div class="input-group col-md-4 col-sm-4 col-xs-6">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" value="{{$ctrl.answer.nondipa_insentif_researchgrant |formatMoney}}" class="form-control">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.status_comment}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

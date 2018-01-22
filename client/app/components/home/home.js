@@ -20,6 +20,24 @@ let homeModule = angular.module('home', [
     .state('home.dashboard', {
       url: '/',
       component: 'home',
+      resolve: {
+        respondenRegistered: ($http, appConfig, User) => {
+          const req = {
+            method: 'GET',
+            url: appConfig.api_url + '/api/graph/respondent-registered',
+            cache: true,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'Authorization': 'Bearer' + ' ' + appConfig.static_token
+            },
+          };
+
+          return $http(req)
+            .then((response) => {
+              return response.data.data[0];
+            });
+        }
+      },
       data: {
         permission: {
           only : ['validator']

@@ -1,0 +1,35 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal ta-r">
+      <p>
+        Berapa jumlah belanja kegiatan litbang yang pelaksanaan kegiatannya dilakukan oleh unit kerja Saudara (Belanja Litbang Intramural) dalam tahun {{$ctrl.year - 1}}, yang sumber pendanaannya berasal dari DIPA maupun non-DIPA ?
+      </p>
+      <br>
+      <div class="form-group">
+        <label class="control-label col-md-4 col-sm-6 col-xs-12">Jumlah belanja kegiatan litbang<!-- <span class="required">*</span> -->
+        </label>
+        <div class="input-group col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group-addon">Rp</div>
+          <input type="text" id="first-name" required="required" value="{{$ctrl.answer.jumlah |formatMoney}}" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.status_comment}}</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

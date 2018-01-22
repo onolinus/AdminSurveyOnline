@@ -1,0 +1,299 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal q-9">
+      <div class="form-group">
+        <label class="control-label col-md-12 col-sm-12 col-xs-12">
+          <span class="l-number">a.</span>Sebutkan jumlah total pegawai tetap di unit kerja Saudara :
+        </label>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <input type="text" ng-model="$ctrl.answer['9A'].total_pegawai" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="control-label col-md-12 col-sm-12 col-xs-12">
+          <span class="l-number">b.</span>Sebutkan jumlah personil yang terlibat dalam kegiatan litbang yang dilakukan di unit kerja Saudara selama tahun {{$ctrl.year - 1}} (termasuk personil dari luar unit kerja Saudara, jika ada) dalam head count dan Full Time Equivalent (FTE). Lihat Petunjuk Pengisian Kuesioner untuk pengertian FTE. Jika mengalami kesulitan menghitung FTE, mohon diberikan taksiran yang paling tepat di unit kerja Saudara.
+        </label>
+        <br>
+        <div class="col-md-12 col-sm-12 col-xs-12 p-2">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2" class="col-sm-6">Personil Litbang menurut Klasifikasi Pekerjaan dan Tingkat Pendidikan</th>
+                <th colspan="2" class="col-sm-3"><center>HeadCount</center></th>
+                <th colspan="2" class="col-sm-3"><center>FTE</center></th>
+              </tr>
+              <tr>
+                <th><center>L</center></th>
+                <th><center>P</center></th>
+                <th><center>L</center></th>
+                <th><center>P</center></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="l-number-small">1.</span>Peneliti (fungsional peneliti, perekayasa, pranata nuklir, dll., yang berperan sebagai peneliti dalam kegiatan litbang)</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_peneliti_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_peneliti_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_peneliti_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_peneliti_FTEP()}}"></td>
+              </tr>
+
+              <tr>
+                <td><span class="ml-20 l-number-small q-child">1.1</span>Peneliti dengan jabatan fungsional Peneliti</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FP_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FP_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FP_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FP_FTEP()}}"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s3_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>S2</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s2_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>S1</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_peneliti_s1_fte_p"></td>
+              </tr>
+
+
+              <tr>
+                <td><span class="ml-20 l-number-small q-child">1.2</span>Peneliti dengan jabatan fungsional Non Peneliti</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FNP_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FNP_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FNP_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FNP_FTEP()}}"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s3_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>S2</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s2_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>S1</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_fungsional_nonpeneliti_s1_fte_p"></td>
+              </tr>
+
+
+              <tr>
+                <td><span class="ml-20 l-number-small q-child">1.3</span>Peneliti tanpa jabatan fungsional</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_NF_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_NF_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_NF_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_NF_FTEP()}}"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s3_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>S2</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s2_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>S1</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].peneliti_nonfungsional_s1_fte_p"></td>
+              </tr>
+
+
+              <tr>
+                <td><span class="l-number-small">2.</span>Teknisi (a+b+c)</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_teknisi_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_teknisi_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_teknisi_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_teknisi_FTEP()}}"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S1</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_s1_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>D3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_d3_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>< D3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].teknisi_belowd3_fte_p"></td>
+              </tr>
+
+
+              <tr>
+                <td><span class="l-number-small">3.</span>Staff pendukung litbang lainnya (a+b+c)</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_staff_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_staff_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_staff_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_staff_FTEP()}}"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small ">a.</span>S1</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_s1_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">b.</span>D3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_d3_fte_p"></td>
+              </tr>
+              <tr>
+                <td><p class="pull-right mr-20"><span class="l-number-small">c.</span>< D3</p></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_p"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_fte_l"></td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.answer['9B'].staffpendukung_belowd3_fte_p"></td>
+              </tr>
+
+
+              <tr>
+                <td><p class="pull-right mr-20"><strong>Total (1+2+3)</strong></p></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_HL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_HP()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FTEL()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9_FTEP()}}"></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="first-name">
+          <span class="l-number">c.</span> Sebutkan jumlah peneliti yang terlibat dalam kegiatan litbang yang dilakukan di unit kerja Saudara selama tahun 2015 menurut kategori bidang ilmu dalam pendidikan terakhir peneliti. Perhatikan bahwa total peneliti pada tabel berikut harus sama dengan total peneliti pada tabel 9B.1.
+        </label>
+        <br>
+        <div class="col-md-12 col-sm-12 col-xs-12 p-2">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2" class="col-sm-2">Klasifikasi Bidang Ilmu</th>
+                <th colspan="2" class="col-sm-2"><center>S1</center></th>
+                <th colspan="2" class="col-sm-2"><center>S2</center></th>
+                <th colspan="2" class="col-sm-2"><center>S3</center></th>
+              </tr>
+              <tr>
+                <th><center>L</center></th>
+                <th><center>P</center></th>
+                <th><center>L</center></th>
+                <th><center>P</center></th>
+                <th><center>L</center></th>
+                <th><center>P</center></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="detail in $ctrl.answer['9C'].detail">
+                <td><input type="text" value="{{$ctrl.getBidangIlmuFromKlasifikasiFieldCode(detail.code)}}" class="form-control"></td>
+                <td><input type="text" ng-model="detail.s1_l" class="form-control"></td>
+                <td><input type="text" ng-model="detail.s1_p" class="form-control"></td>
+                <td><input ng-model="detail.s2_l" type="text" class="form-control"></td>
+                <td><input ng-model="detail.s2_p" type="text" class="form-control"></td>
+                <td><input ng-model="detail.s3_l" type="text" class="form-control"></td>
+                <td><input ng-model="detail.s3_p" type="text" class="form-control"></td>
+              </tr>
+
+              <tr>
+                <td colspan="1">Total</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s1_l()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s1_p()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s2_l()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s2_p()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s3_l()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.countAnswer9c_s3_p()}}"></td>
+              </tr>
+              <tr>
+                <td colspan="1">Tabel 9B.1 Total</td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S1_l()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S1_p()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S2_l()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S2_p()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S3_l()}}"></td>
+                <td><input type="text" class="form-control" value="{{$ctrl.getTotalQ9B_S3_p()}}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.comment}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="
+      (($ctrl.answer['9A'].status=='diterima' || $ctrl.answer['9A'].status=='ditolak')
+      ||
+      ($ctrl.answer['9B'].status=='diterima' || $ctrl.answer['9B'].status=='ditolak')
+      ||
+      ($ctrl.answer['9C'].status=='diterima' || $ctrl.answer['9C'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="
+      (($ctrl.answer['9A'].status=='diterima' || $ctrl.answer['9A'].status=='ditolak')
+      ||
+      ($ctrl.answer['9B'].status=='diterima' || $ctrl.answer['9B'].status=='ditolak')
+      ||
+      ($ctrl.answer['9C'].status=='diterima' || $ctrl.answer['9C'].status=='ditolak'))
+      ||
+      $ctrl.statusUpdated"
+      ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

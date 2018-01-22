@@ -1,0 +1,34 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal">
+      <p>
+       Kelompokkan seluruh kegiatan litbang tahun {{$ctrl.year -1}} menurut bidang penelitian. Mohon disebutkan persentase dana untuk setiap bidang, terhitung dari total dana penelitian (untuk penelitian lintas bidang, mengacu kepada bidang penelitian yang dominan).
+      </p>
+      <br>
+      <div class="form-group" ng-repeat="detail in $ctrl.answer.detail">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{$ctrl.getSubjectFromResearchFieldCode(detail.code)}}
+        </label>
+        <div class="input-group col-md-2 col-sm-3 col-xs-6">
+          <input type="text" id="first-name" ng-model="detail.percentage" required="required" class="form-control">
+          <div class="input-group-addon">%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.comment}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

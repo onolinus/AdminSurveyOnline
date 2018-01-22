@@ -103,7 +103,7 @@
                     </div> -->
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 1}">
-                      <a class="bootcards-summary-item" ui-sref="question1">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question1' }}">
                         <p>1</p>
                         <h4 ng-switch on="$ctrl.getStatus(1, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 2}">
-                      <a class="bootcards-summary-item" ui-sref="question2">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question2' }}">
                         <p>2</p>
                         <h4 ng-switch on="$ctrl.getStatus(2, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -125,7 +125,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 3}">
-                      <a class="bootcards-summary-item" ui-sref="question3">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question3' }}">
                         <p>3</p>
                         <h4 ng-switch on="$ctrl.getStatus(3, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -136,7 +136,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 4}">
-                      <a class="bootcards-summary-item" ui-sref="question4">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question4' }}">
                         <p>4</p>
                         <h4 ng-switch on="$ctrl.getStatus(4, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -147,7 +147,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 5}">
-                      <a class="bootcards-summary-item" ui-sref="question5">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question5' }}">
                         <p>5</p>
                         <h4 ng-switch on="$ctrl.getStatus(5, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -158,7 +158,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 6}">
-                      <a class="bootcards-summary-item" ui-sref="question6">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question6' }}">
                         <p>6</p>
                         <h4 ng-switch on="$ctrl.getStatus(6, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 7}">
-                      <a class="bootcards-summary-item" ui-sref="question7">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question7' }}">
                         <p>7</p>
                         <h4 ng-switch on="$ctrl.getStatus(7, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 8}">
-                      <a class="bootcards-summary-item" ui-sref="question8">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question8' }}">
                         <p>8</p>
                         <h4 ng-switch on="$ctrl.getStatus(8, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -191,7 +191,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 9}">
-                      <a class="bootcards-summary-item" ui-sref="question9">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question9' }}">
                         <p>9</p>
                         <h4 ng-switch on="$ctrl.getStatus(9, true)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -202,7 +202,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 10}">
-                      <a class="bootcards-summary-item" ui-sref="question10">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question10' }}">
                         <p>10</p>
                         <h4 ng-switch on="$ctrl.getStatus(10, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -213,7 +213,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 11}">
-                      <a class="bootcards-summary-item" ui-sref="question11">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question11' }}">
                         <p>11</p>
                         <h4 ng-switch on="$ctrl.getStatus(11, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -224,7 +224,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 12}">
-                      <a class="bootcards-summary-item" ui-sref="question12">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question12' }}">
                         <p>12</p>
                         <h4 ng-switch on="$ctrl.getStatus(12, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -235,7 +235,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 13}">
-                      <a class="bootcards-summary-item" ui-sref="question13">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question13' }}">
                         <p>13</p>
                         <h4 ng-switch on="$ctrl.getStatus(13, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -246,7 +246,7 @@
                     </div>
 
                     <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 14}">
-                      <a class="bootcards-summary-item" ui-sref="question14">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question14' }}">
                         <p>14</p>
                         <h4 ng-switch on="$ctrl.getStatus(14, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -256,8 +256,8 @@
                       </a>
                     </div>
 
-                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 15}">
-                      <a class="bootcards-summary-item" ui-sref="question15">
+                    <div ng-if="$ctrl.survey.respondent.organization !== 'industri'" class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 15}">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question15' }}">
                         <p>15</p>
                         <h4 ng-switch on="$ctrl.getStatus(15, true)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -267,8 +267,8 @@
                       </a>
                     </div>
 
-                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 16}">
-                      <a class="bootcards-summary-item" ui-sref="question16">
+                    <div ng-if="$ctrl.survey.respondent.organization !== 'industri'" class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 16}">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question16' }}">
                         <p>16</p>
                         <h4 ng-switch on="$ctrl.getStatus(16, true)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -278,8 +278,8 @@
                       </a>
                     </div>
 
-                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 17}">
-                      <a class="bootcards-summary-item" ui-sref="question17">
+                    <div ng-if="$ctrl.survey.respondent.organization !== 'industri'" class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 17}">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question17'}}">
                         <p>17</p>
                         <h4 ng-switch on="$ctrl.getStatus(17, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -289,8 +289,8 @@
                       </a>
                     </div>
 
-                    <div class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 18}">
-                      <a class="bootcards-summary-item" ui-sref="question18">
+                    <div ng-if="$ctrl.survey.respondent.organization !== 'industri'" class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 18}">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question18' }}">
                         <p>18</p>
                         <h4 ng-switch on="$ctrl.getStatus(18, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>
@@ -300,8 +300,8 @@
                       </a>
                     </div>
 
-                    <div ng-if="$ctrl.$stateParams.year=='2017'" class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 198}">
-                      <a class="bootcards-summary-item" ui-sref="question19">
+                    <div ng-if="$ctrl.survey.respondent.organization != 'industri' &&  $ctrl.$stateParams.year=='2017'" class="col-xs-3 col-sm-2 col-md-1 card-item" ng-class="{'active': $ctrl.activeIndex == 198}">
+                      <a class="bootcards-summary-item" ui-sref="{{ $ctrl.survey.respondent.organization + '.question19' }}">
                         <p>19</p>
                         <h4 ng-switch on="$ctrl.getStatus(19, false)">
                           <span ng-switch-when="terkirim" class="label label-info"><i class="fa fa-question"></i></span>

@@ -38,7 +38,7 @@
                 <tr class="even pointer" ng-repeat="row in $data">
                   <td width="2%" data-title="'No'" sortable="'id'">{{(($ctrl.correnspondenceTableParams.page() -1) * 10) + ($index + 1)}}</td>
                   <td width="10%" data-title="'Lembaga Induk'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.induk.name }}</td>
-                  <td width="10%" data-title="'Puslit'" sortable="'lembaga'" class="col-md-2">{{ row.respondent.lembaga.unit.name }}</td>
+                  <td width="10%" data-title="'Puslit'" sortable="'lembaga'" filter="{ lembaga: 'select' }" filter-data="$ctrl.smiLocal "class="col-md-2">{{ row.respondent.lembaga.unit.name }}</td>
                   <td data-title="'Nama Koresponden'" sortable="'name'" class="col-md-2" filter="{ 'respondent-name': 'text' }">{{row.respondent.name}}</td>
                   <td width="10%" data-title="'No HP'" sortable="'hp'" >{{row.respondent.hp}}</td>
                   <td data-title="'Nama Menyetujui'" sortable="'approved_by'" filter="{ 'approved-by-name': 'text' }">{{row.respondent.approved_by.name}}</td>

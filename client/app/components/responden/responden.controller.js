@@ -2,7 +2,7 @@ class RespondenController {
   constructor($state, NgTableParams, $http, User, appConfig, blockUI, toastr) {
     "ngInject";
     this.User = User;
-
+    console.log(this)
     this.$state = $state;
     this.apiURL = appConfig.api_url;
     this.$http = $http;
@@ -25,24 +25,6 @@ class RespondenController {
       }
     ];
 
-    this.lembaga = [];
-    angular.forEach(this.industri, (lembaga) => {
-      const i = {
-        id: lembaga.id,
-        title: lembaga.name
-      }
-
-      this.lembaga.push(i)
-    })
-
-    angular.forEach(this.litbang, (lembaga) => {
-      const i = {
-        id: lembaga.id,
-        title: lembaga.name
-      }
-
-      this.lembaga.push(i)
-    })
     // Get the reference to the block service.
     this.myBlockUI = blockUI.instances.get('correspondentBlockUI');
 
@@ -105,7 +87,7 @@ class RespondenController {
   unlock = (respondenData) => {
   	const request = {
       method: 'PUT',
-      url: respondenData.survey.links.reject,
+      url: this.apiURL + '/api/survey/' + respondenData.id + '/reject',
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
@@ -114,7 +96,7 @@ class RespondenController {
 
   	this.$http(request).then((response) => {
   		this.correnspondenceTableParams.reload();
-  		this.toastr.success('Responden ' + respondenData.name +' telah di unlock', 'Unlock Responden');
+  		this.toastr.success('Responden ' + respondenData.respondent.name +' telah di unlock', 'Unlock Responden');
   	}, (data) => {
   		angular.forEach(data.error.message, (message) => {
           this.toastr.error(message, 'Unlock Responden');
@@ -159,7 +141,14 @@ class RespondenController {
   }
 
   detail = (survey) => {
-    this.$state.go('survey', {survey_id: survey.id, year: survey.year});
+    switch (survey.respondent.organization) {
+      case 'industri':
+        this.$state.go('survey', {survey_id: survey.id, year: survey.year});
+        break;
+      default:
+        this.$state.go('survey', {survey_id: survey.id, year: survey.year});
+    }
+
   }
 
   setTahun = (year) => {

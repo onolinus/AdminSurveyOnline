@@ -12,14 +12,16 @@ class SurveyController {
       } else {
         if (this.activeIndex == 0) {
             this.activeIndex = 1;
-            this.$state.go('question' + this.activeIndex);
+            if (this.survey.respondent.organization == 'industri') {
+              this.$state.go('industri.question' + this.activeIndex);
+            } else {
+              this.$state.go('litbang.question' + this.activeIndex);
+            }
         }
       }
     });
 
     this.answerCheckList = this.setAnswerListType()
-
-    console.log(angular.copy(this.answers))
   };
 
   setAnswerListType = () => {
@@ -46,7 +48,11 @@ class SurveyController {
       this.activeIndex = 1;
     }
 
-    this.$state.go('question' + this.activeIndex);
+    if (this.survey.respondent.organization == 'industri') {
+      this.$state.go('industri.question' + this.activeIndex);
+    } else {
+      this.$state.go('litbang.question' + this.activeIndex);
+    }
   };
 
   prev = () => {
@@ -56,7 +62,11 @@ class SurveyController {
       this.activeIndex = 18;
     }
 
-    this.$state.go('question' + this.activeIndex);
+    if (this.survey.respondent.organization == 'industri') {
+      this.$state.go('industri.question' + this.activeIndex);
+    } else {
+      this.$state.go('litbang.question' + this.activeIndex);
+    }
   };
 
   // racing issue

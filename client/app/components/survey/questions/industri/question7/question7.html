@@ -1,0 +1,814 @@
+<div class="card questions">
+  <div class="question-content">
+    <div class="question-body form-horizontal">
+      <p>
+      Jumlah tenaga kerja tetap dan tidak tetap yang terlibat dalam kegiatan litbang pada tahun 2016?
+      </p>
+
+      <div class="form-group">
+        <div class="col-md-2 col-sm-2 col-xs-6">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-checked="!!$ctrl.answer" value="1">Ya
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-6">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-checked="!$ctrl.answer" value="0">Tidak
+            </label>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group" ng-if="$ctrl.answer">
+        <label class="control-label col-md-2 col-sm-3 col-xs-6" for="first-name">Jumlah<!-- <span class="required">*</span> -->
+        </label>
+        <div class="input-group col-md-3 col-sm-4 col-xs-6">
+          <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-7 col-xs-12">
+          <span class="input-group-addon">Orang</span>
+        </div>
+      </div>
+
+      <div class="form-group" ng-if="$ctrl.answer">
+        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+          <div class="input-group col-md-10 col-sm-10 col-xs-12">
+            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+            <span class="input-group-addon">L</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+          <div class="input-group col-md-offset-2 col-sm-offset-2 col-md-10 col-sm-10 col-xs-12">
+            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+            <span class="input-group-addon">P</span>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row clearfix x_panel">
+          <div class="" role="tabpanel" data-example-id="togglable-tabs">
+            <ul id="question-7-tab" class="nav nav-tabs bar_tabs tab-no-bg" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#peneliti" id="peneliti-tab" role="tab" data-toggle="tab" aria-expanded="false">Peneliti</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#teknisi" role="tab" id="teknisi-tab" data-toggle="tab" aria-expanded="false">Teknisi</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#administrasi" role="tab" id="administrasi-tab" data-toggle="tab" aria-expanded="true">Tenaga Adminsitrasi</a>
+              </li>
+            </ul>
+
+            <div id="question-7-tab-content" class="tab-content">
+              <div role="tabpanel" class="tab-pane fade active in" id="peneliti" aria-labelledby="peneliti-tab">
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <div class="input-group col-md-10 col-sm-10 col-xs-12">
+                    <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                    <span class="input-group-addon">L</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <div class="input-group col-md-offset-2 col-sm-offset-2 col-md-10 col-sm-10 col-xs-12">
+                    <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                    <span class="input-group-addon">P</span>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="" role="tabpanel">
+                  <ul id="question-7-tab-peneliti" class="nav nav-tabs bar_tabs tab-no-bg" role="tablist">
+                    <li role="presentation" class="active">
+                      <a href="#peneliti-sains" id="peneliti-sains-tab" role="tab" data-toggle="tab" aria-expanded="false">Sains</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#peneliti-teknik" role="tab" id="peneliti-teknik-tab" data-toggle="tab" aria-expanded="false">Teknik</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#peneliti-sosial" role="tab" id="peneliti-sosial-tab" data-toggle="tab" aria-expanded="true">Sosial</a>
+                    </li>
+                  </ul>
+
+                  <div id="question-7-tab-peneliti-content" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="peneliti-sains" aria-labelledby="peneliti-sains-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="peneliti-teknik" aria-labelledby="peneliti-teknik-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="peneliti-sosial" aria-labelledby="peneliti-sosial-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade" id="teknisi" aria-labelledby="teknisi-tab">
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <div class="input-group col-md-10 col-sm-10 col-xs-12">
+                    <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                    <span class="input-group-addon">L</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <div class="input-group col-md-offset-2 col-sm-offset-2 col-md-10 col-sm-10 col-xs-12">
+                    <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                    <span class="input-group-addon">P</span>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="" role="tabpanel">
+                  <ul id="question-7-tab-teknisi" class="nav nav-tabs bar_tabs tab-no-bg" role="tablist">
+                    <li role="presentation" class="active">
+                      <a href="#teknisi-sains" id="teknisi-sains-tab" role="tab" data-toggle="tab" aria-expanded="false">Sains</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#teknisi-teknik" role="tab" id="teknisi-teknik-tab" data-toggle="tab" aria-expanded="false">Teknik</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#teknisi-sosial" role="tab" id="teknisi-sosial-tab" data-toggle="tab" aria-expanded="true">Sosial</a>
+                    </li>
+                  </ul>
+
+                  <div id="question-7-tab-teknisi-content" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="teknisi-sains" aria-labelledby="teknisi-sains-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="teknisi-teknik" aria-labelledby="teknisi-teknik-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="teknisi-sosial" aria-labelledby="teknisi-sosial-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="administrasi" aria-labelledby="administrasi-tab">
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <div class="input-group col-md-10 col-sm-10 col-xs-12">
+                    <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                    <span class="input-group-addon">L</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <div class="input-group col-md-offset-2 col-sm-offset-2 col-md-10 col-sm-10 col-xs-12">
+                    <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                    <span class="input-group-addon">P</span>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="" role="tabpanel">
+                  <ul id="question-7-tab-administrasi" class="nav nav-tabs bar_tabs tab-no-bg" role="tablist">
+                    <li role="presentation" class="active">
+                      <a href="#administrasi-sains" id="administrasi-sains-tab" role="tab" data-toggle="tab" aria-expanded="false">Sains</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#administrasi-teknik" role="tab" id="administrasi-teknik-tab" data-toggle="tab" aria-expanded="false">Teknik</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#administrasi-sosial" role="tab" id="administrasi-sosial-tab" data-toggle="tab" aria-expanded="true">Sosial</a>
+                    </li>
+                  </ul>
+
+                  <div id="question-7-tab-administrasi-content" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="administrasi-sains" aria-labelledby="administrasi-sains-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="administrasi-teknik" aria-labelledby="administrasi-teknik-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="administrasi-sosial" aria-labelledby="administrasi-sosial-tab">
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          D1 - D3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S1
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S2
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-12 col-sm-8 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">L</span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback text-center">
+                          S3
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group has-feedback">
+                          <div class="input-group col-md-82 col-sm-12 col-xs-12">
+                            <input type="text" value="{{$ctrl.answer.total}}" class="form-control col-md-12 col-xs-12">
+                            <span class="input-group-addon">P</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card questions" ng-if="$ctrl.answer.status=='ditolak'">
+  <div class="question-content">
+    <div class="question-body comment">
+      <h2>Comment</h2>
+      <p>{{$ctrl.answer.status_comment}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="question-tool">
+    <div class="pull-right text-center mtop20">
+      <button class="btn btn-sm btn-success" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="(!!$ctrl.answer && $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
+    </div>
+</div>

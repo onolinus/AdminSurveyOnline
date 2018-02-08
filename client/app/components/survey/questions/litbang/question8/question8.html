@@ -30,7 +30,7 @@
         </div>
         <div class="input-group col-md-4 col-sm-4 col-xs-6">
           <div class="input-group-addon">Rp</div>
-          <input type="text" id="first-name" ng-model="detail.jumlah_dana" required="required" class="form-control col-md-7 col-xs-12" placeholder="Rp">
+          <input type="text" id="first-name" value="{{detail.jumlah_dana | formatMoney}}" required="required" class="form-control col-md-7 col-xs-12" placeholder="Rp">
         </div>
       </div>
     </div>

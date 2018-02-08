@@ -68,9 +68,7 @@ class questionService {
     return deffered.promise;
   };
 
-  approveAnswer = (surveyId, questionIndex, subQuestion) => {
-    const answersId = surveyId
-
+  approveAnswer = (answersId, questionIndex, subQuestion) => {
     let deffered = this.$q.defer();
 
     if (subQuestion) {
@@ -122,8 +120,7 @@ class questionService {
     return deffered.promise;
   };
 
-  rejectRequest = (surveyId, questionIndex, subQuestion) => {
-    const answersId = surveyId
+  rejectRequest = (answersId, questionIndex, subQuestion) => {
     let deffered = this.$q.defer();
 
     if (subQuestion) {
@@ -176,7 +173,7 @@ class questionService {
     let deffered = this.$q.defer();
 
     if (subQuestion) {
-      const answersDetail = this.questionFactory.getAnswer(userId, questionIndex, subQuestion);
+      const answersDetail = this.questionFactory.getAnswer(answersId, questionIndex, subQuestion);
       let commentPromises = [];
 
       let answerIndex = 0;

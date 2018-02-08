@@ -76,9 +76,6 @@ class QuestionController {
 
 
   getTotalDIPA = () => {
-    console.log( this.parseMoney(this.answer.dipa_danapemerintah));
-    console.log( this.parseMoney(this.getTotalPNPB()));
-    console.log( this.parseMoney(this.parseMoney(this.answer.dipa_phln)));
     return this.parseMoney(this.answer.dipa_danapemerintah) + this.parseMoney(this.getTotalPNPB()) + this.parseMoney(this.answer.dipa_phln);
   }
 

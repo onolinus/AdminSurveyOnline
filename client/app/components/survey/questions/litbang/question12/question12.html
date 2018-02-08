@@ -64,7 +64,7 @@
 
 <div class="question-tool">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success"  ng-disabled="($ctrl.answer.status=='diterima' || $ctrl.answer.status=='ditolak') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger"  ng-disabled="($ctrl.answer.status=='diterima' || $ctrl.answer.status=='ditolak') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success"  ng-disabled="(!$ctrl.answer || $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.approve()"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger"  ng-disabled="(!$ctrl.answer || $ctrl.answer.status!='terkirim') || $ctrl.statusUpdated" ng-click="$ctrl.reject()" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

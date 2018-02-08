@@ -37,14 +37,11 @@ class QuestionController {
   }
 
   getSubjectFromResearchFieldCode = (code) => {
-    let subject = '';
-    angular.forEach(this.researchFields, (researchField) => {
-      if (code == researchField.code) {
-        subject = researchField.subject;
-      }
+    const match = this.researchFields.filter((field) => {
+      return field.code == code;
     });
-
-    return subject;
+    console.log('match: ', match, code)
+    return match.length ? match[0].subject : '';
   }
 
   getSubjectFromSocioEconomicsCode = (code) => {
@@ -71,7 +68,7 @@ class QuestionController {
   }
 
   getTotalQ3 = () => {
-    return this.parseMoney(this.getTotalDIPA()) + this.parseMoney(this.getTotalNonDIPA());
+    return this.parseMoney(this.getTotalDIPA()) + this.parseMoney(this.answer.dipa_non_satker) + this.parseMoney(this.getTotalNonDIPA());
   }
 
 

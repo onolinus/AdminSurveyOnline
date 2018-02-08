@@ -38,7 +38,7 @@
           <input type="text" class="form-control" value="{{detail.nama_jurnal}}" placeholder="Nama Jurnal">
         </div>
         <div class="col-md-5 col-sm-6 col-xs-12">
-          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode(detail.code)}}" placeholder="Kode Bidang Penelitian">
+          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode(detail.nama_jurnal)}}" placeholder="Kode Bidang Penelitian">
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6">
           <input type="text" class="form-control" value="{{detail.jumlah}}" placeholder="Jumlah">
@@ -49,11 +49,11 @@
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>
-      <p>{{$ctrl.answer.comment}}</p>
+      <p>{{$ctrl.answer.status_comment}}</p>
     </div>
   </div>
 </div>

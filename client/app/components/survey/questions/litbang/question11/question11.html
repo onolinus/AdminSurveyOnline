@@ -34,13 +34,12 @@
         </div>
       </div>
       <div class="form-group" ng-repeat="detail in $ctrl.answer.detail">
-        <div class="col-md-5 col-sm-6 col-xs-12">
-          <input type="text" class="form-control" value="{{detail.nama_jurnal}}" placeholder="Nama Jurnal">
-        </div>
-        <div class="col-md-5 col-sm-6 col-xs-12">
-          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode(detail.nama_jurnal)}}" placeholder="Kode Bidang Penelitian">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <label for="">Nama Jurnal</label>
+          <input type="text" class="form-control" value="{{$ctrl.getJurnalName(detail.nama_jurnal)}}" placeholder="Nama Jurnal">
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6">
+          <label for="">Jumlah</label>
           <input type="text" class="form-control" value="{{detail.jumlah}}" placeholder="Jumlah">
         </div>
       </div>

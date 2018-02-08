@@ -44,6 +44,14 @@ class QuestionController {
     return match.length ? match[0].subject : '';
   }
 
+  getJurnalName = (id) => {
+    const match = this.jurnals.filter((jurnal) => {
+      return jurnal.id == id;
+    });
+
+    return match.length ? match[0].label : '';
+  }
+
   getSubjectFromSocioEconomicsCode = (code) => {
     let subject = '';
     angular.forEach(this.researchFields, (researchField) => {

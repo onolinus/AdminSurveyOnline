@@ -29,11 +29,11 @@ class QuestionController {
   }
 
   parseMoney = (money) => {
-    if (money == 0) return money;
+    if (parseInt(money) === 0) {
+      money = 0;
+    }
 
-    money = ''+money;
-
-    return Number(money.replace(/[^0-9\,-]+/g,"").replace(',', '.'));
+    return Number(money);
   }
 
   getSubjectFromResearchFieldCode = (code) => {
@@ -76,6 +76,9 @@ class QuestionController {
 
 
   getTotalDIPA = () => {
+    console.log( this.parseMoney(this.answer.dipa_danapemerintah));
+    console.log( this.parseMoney(this.getTotalPNPB()));
+    console.log( this.parseMoney(this.parseMoney(this.answer.dipa_phln)));
     return this.parseMoney(this.answer.dipa_danapemerintah) + this.parseMoney(this.getTotalPNPB()) + this.parseMoney(this.answer.dipa_phln);
   }
 

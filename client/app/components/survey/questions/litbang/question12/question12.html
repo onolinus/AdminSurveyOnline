@@ -28,9 +28,6 @@
         <div class="col-md-5 col-sm-6 col-xs-12">
           <label for="">Nama Jurnal</label>
         </div>
-        <div class="col-md-5 col-sm-6 col-xs-12">
-          <label for="">Kode Bidang Penelitian</label>
-        </div>
         <div class="col-md-2 col-sm-4 col-xs-6">
           <label for="">Jumlah</label>
         </div>
@@ -39,9 +36,6 @@
       <div class="form-group" ng-repeat="detail in $ctrl.answer.detail" >
         <div class="col-md-5 col-sm-6 col-xs-12">
           <input type="text" class="form-control" value="{{detail.nama_jurnal}}" placeholder="Nama Jurnal">
-        </div>
-        <div class="col-md-5 col-sm-6 col-xs-12">
-          <input type="text" class="form-control" value="{{$ctrl.getSubjectFromResearchFieldCode(detail.code)}}" placeholder="Kode Bidang Penelitian">
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6">
           <input type="text" class="form-control" value="{{detail.jumlah}}" placeholder="Jumlah">

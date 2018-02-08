@@ -40,7 +40,7 @@ class QuestionController {
     const match = this.researchFields.filter((field) => {
       return field.code == code;
     });
-    console.log('match: ', match, code)
+
     return match.length ? match[0].subject : '';
   }
 

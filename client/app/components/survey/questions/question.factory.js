@@ -10,7 +10,7 @@ let QuestionFactory = function () {
       } else {
         let questionAnswer = [];
         angular.forEach(answers[surveyId], function(ans, index){
-          if (ans && index.indexOf(questionId) > -1 ) {
+          if (ans && index.indexOf(questionId) > -1 && parseInt(index) == questionId) {
             questionAnswer[index] = ans;
             questionAnswer.status = ans.status;
           }

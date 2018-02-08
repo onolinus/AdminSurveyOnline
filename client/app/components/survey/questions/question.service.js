@@ -87,6 +87,7 @@ class questionService {
                 'Authorization': 'Bearer' + ' ' + this.User.getAuth().access_token
               },
             };
+
             approvePromises.push(this.$http(approveAnswersReq));
           }
         }

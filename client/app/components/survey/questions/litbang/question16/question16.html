@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="form-group"  ng-if="!!$ctrl.answer['16A'].detail">
+      <div class="form-group"  ng-if="!!$ctrl.answer['16A']">
         <div class="col-md-12 col-sm-12 col-xs-12">
 
           <table class="table table-bordered">
@@ -61,7 +61,7 @@
 
       <br>
 
-      <div ng-if="!!$ctrl.answer['16A'].detail && !!$ctrl.answer['16B'].jumlah_patenluarnegeri">
+      <div class="form-group" ng-if="!!$ctrl.answer['16A'] && !!$ctrl.answer['16B']">
         <p>
           Dari semua paten tersebut di atas, berapa paten yang terdaftar/disetujui di kantor paten luar negeri?
         </p>
@@ -77,30 +77,18 @@
   </div>
 </div>
 
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>
-      <p>{{$ctrl.answer.comment}}</p>
+      <p>{{$ctrl.answer.status_comment}}</p>
     </div>
   </div>
 </div>
 
 <div class="question-tool">
     <div class="pull-right text-center mtop20">
-      <button class="btn btn-sm btn-success" ng-disabled="
-      (($ctrl.answer['16A'].status=='diterima' || $ctrl.answer['16A'].status=='ditolak')
-      ||
-      ($ctrl.answer['16B'].status!='diterima' || $ctrl.answer['16B'].status!='ditolak'))
-      ||
-      $ctrl.statusUpdated"
-      ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
-      <button class="btn btn-sm btn-danger" ng-disabled="
-      (($ctrl.answer['16A'].status=='diterima' || $ctrl.answer['16A'].status=='ditolak')
-      ||
-      ($ctrl.answer['16B'].status=='diterima' || $ctrl.answer['16B'].status=='ditolak'))
-      ||
-      $ctrl.statusUpdated"
-      ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
+      <button class="btn btn-sm btn-success" ng-disabled="((!$ctrl.answer['16A'] || $ctrl.answer['16A'].status!='terkirim') || (!$ctrl.answer['16B'] || $ctrl.answer['16B'].status!='terkirim')) || $ctrl.statusUpdated" ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
+      <button class="btn btn-sm btn-danger" ng-disabled="((!$ctrl.answer['16A'] || $ctrl.answer['16A'].status!='terkirim') || (!$ctrl.answer['16B'] || $ctrl.answer['16B'].status!='terkirim')) || $ctrl.statusUpdated" ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>
     </div>
 </div>

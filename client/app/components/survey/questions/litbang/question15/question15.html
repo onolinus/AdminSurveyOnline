@@ -66,11 +66,12 @@
   </div>
 </div>
 <div class="clearfix"></div>
-<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.comment && $ctrl.answer.status=='ditolak'">
+
+<div class="card questions" ng-if="$ctrl.answer && $ctrl.answer.status=='ditolak'">
   <div class="question-content">
     <div class="question-body comment">
       <h2>Comment</h2>
-      <p>{{$ctrl.answer.comment}}</p>
+      <p>{{$ctrl.answer.status_comment}}</p>
     </div>
   </div>
 </div>
@@ -79,16 +80,16 @@
 <div class="question-tool">
     <div class="pull-right text-center mtop20">
       <button class="btn btn-sm btn-success" ng-disabled="
-      (($ctrl.answer['15A'].status=='diterima' || $ctrl.answer['15A'].status=='ditolak')
+      ((!$ctrl.answer['15A'] || $ctrl.answer['15A'].status!='terkirim')
       ||
-      ($ctrl.answer['15B'].status=='diterima' || $ctrl.answer['15B'].status=='ditolak'))
+      (!$ctrl.answer['15B'] || $ctrl.answer['15B'].status!='terkirim'))
       ||
       $ctrl.statusUpdated"
       ng-click="$ctrl.approve(true)"><i class="fa fa-check"></i>Approve</button>
       <button class="btn btn-sm btn-danger" ng-disabled="
-      (($ctrl.answer['15A'].status=='diterima' || $ctrl.answer['15A'].status=='ditolak')
+      ((!$ctrl.answer['15A'] || $ctrl.answer['15A'].status!='terkirim')
       ||
-      ($ctrl.answer['15B'].status=='diterima' || $ctrl.answer['15B'].status=='ditolak'))
+      (!$ctrl.answer['15B'] || $ctrl.answer['15B'].status!='terkirim'))
       ||
       $ctrl.statusUpdated"
       ng-click="$ctrl.reject(true)" ><i class="fa fa-close"></i>Reject</button>

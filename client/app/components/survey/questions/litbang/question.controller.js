@@ -29,22 +29,27 @@ class QuestionController {
   }
 
   parseMoney = (money) => {
-    if (money == 0) return money;
+    if (parseInt(money) === 0) {
+      money = 0;
+    }
 
-    money = ''+money;
-
-    return Number(money.replace(/[^0-9\,-]+/g,"").replace(',', '.'));
+    return Number(money);
   }
 
   getSubjectFromResearchFieldCode = (code) => {
-    let subject = '';
-    angular.forEach(this.researchFields, (researchField) => {
-      if (code == researchField.code) {
-        subject = researchField.subject;
-      }
+    const match = this.researchFields.filter((field) => {
+      return field.code == code;
     });
 
-    return subject;
+    return match.length ? match[0].subject : '';
+  }
+
+  getJurnalName = (id) => {
+    const match = this.jurnals.filter((jurnal) => {
+      return jurnal.id == id;
+    });
+
+    return match.length ? match[0].label : '';
   }
 
   getSubjectFromSocioEconomicsCode = (code) => {
@@ -71,7 +76,7 @@ class QuestionController {
   }
 
   getTotalQ3 = () => {
-    return this.parseMoney(this.getTotalDIPA()) + this.parseMoney(this.getTotalNonDIPA());
+    return this.parseMoney(this.getTotalDIPA()) + this.parseMoney(this.answer.dipa_non_satker) + this.parseMoney(this.getTotalNonDIPA());
   }
 
 

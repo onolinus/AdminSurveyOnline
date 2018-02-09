@@ -247,10 +247,10 @@ let homeModule = angular.module('litbang', [
         checked: ($stateParams, questionFactory) => {
           return questionFactory.getChecked($stateParams.survey_id, 11);
         },
-        researchFields: ($http, appConfig, User) => {
+        jurnals: ($http, appConfig, User) => {
           const req = {
             method: 'GET',
-            url: appConfig.api_url + '/api/researchfields',
+            url: appConfig.api_url + '/api/jurnal',
             cache: true,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
